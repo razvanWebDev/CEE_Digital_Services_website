@@ -1,0 +1,88 @@
+:root {
+  --primary-text-color: blue;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ======================HEADER=============================== */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  color: white;
+  transition: all 0.7s;
+  z-index: 10;
+}
+
+header nav {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2em 10vw;
+}
+
+header.showNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  animation-name: slideDown;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+header.hideNav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  transform: translateY(-100%);
+  animation-name: slideUp;
+  animation-fill-mode: forwards;
+  animation-duration: 0.5s;
+}
+
+header nav .nav-links {
+  display: flex;
+  list-style: none;
+}
+
+header nav .nav-links a {
+  text-decoration: none;
+  margin-left: 2em;
+  color: inherit;
+}
+
+/* ======================MAIN CONTENT=============================== */
+
+section h1 {
+  color: var(--primary-text-color);
+  display: block;
+  text-align: center;
+  padding-top: 2em;
+}
+
+/* =================================FOOTER============================== */
+
+/* =========================ANIMATIONS======================== */
+@keyframes slideDown {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0%);
+  }
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(0%);
+  }
+  100% {
+    transform: translateY(-100%);
+  }
+}
