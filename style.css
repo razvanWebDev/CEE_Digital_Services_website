@@ -16,9 +16,30 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+body {
   color: var(--blue-color);
   font-family: "Montserrat", sans-serif;
   font-weight: var(--medium);
+  font-size: 14px;
+}
+
+h1 {
+  font-size: 60px;
+}
+
+h2 {
+  font-size: 34px;
+}
+
+a {
+  color: var(--blue-color);
+  text-decoration: none;
+}
+
+li {
+  list-style: none;
 }
 
 /* ======================HEADER=============================== */
@@ -27,59 +48,82 @@ header {
   top: 0;
   left: 0;
   width: 100%;
-  transition: all 0.7s;
-  z-index: 10;
-}
-
-header nav {
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding: 2em 10vw;
+  align-items: center;
+  padding: 2em;
+  background-color: var(--white-color);
+}
+
+header.bottom-shaddow {
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
 }
 
 header.showNav {
-  position: fixed;
-  top: 0;
-  left: 0;
   transform: translateY(-100%);
   animation-name: slideDown;
   animation-fill-mode: forwards;
-  animation-duration: 0.5s;
 }
 
 header.hideNav {
-  position: fixed;
-  top: 0;
-  left: 0;
   transform: translateY(-100%);
   animation-name: slideUp;
   animation-fill-mode: forwards;
+}
+
+.animate {
   animation-duration: 0.5s;
 }
 
-header nav .nav-links {
+#logo-section {
   display: flex;
-  list-style: none;
+  align-items: center;
 }
 
-header nav .nav-links a {
-  text-decoration: none;
-  margin-left: 2em;
-  color: inherit;
+#logo {
+  width: 5em;
+}
+
+#logo-section h1 {
+  font-size: 1.5em;
+  margin-left: 1em;
+  font-weight: var(--semi-bold);
+}
+
+header .nav-links {
+  display: flex;
+}
+
+header .nav-links li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 0 1em;
+  border-right: 1px solid var(--blue-color);
+}
+
+header .nav-links li:last-of-type {
+  border-right: none;
 }
 
 /* ======================MAIN CONTENT=============================== */
 
+section {
+  min-height: 200vh;
+}
+
 section h1 {
   display: block;
   text-align: center;
-  padding-top: 8em;
+  padding-top: 2em;
 }
 
 /* =================================FOOTER============================== */
 
-/* =========================ANIMATIONS======================== */
+/* ################################# ANIMATIONS ########################### */
 @keyframes slideDown {
   0% {
     transform: translateY(-100%);

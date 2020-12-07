@@ -5,14 +5,17 @@ const header = document.querySelector("header");
 let scrollPos = 0;
 
 // ========================HEADER============================
+
 // Show/hade nav based on scroll direction
 const showHideNav = () => {
-  if (window.scrollY < 100) {
-    header.classList.remove("showNav");
-    header.classList.remove("hideNav");
-  } else if (window.scrollY > scrollPos) {
+  window.scrollY < 20 || window.scrollY > scrollPos
+    ? header.classList.remove("bottom-shaddow")
+    : header.classList.add("bottom-shaddow");
+
+  if (window.scrollY > scrollPos) {
     header.classList.remove("showNav");
     header.classList.add("hideNav");
+    header.classList.add("animate");
   } else {
     header.classList.add("showNav");
     header.classList.remove("hideNav");
@@ -22,3 +25,4 @@ const showHideNav = () => {
 
 //=========================EVENT LISTENERS=====================
 window.addEventListener("scroll", showHideNav);
+window.addEventListener("load", showHideNav);
