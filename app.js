@@ -8,7 +8,7 @@ let scrollPos = 0;
 
 // Show/hade nav based on scroll direction
 const showHideNav = () => {
-  window.scrollY < 20 || window.scrollY > scrollPos
+  window.scrollY < header.offsetHeight || window.scrollY > scrollPos
     ? header.classList.remove("bottom-shaddow")
     : header.classList.add("bottom-shaddow");
 

@@ -3,9 +3,17 @@
 :root {
   --blue-color: #176083;
   --light-blue-color: #6791a5;
-  --green-color: green;
+  --dark-blue-color: #146082;
+  --light-green-color: #65c298;
   --white-color: #ffffff;
 
+  --sides-padding: 7vw;
+  --section-padding: 3em var(--sides-padding);
+
+  /* text vars */
+  --header1-size: 40px;
+  --header2-size: 22px;
+  --paragraph-size: 16px;
   --regular: 400;
   --medium: 500;
   --semi-bold: 600;
@@ -22,15 +30,15 @@ body {
   color: var(--blue-color);
   font-family: "Montserrat", sans-serif;
   font-weight: var(--medium);
-  font-size: 14px;
+  font-size: var(--paragraph-size);
 }
 
 h1 {
-  font-size: 60px;
+  font-size: var(--header1-size);
 }
 
 h2 {
-  font-size: 34px;
+  font-size: var(--header2-size);
 }
 
 a {
@@ -42,6 +50,54 @@ li {
   list-style: none;
 }
 
+.section-title-icon {
+  height: 2em;
+  transform: translateY(27%);
+  margin-right: 0.5em;
+}
+
+section h2 {
+  margin-bottom: 1.5em;
+}
+
+section p {
+  margin-bottom: 1.5em;
+}
+
+.separator {
+  width: 100%;
+  height: 0.1em;
+  margin: 2em 0;
+  background-color: var(--white-color);
+}
+
+.button {
+  display: inline-block;
+  margin-top: 2em;
+  padding: 0.6em 2em;
+  border-radius: 2em;
+  font-size: var(--paragraph-size);
+}
+
+.button.white {
+  background-color: var(--white-color);
+  color: var(--blue-color);
+}
+
+.button.blue {
+  background-color: var(--blue-color);
+  color: var(--white-color);
+}
+
+.button.green {
+  background-color: var(--light-green-color);
+  color: var(--white-color);
+}
+
+.animate {
+  animation-duration: 0.5s;
+}
+
 /* ======================HEADER=============================== */
 header {
   position: fixed;
@@ -51,8 +107,9 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 2em;
+  padding: 0 var(--sides-padding);
   background-color: var(--white-color);
+  height: 15vh;
 }
 
 header.bottom-shaddow {
@@ -71,10 +128,6 @@ header.hideNav {
   transform: translateY(-100%);
   animation-name: slideUp;
   animation-fill-mode: forwards;
-}
-
-.animate {
-  animation-duration: 0.5s;
 }
 
 #logo-section {
@@ -107,22 +160,74 @@ header .nav-links li {
 
 header .nav-links li:last-of-type {
   border-right: none;
+  padding-right: 0;
 }
 
-/* ======================MAIN CONTENT=============================== */
+/* ################################# MAIN CONTENT ############################### */
 
-section {
-  min-height: 200vh;
+/* ==============HOME PAGE==================== */
+
+.upcoming-event-section {
+  /* header height */
+  margin-top: 15vh;
+  width: 100%;
 }
 
-section h1 {
-  display: block;
-  text-align: center;
-  padding-top: 2em;
+.upcoming-event {
+  padding: var(--section-padding);
+  color: var(--white-color);
+  background-image: url("img/Bg_section_with_text.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 110%;
+  background-color: var(--dark-blue-color);
 }
 
-/* =================================FOOTER============================== */
+.upcoming-event h2 {
+  font-weight: var(--medium);
+}
 
+.date-apply {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 4em;
+}
+
+.date-apply p {
+  font-size: var(--header2-size);
+  font-weight: var(--bold);
+}
+
+.date-apply .button {
+  margin: 0;
+}
+
+.newsletter-section {
+  padding: var(--section-padding);
+}
+
+.news-section {
+  padding: var(--section-padding);
+}
+
+.news-section .separator {
+  background-color: var(--blue-color);
+}
+
+.news-section .news-content-with-video {
+  display: flex;
+  justify-content: space-between;
+}
+
+.news-section .news-content-with-video .news-description {
+  width: 50%;
+}
+
+.news-section .news-content-with-video .news-video {
+  max-width: 50%;
+}
 /* ################################# ANIMATIONS ########################### */
 @keyframes slideDown {
   0% {
