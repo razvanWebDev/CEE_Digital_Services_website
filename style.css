@@ -8,7 +8,8 @@
   --white-color: #ffffff;
 
   --sides-padding: 7vw;
-  --section-padding: 3em var(--sides-padding);
+  --top-bottom-padding: 4em;
+  --section-padding: var(--top-bottom-padding) var(--sides-padding);
 
   /* text vars */
   --header1-size: 40px;
@@ -31,6 +32,8 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: var(--medium);
   font-size: var(--paragraph-size);
+  /* header height */
+  padding-top: 15vh;
 }
 
 h1 {
@@ -41,9 +44,16 @@ h2 {
   font-size: var(--header2-size);
 }
 
+section {
+  padding: var(--section-padding);
+}
+
+.thin-title {
+  font-weight: var(--regular);
+}
+
 a {
   color: var(--blue-color);
-  text-decoration: none;
 }
 
 li {
@@ -56,12 +66,9 @@ li {
   margin-right: 0.5em;
 }
 
-section h2 {
-  margin-bottom: 1.5em;
-}
-
 section p {
-  margin-bottom: 1.5em;
+  margin: 1.5em 0;
+  text-align: justify;
 }
 
 .separator {
@@ -73,10 +80,10 @@ section p {
 
 .button {
   display: inline-block;
-  margin-top: 2em;
   padding: 0.6em 2em;
   border-radius: 2em;
   font-size: var(--paragraph-size);
+  text-decoration: none;
 }
 
 .button.white {
@@ -103,6 +110,7 @@ header {
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 10;
   width: 100%;
   display: flex;
   justify-content: space-between;
@@ -112,10 +120,8 @@ header {
   height: 15vh;
 }
 
-header.bottom-shaddow {
-  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
-  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
-  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+header a {
+  text-decoration: none;
 }
 
 header.showNav {
@@ -163,14 +169,17 @@ header .nav-links li:last-of-type {
   padding-right: 0;
 }
 
+header.bottom-shaddow {
+  -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  -moz-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
+  box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.2);
+}
+
 /* ################################# MAIN CONTENT ############################### */
 
 /* ==============HOME PAGE==================== */
-
 .upcoming-event-section {
-  /* header height */
-  margin-top: 15vh;
-  width: 100%;
+  padding: 0;
 }
 
 .upcoming-event {
@@ -216,6 +225,10 @@ header .nav-links li:last-of-type {
   background-color: var(--blue-color);
 }
 
+.news-section .date {
+  margin-top: 0.3em;
+}
+
 .news-section .news-content-with-video {
   display: flex;
   justify-content: space-between;
@@ -227,6 +240,89 @@ header .nav-links li:last-of-type {
 
 .news-section .news-content-with-video .news-video {
   max-width: 50%;
+}
+
+/* =======================matchmacking summit page=================== */
+.event-title-section {
+  padding: var(--section-padding);
+}
+.event-title {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3em;
+}
+
+.event-title .event-title-image {
+  width: 15vw;
+  margin-right: 2em;
+}
+
+.event-title .event-title-text {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  margin-left: 2em;
+}
+
+.event-title-section p {
+  text-align: center;
+}
+
+.event-links-section {
+  padding: var(--section-padding);
+}
+
+.event-links-section .event-links-row {
+  display: flex;
+  justify-content: space-evenly;
+  margin-bottom: 3em;
+}
+
+.event-links-section .event-links-row:last-of-type {
+  margin-bottom: 0;
+}
+
+.event-description-section {
+  padding: var(--section-padding);
+}
+
+.event-description-section ul {
+  padding-left: 5em;
+}
+
+.event-description-section ul li {
+  list-style: disc;
+  margin-top: 1em;
+}
+
+.event-description-section .event-main-activities {
+  padding: 2em 0 2em 5em;
+}
+
+.event-description-section .event-main-activities li {
+  margin-top: 1em;
+}
+
+.international-partners-section .international-partners {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-gap: 100px;
+  width: 100%;
+}
+
+.international-partners-section h1 {
+  display: block;
+  text-align: center;
+  padding-bottom: var(--top-bottom-padding);
+}
+
+.international-partners-section .international-partners img {
+  width: 100%;
+  max-height: 100%;
 }
 /* ################################# ANIMATIONS ########################### */
 @keyframes slideDown {
