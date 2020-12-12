@@ -89,7 +89,7 @@ section p {
 
 .section-with-bg {
   color: var(--white-color);
-  background-image: url("img/Bg_section_with_text.jpg");
+  background-image: url("../img/Bg_section_with_text.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100% 110%;
@@ -102,7 +102,7 @@ section p {
       rgba(23, 96, 131, 0.4) 0%,
       rgba(23, 96, 131, 0.4) 100%
     ),
-    url("img/BackgroundDigital_1.jpg");
+    url("../img/BackgroundDigital_1.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: 100%;
