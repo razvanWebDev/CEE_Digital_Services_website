@@ -12,7 +12,7 @@
   --section-padding: var(--top-bottom-padding) var(--sides-padding);
 
   /* text vars */
-  --header1-size: 40px;
+  --header1-size: 55px;
   --header2-size: 22px;
   --paragraph-size: 16px;
   --regular: 400;
@@ -85,6 +85,24 @@ section p {
   background-position: center;
   background-size: 100% 110%;
   background-color: var(--dark-blue-color);
+}
+
+.title-with-bg {
+  color: var(--white-color);
+  background-image: linear-gradient(
+      rgba(23, 96, 131, 0.4) 0%,
+      rgba(23, 96, 131, 0.4) 100%
+    ),
+    url("img/BackgroundDigital_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100%;
+  background-color: var(--dark-blue-color);
+}
+
+.title-with-bg h1 {
+  display: block;
+  text-align: center;
 }
 
 .separator {
@@ -404,6 +422,28 @@ header.bottom-shaddow {
 .services-directory-link {
   display: block;
   text-align: center;
+}
+
+/* =======================event recordings page========================== */
+.event-recordings-section h1,
+.event-recordings-container h2 {
+  display: block;
+  text-align: center;
+}
+
+.event-recordings-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--top-bottom-padding) 0;
+}
+
+.event-recordings-container .recording {
+  padding: 3em 0;
+}
+
+.event-recordings-container .recording p {
+  margin: 0;
 }
 
 /* ################################# ANIMATIONS ########################### */
