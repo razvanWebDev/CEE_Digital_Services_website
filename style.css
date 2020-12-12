@@ -12,8 +12,8 @@
   --section-padding: var(--top-bottom-padding) var(--sides-padding);
 
   /* text vars */
-  --header1-size: 55px;
-  --header2-size: 22px;
+  --header1-size: 45px;
+  --header2-size: 25px;
   --paragraph-size: 16px;
   --regular: 400;
   --medium: 500;
@@ -48,10 +48,6 @@ p {
   text-align: justify;
 }
 
-section {
-  padding: var(--section-padding);
-}
-
 .thin-title {
   font-weight: var(--regular);
 }
@@ -64,14 +60,27 @@ a {
   color: var(--white-color);
 }
 
+ul {
+  padding-left: 5em;
+}
+
 li {
   list-style: none;
+}
+
+.list-with-bullet li {
+  list-style: disc;
+  margin-top: 1em;
 }
 
 .section-title-icon {
   height: 2em;
   transform: translateY(27%);
   margin-right: 0.5em;
+}
+
+section {
+  padding: var(--section-padding);
 }
 
 section p {
@@ -100,6 +109,11 @@ section p {
   background-color: var(--dark-blue-color);
 }
 
+.section-with-bg a,
+.title-with-bg a {
+  color: var(--white-color);
+}
+
 .title-with-bg h1 {
   display: block;
   text-align: center;
@@ -110,6 +124,10 @@ section p {
   height: 0.1em;
   margin: 2em 0;
   background-color: var(--white-color);
+}
+
+.separator.blue {
+  background-color: var(--blue-color);
 }
 
 .button {
@@ -238,10 +256,6 @@ header.bottom-shaddow {
   padding: var(--section-padding);
 }
 
-.news-section .separator {
-  background-color: var(--blue-color);
-}
-
 .news-section .date {
   margin-top: 0.3em;
 }
@@ -304,21 +318,8 @@ header.bottom-shaddow {
   padding: var(--section-padding);
 }
 
-.event-description-section ul {
-  padding-left: 5em;
-}
-
-.event-description-section ul li {
-  list-style: disc;
-  margin-top: 1em;
-}
-
 .event-description-section .event-main-activities {
   padding: 2em 0 2em 5em;
-}
-
-.event-description-section .event-main-activities li {
-  margin-top: 1em;
 }
 
 .international-partners-section .international-partners {
@@ -344,7 +345,7 @@ header.bottom-shaddow {
 
 /* =======================jury and awards page=========================== */
 
-.jury-members-cards-container {
+.cards-container {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
   justify-content: center;
@@ -443,7 +444,29 @@ header.bottom-shaddow {
 }
 
 .event-recordings-container .recording p {
-  margin: 0;
+  margin: 0 0 0.5em;
+}
+
+/* ===========================about page=================================== */
+.associations-secondary-h1 {
+  margin-bottom: 1.5em;
+}
+
+.live-events-list-title {
+  margin-top: 1em;
+}
+
+.event-list-name-span {
+  float: left;
+  width: 500px;
+}
+
+.event-list-date-span {
+  padding-left: 20px;
+}
+
+.advisory-board-members {
+  padding-top: var(--top-bottom-padding);
 }
 
 /* ################################# ANIMATIONS ########################### */
