@@ -7,7 +7,7 @@
   --light-green-color: #65c298;
   --white-color: #ffffff;
 
-  --sides-padding: 7vw;
+  --sides-padding: 8vw;
   --top-bottom-padding: 4em;
   --section-padding: var(--top-bottom-padding) var(--sides-padding);
 
@@ -44,6 +44,10 @@ h2 {
   font-size: var(--header2-size);
 }
 
+p {
+  text-align: justify;
+}
+
 section {
   padding: var(--section-padding);
 }
@@ -54,6 +58,10 @@ section {
 
 a {
   color: var(--blue-color);
+}
+
+.white-link {
+  color: var(--white-color);
 }
 
 li {
@@ -68,7 +76,15 @@ li {
 
 section p {
   margin: 1.5em 0;
-  text-align: justify;
+}
+
+.section-with-bg {
+  color: var(--white-color);
+  background-image: url("img/Bg_section_with_text.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 100% 110%;
+  background-color: var(--dark-blue-color);
 }
 
 .separator {
@@ -178,19 +194,6 @@ header.bottom-shaddow {
 /* ################################# MAIN CONTENT ############################### */
 
 /* ==============HOME PAGE==================== */
-.upcoming-event-section {
-  padding: 0;
-}
-
-.upcoming-event {
-  padding: var(--section-padding);
-  color: var(--white-color);
-  background-image: url("img/Bg_section_with_text.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: 100% 110%;
-  background-color: var(--dark-blue-color);
-}
 
 .upcoming-event h2 {
   font-weight: var(--medium);
@@ -214,10 +217,6 @@ header.bottom-shaddow {
 }
 
 .newsletter-section {
-  padding: var(--section-padding);
-}
-
-.news-section {
   padding: var(--section-padding);
 }
 
@@ -324,6 +323,89 @@ header.bottom-shaddow {
   width: 100%;
   max-height: 100%;
 }
+
+/* =======================jury and awards page=========================== */
+
+.jury-members-cards-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  grid-gap: 5em;
+  width: 100%;
+}
+
+.jury-member-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 400px;
+}
+
+.jury-member-card .jury-member-foto-frame {
+  border: 2px solid var(--blue-color);
+  border-radius: 50%;
+  width: 220px;
+  height: 220px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 2em;
+}
+
+.jury-member-card .jury-member-foto-container {
+  border-radius: 50%;
+  width: 190px;
+  height: 190px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.jury-member-card .jury-member-foto-container img {
+  width: 100%;
+  height: auto;
+}
+
+.jury-member-card .jury-member-foto-container img.landscape {
+  height: 100%;
+  width: auto;
+}
+
+#viral-tripathi {
+  transform: translateY(-10%);
+}
+
+.jury-member-card .jury-member-bold {
+  color: var(--dark-blue-color);
+  font-size: 1.3em;
+  font-weight: var(--semi-bold);
+  margin: 0;
+  text-align: center;
+}
+
+.jury-member-card .jury-member-light {
+  color: var(--light-blue-color);
+  margin: 0;
+  text-align: center;
+}
+
+.jury-member-card .jury-member-underline {
+  width: 60%;
+  height: 1px;
+  background-color: var(--blue-color);
+  margin: 0.7em 0;
+}
+
+/* ===========================services directory page================== */
+.services-directory-link {
+  display: block;
+  text-align: center;
+}
+
 /* ################################# ANIMATIONS ########################### */
 @keyframes slideDown {
   0% {

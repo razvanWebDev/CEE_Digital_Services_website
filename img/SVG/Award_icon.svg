@@ -1,0 +1,22 @@
+<!-- Icon link: https://www.iconfinder.com/icons/5820392/award_badge_medal_prize_star_winner_icon -->
+<svg width="20" height="30" xmlns="http://www.w3.org/2000/svg">
+    <title />
+    <g>
+        <title>background</title>
+        <rect fill="none" id="canvas_background" height="402" width="582" y="-1" x="-1" />
+    </g>
+    <g>
+        <title>Layer 1</title>
+        <polyline stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none" id="svg_1"
+            points="1 29.5 10 23.5 19 29.5" class="cls-1" />
+        <line stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none" id="svg_2" y2="17.5" y1="29.5"
+            x2="4" x1="1" class="cls-1" />
+        <line stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none" id="svg_3" y2="17.5" y1="29.5"
+            x2="16" x1="19" class="cls-1" />
+        <circle stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none" id="svg_4" r="9.5" cy="10"
+            cx="10" class="cls-1" />
+        <path stroke-linejoin="round" stroke-linecap="round" stroke="#ffffff" fill="none" id="svg_5"
+            d="m10.49,4.85l0.91,2.59a0.52,0.52 0 0 0 0.46,0.36l2.64,0.11a0.54,0.54 0 0 1 0.3,1l-2.07,1.71a0.58,0.58 0 0 0 -0.18,0.57l0.72,2.66a0.53,0.53 0 0 1 -0.79,0.6l-2.19,-1.54a0.51,0.51 0 0 0 -0.58,0l-2.19,1.5a0.53,0.53 0 0 1 -0.79,-0.6l0.72,-2.66a0.58,0.58 0 0 0 -0.18,-0.57l-2.07,-1.71a0.54,0.54 0 0 1 0.3,-1l2.64,-0.07a0.52,0.52 0 0 0 0.46,-0.36l0.91,-2.59a0.52,0.52 0 0 1 0.98,0z"
+            class="cls-1" />
+    </g>
+</svg>
