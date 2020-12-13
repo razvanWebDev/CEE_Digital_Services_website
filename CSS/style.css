@@ -38,6 +38,7 @@ body {
 
 h1 {
   font-size: var(--header1-size);
+  line-height: 1;
 }
 
 h2 {
@@ -272,16 +273,22 @@ header.bottom-shaddow {
 
 /* ==============HOME PAGE==================== */
 
-.upcoming-event h2 {
-  font-weight: var(--medium);
+.hero {
+  display: flex;
+  background-image: url("../img/Bg_section.jpg");
+}
+
+.hero .upcoming-event {
+  flex: 2;
+  background-color: rgba(23, 96, 131, 0.7);
+  margin-right: 2em;
+  padding: 0 2em;
 }
 
 .date-apply {
   display: flex;
-  width: 100%;
   align-items: center;
   justify-content: space-between;
-  margin-top: 4em;
 }
 
 .date-apply p {
@@ -294,7 +301,14 @@ header.bottom-shaddow {
 }
 
 .newsletter-section {
-  padding: var(--section-padding);
+  flex: 1;
+  padding: 2em;
+  margin-left: 2em;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(23, 96, 131, 0.7);
 }
 
 .news-section .date {
