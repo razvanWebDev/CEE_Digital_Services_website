@@ -57,8 +57,32 @@
         <h1><img src="img/SVG/Newsletter_icon.svg" alt="" class="section-title-icon">Newsletter SignUp - CEE Digital
             Services Association</h1>
         <div class="separator"></div>
-        <form action="">
-
+        <p>* INDICATES REQUIRED FIELD</p>
+        <form method="POST" action="form.php" enctype="multipart/form-data" class="contact-form" name="contact-form">
+            <div class="flex form-row">
+                <div>
+                    <label for="name">NAME: *</label>
+                    <input type="text" name="name" class="required-field" placeholder="First">
+                </div>
+                <div class="flex input-without-label">
+                    <input type="text" name="name" class="required-field" placeholder="Last">
+                </div>
+            </div>
+            <div class="flex form-row">
+                <div>
+                    <label for="title/position">TITLE / POSITION *</label>
+                    <input type="text" name="title/position" class="required-field">
+                </div>
+                <div>
+                    <label for="company-name">COMPANY NAME *</label>
+                    <input type="text" name="company-name" class="required-field" placeholder="First">
+                </div>
+                <div>
+                    <label for="email">EMAIL *</label>
+                    <input type="email" name="email" class="required-field" placeholder="Last">
+                </div>
+            </div>
+            <button type="submit" name="submit" class="button white">SUBMIT</button>
         </form>
     </section>
 
