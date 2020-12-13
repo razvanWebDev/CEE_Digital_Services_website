@@ -67,6 +67,7 @@ ul {
 
 li {
   list-style: none;
+  text-align: justify;
 }
 
 .list-with-bullet li {
@@ -329,34 +330,38 @@ header.bottom-shaddow {
 }
 
 /* =======================matchmacking summit page=================== */
-.event-title-section {
-  padding: var(--section-padding);
-}
 .event-title {
   display: flex;
   justify-content: center;
-  margin-bottom: 3em;
+  margin-bottom: 5em;
 }
 
 .event-title .event-title-image {
-  width: 15vw;
+  width: 220px;
+  height: 220px;
   margin-right: 2em;
+  background-color: var(--white-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+}
+
+.event-title .event-title-image img {
+  width: 215px;
+  height: 215px;
 }
 
 .event-title .event-title-text {
-  width: 60%;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   margin-left: 2em;
+  text-align: center;
 }
 
 .event-title-section p {
   text-align: center;
-}
-
-.event-links-section {
-  padding: var(--section-padding);
 }
 
 .event-links-section .event-links-row {
@@ -369,28 +374,38 @@ header.bottom-shaddow {
   margin-bottom: 0;
 }
 
-.event-description-section {
-  padding: var(--section-padding);
+.event-description-section .event-main-activities {
+  padding: 2em 0 4em 5em;
 }
 
-.event-description-section .event-main-activities {
-  padding: 2em 0 2em 5em;
+.event-description {
+  display: flex;
+}
+
+.event-description-sumary {
+  flex: 2;
+  margin-right: 2em;
+}
+
+.international-partners-section {
+  flex: 1;
+  margin-left: 2em;
 }
 
 .international-partners-section .international-partners {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
   justify-content: center;
   align-content: center;
   align-items: center;
-  grid-gap: 100px;
+  grid-gap: 70px;
   width: 100%;
 }
 
 .international-partners-section h1 {
   display: block;
   text-align: center;
-  padding-bottom: var(--top-bottom-padding);
+  padding-bottom: 2em;
 }
 
 .international-partners-section .international-partners img {
