@@ -73,6 +73,7 @@ li {
 label {
   display: block;
   padding-left: 1.5em;
+  font-size: 0.8em;
 }
 
 input,
@@ -83,7 +84,6 @@ textarea {
   border: 1px solid white;
   color: var(--white-color);
   outline: none;
-  font-size: var(--paragraph-size);
 }
 
 textarea {
@@ -139,6 +139,10 @@ textarea {
 .list-with-numbers li {
   list-style: decimal;
   margin-top: 1em;
+}
+
+.list-with-letters li {
+  list-style-type: lower-alpha;
 }
 
 .section-title-icon {
@@ -207,6 +211,7 @@ section p {
   font-size: var(--paragraph-size);
   text-decoration: none;
   cursor: pointer;
+  transition: all 0.3s ease-in-out;
 }
 
 .button.white {
@@ -214,14 +219,27 @@ section p {
   color: var(--blue-color);
 }
 
+.button.white:hover {
+  color: var(--white-color);
+  background-color: var(--light-green-color);
+}
+
 .button.blue {
   background-color: var(--blue-color);
   color: var(--white-color);
 }
 
+.button.blue:hover {
+  background-color: var(--light-green-color);
+}
+
 .button.green {
   background-color: var(--light-green-color);
   color: var(--white-color);
+}
+
+.button.green:hover {
+  background-color: var(--blue-color);
 }
 
 .animate {
@@ -556,15 +574,49 @@ header.bottom-shaddow {
   flex: 1;
 }
 
+#reserve-tickets-form label,
 #reserve-tickets-form input,
 #reserve-tickets-form .custom-select,
-#reserve-tickets-form textarea {
+#reserve-tickets-form textarea,
+#cee-solutions-showcase-form label,
+#cee-solutions-showcase-form input,
+#cee-solutions-showcase-form .custom-select,
+#cee-solutions-showcase-form textarea {
   width: 70%;
   max-width: 400px;
 }
 
-#reserve-tickets-form button {
+#reserve-tickets-form button,
+#cee-solutions-showcase-form button {
   margin-top: 3em;
+}
+
+/* ==========================partenrship options page========================= */
+.text-with-media .text-div {
+  flex: 2;
+  padding-right: 2em;
+}
+
+.text-with-media .media-div {
+  flex: 1;
+}
+
+.text-with-media .media-div p {
+  margin-bottom: 0.5em;
+  display: block;
+  text-align: center;
+}
+
+.text-with-media .media-div img {
+  max-width: 100%;
+}
+
+.text-with-media .media-div iframe {
+  width: 100%;
+}
+
+.sponsorship-options h2 {
+  
 }
 /* =======================jury and awards page=========================== */
 
