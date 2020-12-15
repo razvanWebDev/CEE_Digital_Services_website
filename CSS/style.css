@@ -119,6 +119,10 @@ textarea {
   padding-bottom: 1em;
 }
 
+.padding-bottom-2-em {
+  padding-bottom: 2em;
+}
+
 .padding-top-1-em {
   padding-top: 1em;
 }
@@ -485,7 +489,6 @@ header.bottom-shaddow {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 5em;
 }
 
 .event-title .event-title-image {
@@ -569,6 +572,12 @@ header.bottom-shaddow {
   max-height: 100%;
 }
 
+/* =================================agendas page============================= */
+
+.agendas-title-buttons-container {
+  justify-content: space-evenly;
+}
+
 /* =================================reserve-tickets-page================== */
 .form-column {
   flex: 1;
@@ -616,7 +625,6 @@ header.bottom-shaddow {
 }
 
 .sponsorship-options h2 {
-  
 }
 /* =======================jury and awards page=========================== */
 
