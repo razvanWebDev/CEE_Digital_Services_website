@@ -25,6 +25,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
 }
 
 body {
@@ -133,6 +134,10 @@ textarea {
 
 .centered {
   text-align: center;
+}
+
+.no-margins {
+  margin: 0;
 }
 
 .list-with-bullet li {
@@ -576,6 +581,37 @@ header.bottom-shaddow {
 
 .agendas-title-buttons-container {
   justify-content: space-evenly;
+  padding-top: var(--top-bottom-padding);
+}
+
+.agendas-container img {
+  float: right;
+  margin-left: 1em;
+  margin-bottom: 0.5em;
+
+  width: 25%;
+  max-height: 150px;
+  clear: both;
+  object-fit: contain;
+}
+
+.main-stage {
+  flex: 1;
+  padding-right: 2em;
+}
+
+.focus-sessions {
+  flex: 1;
+  padding-left: 2em;
+}
+
+.agenda-item {
+  padding: 2em;
+  overflow: auto;
+}
+
+.agenda-item ul {
+  padding-left: 3em;
 }
 
 /* =================================reserve-tickets-page================== */
@@ -624,8 +660,6 @@ header.bottom-shaddow {
   width: 100%;
 }
 
-.sponsorship-options h2 {
-}
 /* =======================jury and awards page=========================== */
 
 .cards-container {
@@ -765,6 +799,39 @@ header.bottom-shaddow {
 .form-row input {
   width: 23em;
   margin-right: 4em;
+}
+
+/* ==============================footer=================================== */
+footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--white-color);
+  background-image: linear-gradient(
+      rgba(23, 96, 131, 0.4) 0%,
+      rgba(23, 96, 131, 0.4) 100%
+    ),
+    url("../img/BackgroundDigital_1.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  background-color: var(--dark-blue-color);
+  background-color: var(--blue-color);
+  padding: 5em 0;
+}
+
+footer a {
+  color: var(--white-color);
+}
+
+.white-footer {
+  background-image: none;
+  background-color: var(--white-color);
+  color: var(--blue-color);
+}
+
+.white-footer a {
+  color: var(--blue-color);
 }
 
 /* ################################# ANIMATIONS ########################### */
