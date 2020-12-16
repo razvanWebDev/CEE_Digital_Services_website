@@ -116,8 +116,8 @@
             CEE Solutions Showcase - Submission Form:
         </h1>
         <p>* INDICATES REQUIRED FIELD</p>
-        <form method="POST" action="" enctype="multipart/form-data" id="cee-solutions-showcase-form"
-            name="cee-solutions-showcase-form">
+        <form method="POST" action="PHP/submit-solutions-showcase.php" enctype="multipart/form-data"
+            id="cee-solutions-showcase-form" name="cee-solutions-showcase-form">
             <div class="flex">
                 <div class="form-column">
                     <label for="company-name" class="padding-top-2-em">COMPANY NAME: *</label>
@@ -131,11 +131,11 @@
 
 
                     <label for="name-of-ceo-or-founder" class="padding-top-2-em">NAME OF CEO OR FOUNDER:</label>
-                    <input type="name-of-ceo-or-founder" name="invoicing-company-name" class="input-blue">
+                    <input type="text" name="name-of-ceo-or-founder" class="input-blue">
 
-                    <label for="sowcase-presenter" class="padding-top-2-em">WHO WILL PRESENT SHOWCASE ON 13 JANUARY?
+                    <label for="showcase-presenter" class="padding-top-2-em">WHO WILL PRESENT SHOWCASE ON 13 JANUARY?
                         *</label>
-                    <input type="text" name="sowcase-presenter" class="input-blue required-field">
+                    <input type="text" name="showcase-presenter" class="input-blue required-field">
 
                     <label for="form-submitter" class="padding-top-2-em">NAME OF PERSON SUBMITTING THIS FORM *</label>
                     <input type="text" name="form-submitter" class="input-blue required-field">
@@ -144,7 +144,7 @@
                     <input type="text" name="telephone" class="input-blue required-field">
 
                     <label for="email" class="padding-top-2-em">EMAIL (CONFIDENTIAL) *</label>
-                    <input type="text" name="email" class="input-blue required-field">
+                    <input type="text" name="email" class="input-blue required-field email">
 
                     <label for="more-details" class="padding-top-2-em">PLEASE PROVIDE LINK TO MORE DETAILS (WEBSITE,
                         YOUTUBE, ETC.)</label>
@@ -163,7 +163,7 @@
                 <div class="form-column">
                     <label for="problem-description" class="padding-top-2-em">DESCRIBE THE BUSINESS PROBLEM THAT YOUR
                         SOLUTION ADDRESSED:</label>
-                    <textarea id="aproblem-description" name="problem-description" rows="10"
+                    <textarea id="problem-description" name="problem-description" rows="10"
                         class="textarea-blue"></textarea>
 
                     <label for="solution-description" class="padding-top-2-em">DESCRIBE YOUR SOLUTION:</label>
@@ -183,7 +183,8 @@
                 </div>
             </div>
 
-            <button type="submit" name="submit" class="button blue">SUBMIT SOLUTIONS SHOWCASE</button>
+            <button type="submit" name="submit" class="button blue form-submit-button">SUBMIT SOLUTIONS
+                SHOWCASE</button>
         </form>
     </section>
 

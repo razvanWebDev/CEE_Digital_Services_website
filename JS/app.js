@@ -1,6 +1,12 @@
 // =====================CACHE DOM ELEMENTS=====================
 const header = document.querySelector("header");
 
+// FORMS
+const reuiredFields = document.querySelectorAll(".required-field");
+const email = document.querySelector(".email");
+const formSubmitBtn = document.querySelector(".form-submit-button");
+const requiredSelect = document.querySelector(".select-selected");
+
 // =====================GLOBAL VARIABLES=====================
 let scrollPos = 0;
 
@@ -105,12 +111,49 @@ function closeAllSelect(elmnt) {
   }
 }
 
-// ===================================================================================
+// ==============================Forms validation======================
+function validateEmail(email) {
+  var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+  return re.test(String(email).toLowerCase());
+}
+
+const validateFormInput = (condition, item) => {
+  item.style.backgroundColor = "transparent";
+  if (condition) {
+    event.preventDefault();
+    item.style.backgroundColor = "#ff110033";
+  }
+};
+function validateContactForm(event) {
+  // check required inputs
+  reuiredFields.forEach((field) => {
+    validateFormInput(field.value == "", field);
+  });
+  reuiredFields.forEach((field) => {
+    field.addEventListener("input", function () {
+      validateFormInput(field.value == "", field);
+    });
+  });
+
+  // validate email
+  validateFormInput(validateEmail(email.value) == false, email);
+  email.addEventListener("input", function () {
+    validateFormInput(validateEmail(email.value) == false, email);
+  });
+
+  // TO DO VALIDATE SELECT AND FIX PHP FILE ACCORDINGLY
+}
 
 //=========================EVENT LISTENERS=====================
 window.addEventListener("scroll", showHideNav);
 window.addEventListener("load", showHideNav);
 
-/*if the user clicks anywhere outside the select box,
-then close all select boxes:*/
+// window.addEventListener("scroll", function () {
+//   console.log("xxxxxxxxxxxx");
+//   console.log(requiredSelect);
+// });
+
+/*if the user clicks anywhere outside the select box, then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
+//Form validation
+formSubmitBtn.addEventListener("click", validateContactForm);

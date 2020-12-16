@@ -100,7 +100,7 @@
             Ticket Reservation Form:
         </h1>
         <p>* INDICATES REQUIRED FIELD</p>
-        <form method="POST" action="" enctype="multipart/form-data" id="reserve-tickets-form"
+        <form method="POST" action="PHP/reserve-tickets.php" enctype="multipart/form-data" id="reserve-tickets-form"
             name="reserve-tickets-form">
             <label for="company-name" class="padding-top-2-em">COMPANY NAME: *</label>
             <input type="text" name="company-name" class="input-blue required-field">
@@ -109,7 +109,7 @@
                 <div class="form-column">
                     <label for="matchmaking-option" class="padding-top-2-em">MATCHMAKING OPTIONS</label>
                     <div class="custom-select">
-                        <select>
+                        <select name="matchmaking-option-select">
                             <option value="0">Select Option</option>
                             <option value="Yes, Matchmaking (290euro Partners; 390 euro non-Partners)">Yes, Matchmacking
                                 (290
@@ -122,11 +122,11 @@
                     <label for="name" class="padding-top-2-em">PARTICIPANT NAME *</label>
                     <input type="text" name="name" class="input-blue required-field">
 
-                    <label for="title" class="padding-top-2-em">TITLE *</label>
-                    <input type="text" name="title" class="input-blue required-field">
+                    <label for="position" class="padding-top-2-em">TITLE *</label>
+                    <input type="text" name="position" class="input-blue required-field">
 
                     <label for="email" class="padding-top-2-em">EMAIL (CONFIDENTIAL) *</label>
-                    <input type="text" name="email" class="input-blue required-field">
+                    <input type="text" name="email" class="input-blue required-field email">
 
                     <label for="telephone" class="padding-top-2-em">TELEPHONE (CONFIDENTIAL) *</label>
                     <input type="text" name="telephone" class="input-blue required-field">
@@ -135,7 +135,7 @@
                     <input type="text" name="invoicing-company-name" class="input-blue required-field">
 
                     <label for="contact-email" class="padding-top-2-em">CONTACT EMAIL FOR INVOICING/ADMIN *</label>
-                    <input type="text" name="contact-email" class="input-blue required-field">
+                    <input type="text" name="contact-email" class="input-blue required-field email">
 
                     <label for="contact-phone" class="padding-top-2-em">CONTACT TELE FOR INVOICING/ADMIN *</label>
                     <input type="text" name="contact-phone" class="input-blue required-field">
@@ -145,10 +145,10 @@
                 </div>
 
                 <div class="form-column">
-                    <label for="ticket-reservation-details" class="padding-top-2-em">TICKET RESERVATION DETAILS
+                    <label for="ticket-reservation-details-select" class="padding-top-2-em">TICKET RESERVATION DETAILS
                         *</label>
                     <div class="custom-select">
-                        <select name="ticket-reservation-details">
+                        <select name="ticket-reservation-details-select" class="required-select">
                             <option value="0">Select Option</option>
                             <option value="Digital services provider and Association Partner (290euro)">Digital services
                                 provider and Association Partner (290euro)</option>
@@ -175,17 +175,18 @@
                     <input type="text" name="2nd-participant-title" class="input-blue">
 
                     <label for="2nd-participant-email" class="padding-top-2-em">EMAIL (CONFIDENTIAL)</label>
-                    <input type="text" name="2nd-participant-email" class="input-blue">
+                    <input type="text" name="2nd-participant-email" class="input-blue email">
 
                     <label for="2nd-participant-telephone" class="padding-top-2-em">TELEPHONE (CONFIDENTIAL)</label>
                     <input type="text" name="2nd-participant-telephone" class="input-blue">
 
-                    <label for="aditionan-notes" class="padding-top-2-em">ADDITIONAL NOTES</label>
-                    <textarea id="aditionan-notes" name="aditionan-notes" rows="10" class="textarea-blue"></textarea>
+                    <label for="aditional-notes" class="padding-top-2-em">ADDITIONAL NOTES</label>
+                    <textarea id="aditional-notes" name="aditional-notes" rows="10" class="textarea-blue"></textarea>
                 </div>
             </div>
 
-            <button type="submit" name="submit" class="button blue">SUBMIT TICKET RESERVATION</button>
+            <button type="submit" name="submit" class="button blue form-submit-button">SUBMIT TICKET
+                RESERVATION</button>
         </form>
 
         <!-- TO DO Paypal Payment -->
