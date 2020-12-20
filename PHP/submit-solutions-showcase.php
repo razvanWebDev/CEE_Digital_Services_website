@@ -1,14 +1,12 @@
 <?php 
-if(isset($_POST['email'])) {
+if(isset($_POST['submit'])) {
     $email_to = "tb@biznespolska.pl, razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "Website new submit solutions showcase";
      
      
     function died($error) {
         // your error code can go here
-        echo "We are sorry, but the form conains errors";
-        echo $error."<br /><br />";
-        echo "Please correct the errors above<br /><br />";
+        echo $error."<br>";
         die();
     };
      
@@ -56,40 +54,27 @@ if(isset($_POST['email'])) {
     $string_exp = "/^[A-Za-z .'-]+$/";
 
   if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'Your email address is invalid<br/>';
-  }
-
-  if(!preg_match($string_exp,$companyName)) {
-    $error_message .= 'Please fill in the company name<br/>';
-  }
-
-  if(!preg_match($string_exp,$primaryLocation)) {
-    $error_message .= 'Please fill in your primary location<br/>';
+    $error_message .= 'Your email address is invalid<br>';
   }
 
   if(!preg_match($string_exp,$showcasePresenter)) {
-    $error_message .= 'Please tell us who will present the showcase<br/>';
+    $error_message .= 'Please tell us who will present the showcase<br>';
   }
 
   if(!preg_match($string_exp,$formSubmitter)) {
-    $error_message .= 'Please tell us who is submitting this form<br/>';
+    $error_message .= 'Please tell us who is submitting this form<br>';
   }
 
   if(!preg_match($phone_exp,$telephone)) {
-    $error_message .= 'Please fill in your phone number<br/>';
-  }
-
-  if(!preg_match($string_exp,$invoicingCompanyName)) {
-    $error_message .= 'Please fill in the invoicing company name<br/>';
-  }
-
-  if(!preg_match($string_exp,$addressTaxId)) {
-    $error_message .= 'Please fill in your address and tax id<br/>';
+    $error_message .= 'Please fill in your phone number<br>';
   }
  
   if(strlen($error_message) > 0) {
     died($error_message);
   }
+
+
+//EMAIL====================================
     $email_message = "Message details.\n\n";
      
     function clean_string($string) {
@@ -119,9 +104,49 @@ if(isset($_POST['email'])) {
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 // 'X-Mailer: PHP/' . phpversion();
-mail($email_to, $email_subject, $email_message, $headers);  
-echo "Success! <a href='../submit-solutions-showcase.html' style='text-decoration:none;color:#176083;'> Back</a>";
-// header("Location: contact.html?mailsend")
+mail($email_to, $email_subject, $email_message, $headers); 
+
+//DB=======================================================
+$connection = mysqli_connect('localhost', 'root', '', 'cee_digital_services_db');
+
+if(!$connection) {
+  die("Data-base connection failed");
+}
+
+$companyName = mysqli_real_escape_string($connection, $companyName);
+$primaryLocation = mysqli_real_escape_string($connection, $primaryLocation);
+$secondaryLocations = mysqli_real_escape_string($connection, $secondaryLocations);
+$nameOfCeoOrFounder = mysqli_real_escape_string($connection, $nameOfCeoOrFounder);
+$showcasePresenter = mysqli_real_escape_string($connection, $showcasePresenter);
+$formSubmitter = mysqli_real_escape_string($connection, $formSubmitter);
+$telephone = mysqli_real_escape_string($connection, $telephone);
+$email_from = mysqli_real_escape_string($connection, $email_from);
+$moreDetails = mysqli_real_escape_string($connection, $moreDetails);
+$otherComments = mysqli_real_escape_string($connection, $otherComments);
+$invoicingCompanyName = mysqli_real_escape_string($connection, $invoicingCompanyName);
+$addressTaxId = mysqli_real_escape_string($connection, $addressTaxId);
+$problemDescription = mysqli_real_escape_string($connection, $problemDescription);
+$solutionDescription = mysqli_real_escape_string($connection, $solutionDescription);
+$solutionJustification = mysqli_real_escape_string($connection, $solutionJustification);
+$solutionReferences = mysqli_real_escape_string($connection, $solutionReferences);
+
+$query = "INSERT INTO submit_solutions_showcase(company_name, primary_location, secondary_locations, name_of_ceo, ";
+$query .= "showcase_presenter, form_submitter, phone, email, ";
+$query .= "more_details, other_comments, invoicing_company_name, company_address_and_tax_id, ";
+$query .= "problem, solution, solution_justification, solution_references) ";
+$query .= "VALUES ('$companyName', '$primaryLocation', '$secondaryLocations', '$nameOfCeoOrFounder', ";
+$query .= "'$showcasePresenter', '$formSubmitter', '$telephone', '$email_from', ";
+$query .= "'$moreDetails', '$otherComments', '$invoicingCompanyName', '$addressTaxId', ";
+$query .= "'$problemDescription', '$solutionDescription', '$solutionJustification', '$solutionReferences') ";
+
+$result =  mysqli_query($connection, $query);
+echo $result;
+if(!$result) {
+  die("Failed");
+}
+
+
+echo "Success! <a href='../submit-solutions-showcase.html' style='color:#176083;'><br><br><br>Back</a>";
 ?>
 
 <?php

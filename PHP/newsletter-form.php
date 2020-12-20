@@ -1,14 +1,12 @@
 <?php 
-if(isset($_POST['email'])) {
+if(isset($_POST['submit'])) {
     $email_to = "tb@biznespolska.pl, razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "Website newslettes signup";
      
      
     function died($error) {
         // your error code can go here
-        echo "We are sorry, but the form conains errors";
-        echo $error."<br /><br />";
-        echo "Please correct the errors above<br /><br />";
+        echo $error."<br>";
         die();
     };
      
@@ -31,48 +29,65 @@ if(isset($_POST['email'])) {
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
   if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'Your email address is invalid<br />';
+    $error_message .= 'Your email address is invalid<br>';
   }
     $string_exp = "/^[A-Za-z .'-]+$/";
   if(!preg_match($string_exp,$firstName)) {
-    $error_message .= 'Please write your first name<br />';
+    $error_message .= 'Please write your first name<br>';
   }
 
   if(!preg_match($string_exp,$lastName)) {
-    $error_message .= 'Please write your last name<br />';
-  }
-
-  if(!preg_match($string_exp,$position)) {
-    $error_message .= 'Please write your position/title<br />';
-  }
-
-  if(!preg_match($string_exp,$companyName)) {
-    $error_message .= 'Please write your company name<br />';
+    $error_message .= 'Please write your last name<br>';
   }
  
   if(strlen($error_message) > 0) {
     died($error_message);
   }
-    $email_message = "Message details.\n\n";
+
+  // EMAIL================
+  $email_message = "Message details.\n\n";
      
-    function clean_string($string) {
-      $bad = array("content-type","bcc:","to:","cc:","href");
-      return str_replace($bad,"",$string);
-    }
+  function clean_string($string) {
+    $bad = array("content-type","bcc:","to:","cc:","href");
+     return str_replace($bad,"",$string);
+  }
      
-    $email_message .= "Name: ".clean_string($firstName). " ".clean_string($lastName)."\n";
-    $email_message .= "Email: ".clean_string($email_from)."\n";
-    $email_message .= "Company: ".clean_string($companyName)."\n";
-    $email_message .= "Title: ".clean_string($position)."\n";
+  $email_message .= "Name: ".clean_string($firstName). " ".clean_string($lastName)."\n";
+  $email_message .= "Email: ".clean_string($email_from)."\n";
+  $email_message .= "Company: ".clean_string($companyName)."\n";
+  $email_message .= "Title: ".clean_string($position)."\n";
      
      
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
-// 'X-Mailer: PHP/' . phpversion();
+'X-Mailer: PHP/' . phpversion();
 mail($email_to, $email_subject, $email_message, $headers);  
-echo "Success! <a href='../newsletter-signup.html' style='text-decoration:none;color:#176083;'> Back</a>";
-// header("Location: contact.html?mailsend")
+
+//DB==============================================================
+$connection = mysqli_connect('localhost', 'root', '', 'cee_digital_services_db');
+
+if(!$connection) {
+  die("Data-base connection failed");
+}
+
+
+$firstName = mysqli_real_escape_string($connection, $firstName);
+$lastName = mysqli_real_escape_string($connection, $lastName);
+$position = mysqli_real_escape_string($connection, $position);
+$companyName = mysqli_real_escape_string($connection, $companyName);
+$email_from = mysqli_real_escape_string($connection, $email_from);
+
+$query = "INSERT INTO newsletter_signup(firstname, lastname, position, company_name, email) ";
+$query .= "VALUES ('$firstName', '$lastName', '$position', '$companyName', '$email_from')";
+
+$result =  mysqli_query($connection, $query);
+
+if(!$result) {
+  die("Failed" . mysqli_error());
+}
+
+echo " Success! <a href='../newsletter-signup.html' style='color:#176083;'><br><br><br>  Back</a>";
 ?>
 
 <?php

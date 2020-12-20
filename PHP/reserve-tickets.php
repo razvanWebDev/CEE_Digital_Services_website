@@ -6,9 +6,7 @@ if(isset($_POST['email'])) {
      
     function died($error) {
         // your error code can go here
-        echo "We are sorry, but the form conains errors";
-        echo $error."<br /><br />";
-        echo "Please correct the errors above<br /><br />";
+        echo $error."<br>";
         die();
     };
      
@@ -55,39 +53,32 @@ if(isset($_POST['email'])) {
     $phone_exp = '/^[0-9\-\(\)\/\+\s]*$/';
 
   if(!preg_match($email_exp,$email_from)) {
-    $error_message .= 'Your email address is invalid<br/>';
-  }
-  if(!preg_match($string_exp,$companyName)) {
-    $error_message .= 'Please fill in your company name<br/>';
+    $error_message .= 'Your email address is invalid<br>';
   }
 
   if(!preg_match($string_exp,$name)) {
-    $error_message .= 'Please fill in your name<br/>';
-  }
-
-  if(!preg_match($string_exp,$position)) {
-    $error_message .= 'Please write your position/title<br/>';
+    $error_message .= 'Please fill in your name<br>';
   }
 
  if(!preg_match($phone_exp,$telephone)) {
-    $error_message .= 'Please write your telephone number<br/>';
+    $error_message .= 'Please write your telephone number<br>';
   }
-  if(!preg_match($string_exp,$invoicingCompanyName)) {
-    $error_message .= 'Please fill in the invoiving company name<br/>';
-  }
+
   if(!preg_match($email_exp,$contactEmail)) {
-    $error_message .= 'Please fill in your contact email<br/>';
+    $error_message .= 'Please fill in your contact email<br>';
   }
   if(!preg_match($phone_exp,$contactPhone)) {
-    $error_message .= 'Please fill in your contact phone number<br/>';
+    $error_message .= 'Please fill in your contact phone number<br>';
   }
   if($ticketReservationDetailsSelect == '0') {
-    $error_message .= 'Please select the ticket reservation optio<br/>';
+    $error_message .= 'Please select the ticket reservation option<br>';
   }
  
   if(strlen($error_message) > 0) {
     died($error_message);
   }
+
+//Email==========================================  
     $email_message = "Message details.\n\n";
      
     function clean_string($string) {
@@ -117,8 +108,48 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 // 'X-Mailer: PHP/' . phpversion();
 mail($email_to, $email_subject, $email_message, $headers);  
-echo "Success! <a href='../newsletter-signup.html' style='text-decoration:none;color:#176083;'> Back</a>";
-// header("Location: contact.html?mailsend")
+
+//DB=======================================================
+$connection = mysqli_connect('localhost', 'root', '', 'cee_digital_services_db');
+
+if(!$connection) {
+  die("Data-base connection failed");
+}
+
+$companyName = mysqli_real_escape_string($connection, $companyName);
+$matchmakingOptionSelect = mysqli_real_escape_string($connection, $matchmakingOptionSelect);
+$name = mysqli_real_escape_string($connection, $name);
+$position = mysqli_real_escape_string($connection, $position);
+$email_from = mysqli_real_escape_string($connection, $email_from);
+$telephone = mysqli_real_escape_string($connection, $telephone);
+$invoicingCompanyName = mysqli_real_escape_string($connection, $invoicingCompanyName);
+$contactEmail = mysqli_real_escape_string($connection, $contactEmail);
+$contactPhone = mysqli_real_escape_string($connection, $contactPhone);
+$taxId = mysqli_real_escape_string($connection, $taxId);
+$ticketReservationDetailsSelect = mysqli_real_escape_string($connection, $ticketReservationDetailsSelect);
+$secondParticipantName = mysqli_real_escape_string($connection, $secondParticipantName);
+$secondParticipantTitle = mysqli_real_escape_string($connection, $secondParticipantTitle);
+$secondParticipantEmail = mysqli_real_escape_string($connection, $secondParticipantEmail);
+$secondParticipantTelephone = mysqli_real_escape_string($connection, $secondParticipantTelephone);
+$aditionalNotes = mysqli_real_escape_string($connection, $aditionalNotes);
+
+$query = "INSERT INTO reserve_tickets(company_name, matchmacking_options, participant_name, position, ";
+$query .= "email, phone, invoicing_company_name, contact_email, contact_phone, ";
+$query .= "tax_id, ticket_reservation_details, second_participant_name, second_participant_position, ";
+$query .= "second_participant_email, second_participant_phone, additional_notes) ";
+$query .= "VALUES ('$companyName', '$matchmakingOptionSelect', '$name', '$position', '$email_from', ";
+$query .= "'$telephone', '$invoicingCompanyName', '$contactEmail', '$contactPhone', ";
+$query .= "'$taxId', '$ticketReservationDetailsSelect', '$secondParticipantName', '$secondParticipantTitle', ";
+$query .= "'$secondParticipantEmail', '$secondParticipantTelephone', '$aditionalNotes')";
+
+$result =  mysqli_query($connection, $query);
+
+if(!$result) {
+  die("Failed" . mysqli_error());
+}
+
+echo "Success! <a href='../newsletter-signup.html' style='color:#176083;'><br><br><br> Back</a>";
+
 ?>
 
 <?php
