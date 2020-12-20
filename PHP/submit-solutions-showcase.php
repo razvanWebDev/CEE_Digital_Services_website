@@ -10,7 +10,7 @@ if(isset($_POST['email'])) {
         echo $error."<br /><br />";
         echo "Please correct the errors above<br /><br />";
         die();
-    }
+    };
      
     // validation expected data exists
     if(!isset($_POST['company-name']) ||
@@ -28,7 +28,7 @@ if(isset($_POST['email'])) {
         !isset($_POST['problem-description'])||
         !isset($_POST['solution-description'])||
         !isset($_POST['solution-justification'])||
-        !isset($_POST['solution-references']){
+        !isset($_POST['solution-references'])) {
         died('We are sorry, but the form conains errors');       
     }
      
@@ -52,10 +52,13 @@ if(isset($_POST['email'])) {
     
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    $phone_exp = '/^[0-9\-\(\)\/\+\s]*$/';
+    $string_exp = "/^[A-Za-z .'-]+$/";
+
   if(!preg_match($email_exp,$email_from)) {
     $error_message .= 'Your email address is invalid<br/>';
   }
-    $string_exp = "/^[A-Za-z .'-]+$/";
+
   if(!preg_match($string_exp,$companyName)) {
     $error_message .= 'Please fill in the company name<br/>';
   }
@@ -72,7 +75,7 @@ if(isset($_POST['email'])) {
     $error_message .= 'Please tell us who is submitting this form<br/>';
   }
 
-  if(!preg_match($string_exp,$telephone)) {
+  if(!preg_match($phone_exp,$telephone)) {
     $error_message .= 'Please fill in your phone number<br/>';
   }
 
@@ -117,7 +120,7 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 // 'X-Mailer: PHP/' . phpversion();
 mail($email_to, $email_subject, $email_message, $headers);  
-echo "Success! <a href='submit-solutions-showcase.html' style='text-decoration:none;color:#fc9f0a;'> Back</a>";
+echo "Success! <a href='../submit-solutions-showcase.html' style='text-decoration:none;color:#176083;'> Back</a>";
 // header("Location: contact.html?mailsend")
 ?>
 

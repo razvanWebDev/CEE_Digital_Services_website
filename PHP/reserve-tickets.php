@@ -10,7 +10,7 @@ if(isset($_POST['email'])) {
         echo $error."<br /><br />";
         echo "Please correct the errors above<br /><br />";
         die();
-    }
+    };
      
     // validation expected data exists
     if(!isset($_POST['company-name']) ||
@@ -28,9 +28,9 @@ if(isset($_POST['email'])) {
         !isset($_POST['2nd-participant-title']) ||
         !isset($_POST['2nd-participant-email']) ||
         !isset($_POST['2nd-participant-telephone']) ||
-        !isset($_POST['aditional-notes']) {
+        !isset($_POST['aditional-notes'])) {
         died('We are sorry, but the form conains errors');       
-    }
+    };
      
     $companyName = $_POST['company-name']; // required
     $matchmakingOptionSelect = $_POST['matchmaking-option-select'];
@@ -49,13 +49,14 @@ if(isset($_POST['email'])) {
     $secondParticipantTelephone = $_POST['2nd-participant-telephone'];
     $aditionalNotes = $_POST['aditional-notes'];
    
-    
     $error_message = "";
     $email_exp = '/^[A-Za-z0-9._%-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,4}$/';
+    $string_exp = "/^[A-Za-z .'-]+$/";
+    $phone_exp = '/^[0-9\-\(\)\/\+\s]*$/';
+
   if(!preg_match($email_exp,$email_from)) {
     $error_message .= 'Your email address is invalid<br/>';
   }
-    $string_exp = "/^[A-Za-z .'-]+$/";
   if(!preg_match($string_exp,$companyName)) {
     $error_message .= 'Please fill in your company name<br/>';
   }
@@ -68,19 +69,19 @@ if(isset($_POST['email'])) {
     $error_message .= 'Please write your position/title<br/>';
   }
 
- if(!preg_match($string_exp,$telephone)) {
+ if(!preg_match($phone_exp,$telephone)) {
     $error_message .= 'Please write your telephone number<br/>';
   }
   if(!preg_match($string_exp,$invoicingCompanyName)) {
     $error_message .= 'Please fill in the invoiving company name<br/>';
   }
-  if(!preg_match($string_exp,$contactEmail)) {
+  if(!preg_match($email_exp,$contactEmail)) {
     $error_message .= 'Please fill in your contact email<br/>';
   }
-  if(!preg_match($string_exp,$contactPhone)) {
+  if(!preg_match($phone_exp,$contactPhone)) {
     $error_message .= 'Please fill in your contact phone number<br/>';
   }
-  if(preg_match("0",$ticketReservationDetailsSelect)) {
+  if($ticketReservationDetailsSelect == '0') {
     $error_message .= 'Please select the ticket reservation optio<br/>';
   }
  
@@ -116,7 +117,7 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 // 'X-Mailer: PHP/' . phpversion();
 mail($email_to, $email_subject, $email_message, $headers);  
-echo "Success! <a href='newsletter-signup.html' style='text-decoration:none;color:#fc9f0a;'> Back</a>";
+echo "Success! <a href='../newsletter-signup.html' style='text-decoration:none;color:#176083;'> Back</a>";
 // header("Location: contact.html?mailsend")
 ?>
 

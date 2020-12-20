@@ -10,16 +10,16 @@ if(isset($_POST['email'])) {
         echo $error."<br /><br />";
         echo "Please correct the errors above<br /><br />";
         die();
-    }
+    };
      
     // validation expected data exists
     if(!isset($_POST['first-name']) ||
         !isset($_POST['last-name']) ||
         !isset($_POST['position']) ||
         !isset($_POST['company-name']) ||
-        !isset($_POST['email']) {
+        !isset($_POST['email'])) {
         died('We are sorry, but the form conains errors');       
-    }
+    };
      
     $firstName = $_POST['first-name']; // required
     $lastName = $_POST['last-name']; // required
@@ -71,7 +71,7 @@ $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
 // 'X-Mailer: PHP/' . phpversion();
 mail($email_to, $email_subject, $email_message, $headers);  
-echo "Success! <a href='newsletter-signup.html' style='text-decoration:none;color:#fc9f0a;'> Back</a>";
+echo "Success! <a href='../newsletter-signup.html' style='text-decoration:none;color:#176083;'> Back</a>";
 // header("Location: contact.html?mailsend")
 ?>
 
