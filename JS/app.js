@@ -5,7 +5,7 @@ const header = document.querySelector("header");
 const reuiredFields = document.querySelectorAll(".required-field");
 const email = document.querySelector(".email");
 const formSubmitBtn = document.querySelector(".form-submit-button");
-const requiredSelect = document.querySelector(".select-selected");
+const requiredSelect = document.querySelectorAll(".required-select");
 
 // =====================GLOBAL VARIABLES=====================
 let scrollPos = 0;
@@ -124,6 +124,7 @@ const validateFormInput = (condition, item) => {
     item.style.backgroundColor = "#ff110033";
   }
 };
+
 function validateContactForm(event) {
   // check required inputs
   reuiredFields.forEach((field) => {
@@ -141,17 +142,16 @@ function validateContactForm(event) {
     validateFormInput(validateEmail(email.value) == false, email);
   });
 
-  // TO DO VALIDATE SELECT AND FIX PHP FILE ACCORDINGLY
+  // validate select
+  requiredSelect.forEach((select) => {
+    console.log(select);
+    validateFormInput(select.value == "0" || select.value == undefined, select);
+  });
 }
 
 //=========================EVENT LISTENERS=====================
 window.addEventListener("scroll", showHideNav);
 window.addEventListener("load", showHideNav);
-
-// window.addEventListener("scroll", function () {
-//   console.log("xxxxxxxxxxxx");
-//   console.log(requiredSelect);
-// });
 
 /*if the user clicks anywhere outside the select box, then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
