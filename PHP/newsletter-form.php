@@ -1,4 +1,4 @@
-<?php 
+<?php include "db.php";
 if(isset($_POST['submit'])) {
     $email_to = "tb@biznespolska.pl, razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "Website newslettes signup";
@@ -65,11 +65,7 @@ $headers = 'From: '.$email_from."\r\n".
 mail($email_to, $email_subject, $email_message, $headers);  
 
 //DB==============================================================
-$connection = mysqli_connect('localhost', 'root', '', 'cee_digital_services_db');
 
-if(!$connection) {
-  die("Data-base connection failed");
-}
 
 
 $firstName = mysqli_real_escape_string($connection, $firstName);
