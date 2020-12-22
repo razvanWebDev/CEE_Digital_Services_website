@@ -1,5 +1,5 @@
 <?php include "db.php";
-if(isset($_POST['email'])) {
+if(isset($_POST['submit'])) {
     $email_to = "tb@biznespolska.pl, razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "Website Matchmacking Summit ticket reservation";
      
@@ -106,7 +106,7 @@ if(isset($_POST['email'])) {
 // create email headers
 $headers = 'From: '.$email_from."\r\n".
 'Reply-To: '.$email_from."\r\n" .
-// 'X-Mailer: PHP/' . phpversion();
+'X-Mailer: PHP/' . phpversion();
 mail($email_to, $email_subject, $email_message, $headers);  
 
 //DB=======================================================
@@ -143,7 +143,9 @@ if(!$result) {
   die("Failed" . mysqli_error());
 }
 
-echo "Success! <a href='../newsletter-signup.html' style='color:#176083;'><br><br><br> Back</a>";
+mysqli_close($connection);
+
+echo "Success! <a href='../reserve-tickets.html' style='color:#176083;'><br><br><br> Back</a>";
 
 ?>
 

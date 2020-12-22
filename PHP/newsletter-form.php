@@ -1,8 +1,7 @@
 <?php include "db.php";
 if(isset($_POST['submit'])) {
     $email_to = "tb@biznespolska.pl, razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
-    $email_subject = "Website newslettes signup";
-     
+    $email_subject = "Website newsletter signup";
      
     function died($error) {
         // your error code can go here
@@ -65,9 +64,6 @@ $headers = 'From: '.$email_from."\r\n".
 mail($email_to, $email_subject, $email_message, $headers);  
 
 //DB==============================================================
-
-
-
 $firstName = mysqli_real_escape_string($connection, $firstName);
 $lastName = mysqli_real_escape_string($connection, $lastName);
 $position = mysqli_real_escape_string($connection, $position);
@@ -83,7 +79,7 @@ if(!$result) {
   die("Failed" . mysqli_error());
 }
 
-echo " Success! <a href='../newsletter-signup.html' style='color:#176083;'><br><br><br>  Back</a>";
+echo " Successful signup! <a href='../newsletter-signup.html' style='color:#176083;'><br><br><br>  Back</a>";
 ?>
 
 <?php
