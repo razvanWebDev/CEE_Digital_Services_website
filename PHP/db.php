@@ -1,5 +1,11 @@
 <?php
   
+
+  // $server = 'localhost';
+  // $username = 'root';
+  // $password = '';
+  // $dbname = 'cee_digital_services_db'; 
+
   $server = 'localhost';
   $username = 'fdipolan_ceedigi';
   $password = 'WarsawP2';

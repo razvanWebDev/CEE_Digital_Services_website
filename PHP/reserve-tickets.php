@@ -145,7 +145,7 @@ if(!$result) {
 
 mysqli_close($connection);
 
-echo "Success! <a href='../reserve-tickets.html' style='color:#176083;'><br><br><br> Back</a>";
+header("Location: ../reserve-tickets-success.html");
 
 ?>
 

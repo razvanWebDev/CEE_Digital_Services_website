@@ -137,12 +137,12 @@ $query .= "'$problemDescription', '$solutionDescription', '$solutionJustificatio
 $result =  mysqli_query($connection, $query);
 echo $result;
 if(!$result) {
-  die("Failed");
+  die("Failed to submit the form");
 }
 
 mysqli_close($connection);
 
-echo "Success! <a href='../submit-solutions-showcase.html' style='color:#176083;'><br><br><br>Back</a>";
+header("Location: ../submit-solutions-showcase-success.html");
 ?>
 
 <?php

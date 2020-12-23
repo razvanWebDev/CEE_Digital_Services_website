@@ -1,5 +1,9 @@
 // =====================CACHE DOM ELEMENTS=====================
 const header = document.querySelector("header");
+const body = document.querySelector("body");
+const hamburger = document.querySelector("#hamburger");
+const hamburgerLines = document.querySelectorAll("#hamburger div");
+const nav = document.querySelector(".header-menu");
 
 // FORMS
 const reuiredFields = document.querySelectorAll(".required-field");
@@ -14,19 +18,46 @@ let scrollPos = 0;
 
 // Show/hade nav based on scroll direction
 const showHideNav = () => {
-  window.scrollY < header.offsetHeight || window.scrollY > scrollPos
-    ? header.classList.remove("bottom-shaddow")
-    : header.classList.add("bottom-shaddow");
+  window.scrollY < 1 || window.scrollY > scrollPos
+  ? header.classList.remove("bottom-shaddow")
+  : header.classList.add("bottom-shaddow");
 
-  if (window.scrollY > scrollPos) {
-    header.classList.remove("showNav");
-    header.classList.add("hideNav");
-    header.classList.add("animate");
+if (window.scrollY > scrollPos) {
+  header.classList.remove("showNav");
+  header.classList.add("hideNav");
+  header.classList.add("animate");
+} else {
+  header.classList.add("showNav");
+  header.classList.remove("hideNav");
+}
+scrollPos = window.scrollY;
+};
+
+//Navbar on mobile===========
+const navToggle = () => {
+  nav.classList.toggle("show-nav");
+  if (nav.classList.contains("show-nav")) {
+    nav.style.animation = `navSlideIn 0.7s forwards`;
+    whiteHamburger();
   } else {
-    header.classList.add("showNav");
-    header.classList.remove("hideNav");
+    nav.style.animation = `navSlideOut 0.7s`;
+    blueHamburger();
   }
-  scrollPos = window.scrollY;
+  hamburger.classList.toggle("toggle-burger");
+};
+
+const blueHamburger = () => {
+  hamburgerLines.forEach((line) => {
+    line.classList.remove("white-bg");
+    line.classList.add("blue-bg");
+  });
+};
+
+const whiteHamburger = () => {
+  hamburgerLines.forEach((line) => {
+    line.classList.remove("blue-bg");
+    line.classList.add("white-bg");
+  });
 };
 
 //====================================custom select droptown button=========================
@@ -152,6 +183,9 @@ function validateContactForm(event) {
 //=========================EVENT LISTENERS=====================
 window.addEventListener("scroll", showHideNav);
 window.addEventListener("load", showHideNav);
+
+// show nav on hamburger tap
+hamburger.addEventListener("click", navToggle);
 
 /*if the user clicks anywhere outside the select box, then close all select boxes:*/
 document.addEventListener("click", closeAllSelect);
