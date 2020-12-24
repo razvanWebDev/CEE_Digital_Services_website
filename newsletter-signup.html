@@ -71,7 +71,7 @@
         <p>* INDICATES REQUIRED FIELD</p>
         <form method="POST" action="PHP/newsletter-form.php" enctype="multipart/form-data" id="newsletter-form"
             name="newsletter-form">
-            <div class="flex form-row">
+            <div class="form-row">
                 <div>
                     <label for="first-name" class="padding-bottom-1-em">NAME: *</label>
                     <input type="text" name="first-name" class="required-field" placeholder="First">
@@ -80,7 +80,7 @@
                     <input type="text" name="last-name" class="required-field" placeholder="Last">
                 </div>
             </div>
-            <div class="flex form-row">
+            <div class="form-row">
                 <div>
                     <label for="position" class="padding-bottom-1-em">TITLE / POSITION *</label>
                     <input type="text" name="position" class="required-field">
@@ -94,6 +94,7 @@
                     <input type="email" name="email" class="required-field email" placeholder="Last">
                 </div>
             </div>
+
             <button type="submit" name="submit" class="button white form-submit-button">SUBMIT</button>
         </form>
     </section>

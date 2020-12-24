@@ -40,7 +40,7 @@ body {
 
 h1 {
   font-size: var(--header1-size);
-  line-height: 1;
+  line-height: 1.5;
 }
 
 h2 {
@@ -516,11 +516,12 @@ header.bottom-shaddow {
 }
 
 .news-section .news-content-with-video .news-description {
-  width: 50%;
+  flex: 1;
+  padding-right: 2em;
 }
 
 .news-section .news-content-with-video .news-video {
-  max-width: 50%;
+  flex: 1;
 }
 
 /* =======================matchmacking summit page=================== */
@@ -669,6 +670,9 @@ header.bottom-shaddow {
 /* =================================reserve-tickets-page================== */
 .form-column {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 #reserve-tickets-form label,
@@ -680,12 +684,12 @@ header.bottom-shaddow {
 #cee-solutions-showcase-form .custom-select,
 #cee-solutions-showcase-form textarea {
   width: 70%;
-  max-width: 400px;
 }
 
 #reserve-tickets-form button,
 #cee-solutions-showcase-form button {
-  margin-top: 3em;
+  display: block;
+  margin: 4em auto 0;
 }
 
 .paypal-form-container {
@@ -816,6 +820,7 @@ header.bottom-shaddow {
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   padding: var(--top-bottom-padding) 0;
 }
 
@@ -824,7 +829,9 @@ header.bottom-shaddow {
 }
 
 .event-recordings-container .recording p {
-  margin: 0 0 0.5em;
+  margin: 0 15px 0.5em;
+  max-width: 530px;
+  text-align: center;
 }
 
 /* ===========================about page=================================== */
@@ -856,12 +863,17 @@ header.bottom-shaddow {
 }
 
 .form-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  justify-content: center;
+  align-content: center;
+  grid-gap: 2em 4em;
+  width: 100%;
   padding-bottom: 2em;
 }
 
 .form-row input {
-  width: 23em;
-  margin-right: 4em;
+  width: 100%;
 }
 
 /* ==============================footer=================================== */
@@ -901,6 +913,25 @@ footer a {
 /* ################################## RESPONSIVE ########################## */
 
 @media (max-width: 1024px) {
+  :root {
+    --white-color: #ffffff;
+
+    --sides-padding: 5vw;
+    --top-bottom-padding: 4em;
+    --section-padding: var(--top-bottom-padding) var(--sides-padding);
+
+    /* text vars */
+    --header1-size: 40px;
+    --header2-size: 25px;
+    --paragraph-size: 16px;
+    --regular: 400;
+    --medium: 500;
+    --semi-bold: 600;
+    --bold: 700;
+  }
+  .section-with-bg {
+    background-size: 120% 110%;
+  }
   header {
     height: 10vh;
     -webkit-box-shadow: 0px 5px 5px 0px rgba(0, 0, 0, 0.35);
@@ -976,7 +1007,6 @@ footer a {
     z-index: 1;
     background-color: transparent;
     padding: 0;
-    /* margin-top: 2em; */
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -985,6 +1015,61 @@ footer a {
 
   .nav-links .dropdown a {
     font-size: 1em;
+  }
+
+  /* ==============HOME PAGE==================== */
+
+  .hero {
+    flex-direction: column;
+  }
+
+  .hero .upcoming-event {
+    margin-bottom: 2em;
+    margin-right: auto;
+  }
+
+  .newsletter-section {
+    margin: auto;
+  }
+
+  .news-section .news-content-with-video .news-description {
+    width: 80%;
+    text-align: center;
+  }
+
+  .news-section .news-content-with-video {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .news-section .news-content-with-video .date {
+    text-align: center;
+  }
+
+  /* ==========================partenrship options page========================= */
+  .text-with-media {
+    flex-direction: column;
+    align-items: center;
+  }
+  .text-with-media .text-div {
+    flex: 2;
+    padding-right: 0;
+  }
+
+  .text-with-media .media-div {
+    width: 70%;
+    margin-bottom: 3em;
+  }
+
+  /* ===================== q2 agenda page========================== */
+  .agenda-item {
+    padding: 2em;
+  }
+
+  /* ===================newsletter signup page===================== */
+  .newsletter-form-details {
+    flex-direction: column;
   }
 }
 
