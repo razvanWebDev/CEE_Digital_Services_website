@@ -218,7 +218,7 @@ section p {
   border-radius: 2em;
   border: none;
   outline: none;
-  font-size: var(--paragraph-size);
+  font-size: 1em;
   text-decoration: none;
   cursor: pointer;
   transition: all 0.3s ease-in-out;
@@ -486,11 +486,6 @@ header.bottom-shaddow {
   justify-content: space-between;
 }
 
-.date-apply p {
-  font-size: var(--header2-size);
-  font-weight: var(--bold);
-}
-
 .date-apply .button {
   margin: 0;
 }
@@ -513,18 +508,34 @@ header.bottom-shaddow {
 .news-section .news-content-with-video {
   display: flex;
   justify-content: space-between;
+  max-width: 100%;
 }
 
 .news-section .news-content-with-video .news-description {
-  flex: 1;
+  width: 50%;
   padding-right: 2em;
 }
 
 .news-section .news-content-with-video .news-video {
-  flex: 1;
+  width: 50%;
 }
 
-/* =======================matchmacking summit page=================== */
+.video-container {
+  width: 100%;
+  height: 0;
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9, for an aspect ratio of 1:1 change to this value to 100% */
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* =======================matchmaking summit page=================== */
 .event-title {
   display: flex;
   justify-content: center;
@@ -532,26 +543,21 @@ header.bottom-shaddow {
 }
 
 .event-title .event-title-image {
-  width: 220px;
-  height: 220px;
-  margin-right: 2em;
   background-color: var(--white-color);
-  display: flex;
-  justify-content: center;
-  align-items: center;
   border-radius: 50%;
 }
 
 .event-title .event-title-image img {
   width: 215px;
   height: 215px;
+  padding: 0.2em;
 }
 
 .event-title .event-title-text {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  margin-left: 2em;
+  margin-left: 4em;
   text-align: center;
 }
 
@@ -616,12 +622,17 @@ header.bottom-shaddow {
 
 .agendas-title-buttons-container {
   justify-content: space-evenly;
-  padding-top: var(--top-bottom-padding);
+  padding: 3em 0;
 }
 
 .agendas-container {
   padding-top: var(--top-bottom-padding);
   padding-bottom: var(--top-bottom-padding);
+}
+
+.agendas-title-buttons-container a {
+  min-width: 19em;
+  text-align: center;
 }
 
 .agenda-item img {
@@ -667,12 +678,17 @@ header.bottom-shaddow {
   max-height: 180px;
   object-fit: contain;
 }
+
+.agenda-item-image-container .heini-kami {
+  width: 40%;
+}
 /* =================================reserve-tickets-page================== */
 .form-column {
   flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding: 0 7%;
 }
 
 #reserve-tickets-form label,
@@ -683,7 +699,7 @@ header.bottom-shaddow {
 #cee-solutions-showcase-form input,
 #cee-solutions-showcase-form .custom-select,
 #cee-solutions-showcase-form textarea {
-  width: 70%;
+  width: 100%;
 }
 
 #reserve-tickets-form button,
@@ -826,6 +842,7 @@ header.bottom-shaddow {
 
 .event-recordings-container .recording {
   padding: 3em 0;
+  width: 50%;
 }
 
 .event-recordings-container .recording p {
@@ -844,12 +861,13 @@ header.bottom-shaddow {
 }
 
 .event-list-name-span {
-  float: left;
-  width: 500px;
+  display: inline-block;
+  padding-right: 1em;
+  width: 45%;
 }
 
 .event-list-date-span {
-  padding-left: 20px;
+  padding-left: 1em;
 }
 
 .advisory-board-members {
@@ -864,7 +882,7 @@ header.bottom-shaddow {
 
 .form-row {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(325px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(300px, 0.8fr));
   justify-content: center;
   align-content: center;
   grid-gap: 2em 4em;
@@ -912,7 +930,7 @@ footer a {
 
 /* ################################## RESPONSIVE ########################## */
 
-@media (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
   :root {
     --white-color: #ffffff;
 
@@ -1037,6 +1055,10 @@ footer a {
     text-align: center;
   }
 
+  .news-section .news-content-with-video .news-video {
+    width: 60%;
+  }
+
   .news-section .news-content-with-video {
     flex-direction: column;
     justify-content: center;
@@ -1064,12 +1086,197 @@ footer a {
 
   /* ===================== q2 agenda page========================== */
   .agenda-item {
-    padding: 2em;
+    padding: 2em 0;
   }
 
   /* ===================newsletter signup page===================== */
   .newsletter-form-details {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  h1 {
+    font-size: 1.7em;
+  }
+
+  h2 {
+    font-size: 1.3em;
+  }
+
+  ul {
+    padding-left: 3em;
+  }
+
+  /* ============matchmaking summit page====================== */
+  .international-partners-section h1 {
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  .international-partners-section .international-partners {
+    grid-template-columns: repeat(auto-fill, minmax(90px, 0.6fr));
+  }
+
+  .event-title .event-title-image img {
+    width: 150px;
+    height: 150px;
+    padding: 0.1em;
+  }
+
+  .event-title .event-title-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    margin-left: 0.5em;
+    text-align: center;
+  }
+
+  /* ===================reserve tickets page============= */
+  .form-column {
+    padding: 0 4%;
+  }
+}
+
+@media screen and (max-width: 450px) {
+  :root {
+    --sides-padding: 5vw;
+    --top-bottom-padding: 2em;
+    --section-padding: var(--top-bottom-padding) var(--sides-padding);
+  }
+  body {
+    font-size: 0.7em;
+  }
+  ul {
+    padding-left: 2em;
+  }
+  #logo {
+    width: 4em;
+  }
+  .section-with-bg {
+    background-size: 120% 115%;
+  }
+
+  /* =====================home page======================= */
+  .hero .upcoming-event,
+  .hero .newsletter-section {
+    padding: 0 1em;
+  }
+
+  .date-apply {
+    flex-direction: column;
+  }
+
+  .date-apply .button,
+  .hero .newsletter-section .button {
+    margin: 1em auto;
+  }
+
+  .news-section .news-content-with-video .news-description {
+    width: 90%;
+    text-align: center;
+  }
+
+  .news-section .news-content-with-video .news-video {
+    width: 80%;
+  }
+
+  /*============= matchmaking summit page ================== */
+  .event-title .event-title-image img {
+    width: 80px;
+    height: 80px;
+  }
+  .event-description {
+    flex-direction: column;
+  }
+  .event-description-section .event-main-activities {
+    padding: 1em 0 2em 2em;
+  }
+  .event-description-sumary {
+    margin-right: 0;
+  }
+  .international-partners-section {
+    margin: 4em 0;
+  }
+  .international-partners-section .international-partners {
+    grid-template-columns: repeat(auto-fill, minmax(50px, 1fr));
+    grid-gap: 40px;
+  }
+  /* ========agendas page================ */
+  .agendas-title-buttons-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+  }
+
+  .agendas-title-buttons-container .button {
+    margin-top: 1em;
+    max-width: 15em;
+    width: auto;
+  }
+  .agendas-title-buttons-container .button:last-child {
+    margin-bottom: 1em;
+  }
+
+  .event-title-section p {
+    margin: 0.3em auto;
+  }
+  .agendas-container {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+  .main-stage {
+    padding-right: 1.5em;
+  }
+
+  .focus-sessions {
+    padding-left: 1.5em;
+  }
+
+  .agenda-item {
+    padding: 1.5em 0;
+  }
+
+  .agenda-item ul {
+    padding-left: 1.2em;
+  }
+  input {
+    border-radius: 1.2em;
+    padding: 0.3em 0.5em;
+  }
+  textarea {
+    border-radius: 0.5em;
+    padding: 0.3em 0.5em;
+  }
+  label {
+    padding-left: 0.5em;
+  }
+
+  /* ===============awards and jusry page========================= */
+  .cards-container {
+    padding-top: 4em;
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-gap: 3em;
+  }
+
+  .jury-member-card {
+    height: 320px;
+  }
+
+  .jury-member-card .jury-member-foto-frame {
+    width: 150px;
+    height: 150px;
+  }
+
+  .jury-member-card .jury-member-foto-container {
+    width: 130px;
+    height: 130px;
+  }
+
+  /* =================event recordings page============== */
+  .event-recordings-container .recording {
+    padding: 2em 0;
+    width: 80%;
   }
 }
 
