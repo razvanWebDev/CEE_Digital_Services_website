@@ -708,12 +708,6 @@ header.bottom-shaddow {
   margin: 4em auto 0;
 }
 
-.paypal-form-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
 /* ===========================successful purchase page======================= */
 .successful-purchase-section {
   min-height: 60vh;
