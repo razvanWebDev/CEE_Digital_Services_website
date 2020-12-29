@@ -135,7 +135,7 @@ $query .= "'$moreDetails', '$otherComments', '$invoicingCompanyName', '$addressT
 $query .= "'$problemDescription', '$solutionDescription', '$solutionJustification', '$solutionReferences') ";
 
 $result =  mysqli_query($connection, $query);
-echo $result;
+
 if(!$result) {
   die("Failed to submit the form");
 }
