@@ -13,9 +13,9 @@
   --section-padding: var(--top-bottom-padding) var(--sides-padding);
 
   /* text vars */
-  --header1-size: 40px;
+  --header1-size: 35px;
   --header2-size: 25px;
-  --paragraph-size: 16px;
+  --paragraph-size: 14px;
   --regular: 400;
   --medium: 500;
   --semi-bold: 600;
@@ -375,7 +375,7 @@ header.hideNav {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-right: 1px solid var(--blue-color);
+  border-right: 1px solid rgba(23, 96, 131, 0.3);
 }
 
 .nav-item:last-child {
@@ -388,7 +388,7 @@ header .nav-links a {
   justify-content: center;
   text-align: center;
   padding: 0 1em;
-  min-height: 4em;
+  min-height: 2.5em;
 }
 
 .nav-links .current {
@@ -477,7 +477,7 @@ header.bottom-shaddow {
   flex: 2;
   background-color: rgba(23, 96, 131, 0.7);
   margin-right: 2em;
-  padding: 0 2em;
+  padding: 2em;
 }
 
 .date-apply {
@@ -599,11 +599,11 @@ header.bottom-shaddow {
 
 .international-partners-section .international-partners {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(90px, 1fr));
   justify-content: center;
   align-content: center;
   align-items: center;
-  grid-gap: 70px;
+  grid-gap: 40px;
   width: 100%;
 }
 
@@ -1249,7 +1249,7 @@ footer a {
   /* ===============awards and jusry page========================= */
   .cards-container {
     padding-top: 4em;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
     grid-gap: 3em;
   }
 
