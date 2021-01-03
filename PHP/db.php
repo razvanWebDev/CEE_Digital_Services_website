@@ -1,15 +1,13 @@
 <?php
-  
+  $server = 'localhost';
+  $username = 'root';
+  $password = '';
+  $dbname = 'cee_digital_services_db'; 
 
   // $server = 'localhost';
-  // $username = 'root';
-  // $password = '';
-  // $dbname = 'cee_digital_services_db'; 
-
-  $server = 'localhost';
-  $username = 'fdipolan_ceedigi';
-  $password = 'WarsawP2';
-  $dbname = 'fdipolan_cee_digital_services_db';  
+  // $username = 'fdipolan_ceedigi';
+  // $password = 'WarsawP2';
+  // $dbname = 'fdipolan_cee_digital_services_db';  
 
   $connection = new mysqli($server, $username, $password, $dbname);
 

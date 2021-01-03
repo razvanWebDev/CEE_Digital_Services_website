@@ -819,6 +819,18 @@ header.bottom-shaddow {
   text-align: center;
 }
 
+.logos-container {
+  justify-content: center;
+  gap: 4em;
+}
+
+.logos-container img {
+  width: 10em;
+  object-fit: contain;
+
+
+}
+
 /* =======================event recordings page========================== */
 .event-recordings-section h1,
 .event-recordings-container h2 {
