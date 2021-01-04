@@ -3,7 +3,6 @@ if(isset($_POST['submit'])) {
     $email_to = "tb@biznespolska.pl, razvan.crisan@ctotech.io, crsn_razvan@yahoo.com";
     $email_subject = "Website Matchmacking Summit ticket reservation";
      
-     
     function died($error) {
         // your error code can go here
         echo $error."<br>";
@@ -78,7 +77,52 @@ if(isset($_POST['submit'])) {
     died($error_message);
   }
 
-//Email==========================================  
+//Email to client=========================================
+$submitter_email_subject = "Thanks for joining us!";
+
+$submitter_email_message = "
+<html>
+<head>
+    <title>Thanks for joining us! Your Reservation for the CEE Solutions Showcase has been received.</title>
+</head>
+<body>
+    <h2>These are next steps:</h2>
+    <ul>
+        <li>
+            You will receive automatic update 7 days before the event about newest speakers, final Agenda, and final
+            Jury Members.
+        </li>
+        <li>
+            On 11 January, you will receive automatic notice from Hopin (this is the platform that we are using for the
+            event), asking you to register your profile on Hopin. <a href='https://www.youtube.com/watch?v=EpErMqMyNN4'
+                target='_blank'>(It's very easy and takes about 90 seconds to do. Here is Video of how the Hopin
+                platform works.)</a>
+        </li>
+        <li>
+            For those of you with full access (1-on-1 Video Meetings, video-networking) to the event, it is especially
+            important to fill out your Registration profile fully.
+        </li>
+        <li>
+            The event begins on 13 January (8am CET). You will get 1 more reminder from Hopin 1 hour before the event
+            starts.
+        </li>
+        <li>
+            Danuta from our office will issue you invoice within 24 hours.
+        </li>
+        <li>
+            Please feel free to email Thom Barnhardt (tb@biznespolska.pl) with any questions.
+        </li>
+    </ul>
+</body>
+</html>
+";
+
+$submitter_headers = "MIME-Version: 1.0" . "\r\n";
+$submitter_headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
+mail($email_from, $submitter_email_subject, $submitter_email_message, $submitter_headers);
+
+//Own Email==========================================  
     $email_message = "Message details.\n\n";
      
     function clean_string($string) {
