@@ -12,7 +12,7 @@
     <title>CEE Digital Services | News</title>
 
     <!-- Bootstrap Core CSS -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
 
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
@@ -72,56 +72,53 @@
     </header>
 
     <section class="title-with-bg">
-        <h1><img src="img/SVG/News_videos_icon_white.svg" alt="recordings" class="section-title-icon"> News
+        <h1 class="news-page-title"><img src="img/SVG/News_videos_icon_white.svg" alt="recordings"
+                class="section-title-icon"> News
         </h1>
+    </section>
+    
+    <section>
+        <?php include "PHP/news-search.php" ?>
     </section>
 
     <!-- Page Content -->
-    <div class="container">
- 
-        
-    
-
-           
-            <?php include "PHP/news-search.php" ?>
-                <?php 
-                
-                $query = "SELECT * FROM news";
-                $select_all_posts_query = mysqli_query($connection, $query);
-
-                while($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                    $post_title = $row['post_title'];
-                    $post_author = $row['post_author'];
-                    $post_date = $row['post_date'];
-                    $post_image = $row['post_image'];
-                    $post_title = $row['post_title'];
-                    $post_content = $row['post_content'];
-                    ?>
-
-                    <h2>
-                        <a href="#"><?php echo $post_title ?></a>
-                    </h2>
-                    <p class="lead">
-                        by <a href="index.php"><?php echo $post_author ?></a>
-                    </p>
-                    <p><?php echo $post_date ?></p>
-                    <hr>
-                    <img class="img-responsive" src="img/<?php echo $post_image ?>" alt="">
-                    <hr>
-                    <p><?php echo $post_content ?></p>
-                    <a class="button blue" href="#">Read More </a>
-
-                    <hr>
-
-                <?php } ?>
+    <section class="container">
+        <?php 
             
+            $query = "SELECT * FROM news";
+            $select_all_posts_query = mysqli_query($connection, $query);
 
-                
+            while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                $post_title = $row['post_title'];
+                $post_date = $row['post_date'];
+                $post_image = $row['post_image'];
+                $post_content = $row['post_content'];
+                $source_link = $row['source_link'];
+                $source_link_name = $row['source_link_name'];
 
-            
-        
+                ?>
 
-    </div>
+        <div class="news-article">
+            <h2>
+                <?php echo $post_title ?>
+            </h2>
+            <p>
+                <?php echo $post_date ?>
+            </p>
+            <img class="img-responsive" src="img/<?php echo $post_image ?>" alt="">
+            <p>
+                <?php echo $post_content ?>
+            </p>
+            <p><a href=<?php echo $source_link ?> target="_blank">
+                    <?php echo $source_link_name ?>
+                </a></p>
+            <!-- <a class="button blue" href="#">Read More </a> -->
+            <div class="separator blue"></div>
+        </div>
+
+        <?php } ?>
+
+    </section>
     <!-- /.container -->
 
     <footer>
@@ -129,13 +126,13 @@
     </footer>
 
     <!-- jQuery -->
-    <script src="js/jquery.js"></script>
+    <!-- <script src="js/jquery.js"></script> -->
 
     <!-- Bootstrap Core JavaScript -->
     <!-- <script src="js/bootstrap.min.js"></script> -->
 
     <!--Custom JS -->
-    <!-- <script src="js/app.js"></script> -->
+    <script src="js/app.js"></script>
 
 </body>
 

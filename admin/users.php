@@ -11,7 +11,7 @@
                 <!-- Page Heading -->
                 <div class="row">
                     <div class="col-lg-12">
-                        <h1 class="page-header">News</h1>
+                        <h1 class="page-header">Users</h1>
 
                         <?php 
                         if(isset($_GET['source'])) {
@@ -21,16 +21,16 @@
                         }
 
                         switch($source) {
-                            case 'add_news';
-                            include "includes/add_news.php";
+                            case 'add_user';
+                            include "includes/add_user.php";
                             break;
 
-                            case 'edit_news';
-                            include "includes/edit_news.php";
+                            case 'edit_user';
+                            include "includes/edit_user.php";
                             break;
 
                             default:
-                            include "includes/view_all_news.php";
+                            include "includes/view_all_users.php";
                         }
 
                         ?>

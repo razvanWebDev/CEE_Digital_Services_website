@@ -78,19 +78,18 @@ if(isset($_POST['submit'])) {
   }
 
 //Email to client=========================================
-$submitter_email_subject = "Thanks for joining us!";
+$submitter_email_subject = "Confirmation of your Ticket Reservation - CEE Digital Services Summit, 13 January";
 
 $submitter_email_message = "
 <html>
 <head>
-    <title>Thanks for joining us! Your Reservation for the CEE Solutions Showcase has been received.</title>
+    <title>Thanks for reserving your Ticket for CEE Digital Services Summit, 13 January 2021.</title>
 </head>
 <body>
     <h2>These are next steps:</h2>
     <ul>
         <li>
-            You will receive automatic update 7 days before the event about newest speakers, final Agenda, and final
-            Jury Members.
+            You will receive automatic update just one day before the event about final Speakers and Agenda.  
         </li>
         <li>
             On 11 January, you will receive automatic notice from Hopin (this is the platform that we are using for the
@@ -100,14 +99,14 @@ $submitter_email_message = "
         </li>
         <li>
             For those of you with full access (1-on-1 Video Meetings, video-networking) to the event, it is especially
-            important to fill out your Registration profile fully.
+            important to fill out your Registration profile fully on Hopin.
         </li>
         <li>
             The event begins on 13 January (8am CET). You will get 1 more reminder from Hopin 1 hour before the event
             starts.
         </li>
         <li>
-            Danuta from our office will issue you invoice within 24 hours.
+            Danuta from our office will issue you invoice within 24 hours (for those of you who have requested 1-on-1 meetings option).
         </li>
         <li>
             Please feel free to email Thom Barnhardt (tb@biznespolska.pl) with any questions.
@@ -117,8 +116,11 @@ $submitter_email_message = "
 </html>
 ";
 
-$submitter_headers = "MIME-Version: 1.0" . "\r\n";
+$submitter_headers = "From: CEE Digital Services <fdipolan@es48.siteground.eu> \r\n";
+$submitter_headers .= "Reply-To: Thom Barnhardt <tb@biznespolska.pl>" . "\r\n" . "X-Mailer: PHP/" . phpversion();
+$submitter_headers .= "MIME-Version: 1.0" . "\r\n";
 $submitter_headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+
 
 mail($email_from, $submitter_email_subject, $submitter_email_message, $submitter_headers);
 

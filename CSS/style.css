@@ -15,7 +15,7 @@
   /* text vars */
   --header1-size: 35px;
   --header2-size: 25px;
-  --paragraph-size: 14px;
+  --paragraph-size: 15px;
   --regular: 400;
   --medium: 500;
   --semi-bold: 600;
@@ -210,6 +210,7 @@ section p {
 
 .separator.blue {
   background-color: var(--blue-color);
+  opacity: 0.3;
 }
 
 .button {
@@ -640,7 +641,8 @@ header.bottom-shaddow {
   margin-left: 1em;
   margin-bottom: 0.5em;
   width: 24%;
-  max-height: 150px;
+  max-width: 150px;
+  max-height: 80px;
   clear: both;
   object-fit: contain;
 }
@@ -657,7 +659,7 @@ header.bottom-shaddow {
 }
 
 .agenda-item {
-  padding: 4em 2em;
+  padding: 4em 0;
   overflow: auto;
 }
 
@@ -666,6 +668,7 @@ header.bottom-shaddow {
 }
 
 .agenda-item-image-container {
+  display: flex;
   justify-content: space-evenly;
   padding-top: 2em;
   gap: 0.5em;
@@ -827,8 +830,6 @@ header.bottom-shaddow {
 .logos-container img {
   width: 10em;
   object-fit: contain;
-
-
 }
 
 /* =======================event recordings page========================== */
