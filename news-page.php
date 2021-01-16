@@ -76,47 +76,64 @@
                 class="section-title-icon"> News
         </h1>
     </section>
-    
-    <section>
-        <?php include "PHP/news-search.php" ?>
-    </section>
 
     <!-- Page Content -->
-    <section class="container">
-        <?php 
-            
-            $query = "SELECT * FROM news";
-            $select_all_posts_query = mysqli_query($connection, $query);
+    <section class="news-page-container">
+        <div class="news-container">
+            <?php 
+                
+                $query = "SELECT * FROM news";
+                $select_all_posts_query = mysqli_query($connection, $query);
 
-            while($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                $post_title = $row['post_title'];
-                $post_date = $row['post_date'];
-                $post_image = $row['post_image'];
-                $post_content = $row['post_content'];
-                $source_link = $row['source_link'];
-                $source_link_name = $row['source_link_name'];
+                while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                    $post_title = $row['post_title'];
+                    $post_date = $row['post_date'];
+                    $formated_date = date('d-m-Y',strtotime($post_date));;
+                    $post_image = $row['post_image'];
+                    $post_content = $row['post_content'];
+                    $source_link = $row['source_link'];
+                    $source_link_name = $row['source_link_name'];
 
-                ?>
+            ?>
 
-        <div class="news-article">
-            <h2>
-                <?php echo $post_title ?>
-            </h2>
-            <p>
-                <?php echo $post_date ?>
-            </p>
-            <img class="img-responsive" src="img/<?php echo $post_image ?>" alt="">
-            <p>
-                <?php echo $post_content ?>
-            </p>
-            <p><a href=<?php echo $source_link ?> target="_blank">
-                    <?php echo $source_link_name ?>
-                </a></p>
-            <!-- <a class="button blue" href="#">Read More </a> -->
-            <div class="separator blue"></div>
-        </div>
+            <div class="news-article">
+                <h2><?php echo $post_title ?></h2>
+                <p class="news-article-date"><?php echo $formated_date ?></p>
+                <?php if($post_image != "") { ?>
+                    <img class="news-article-image" src="img/<?php echo $post_image ?>" alt="">
+                <?php }?>
+                <p><?php echo $post_content ?></p>
+                <p class="news-source"><b>Source:</b> <a href=<?php echo $source_link ?> target="_blank">
+                        <?php echo $source_link_name ?></a></p>
+                <!-- <a class="button blue" href="#">Read More </a> -->
+                <div class="separator blue news-article-separator"></div>
+            </div>
 
         <?php } ?>
+        </div>
+
+        <div class="search-container">
+            <?php include "PHP/news-search.php" ?>
+            <div class="separator blue"></div>
+            <div class="news-titles">
+                <h2>News Titles</h2>
+                
+                    <?php 
+                        $query = "SELECT * FROM news";
+                        $select_all_posts_query = mysqli_query($connection, $query);
+
+                        while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                            $post_title = $row['post_title'];
+                            $formated_date = $row['post_date'];
+                    ?>
+                    <div class="news-title-container">
+                        <p class="news-date"><?php echo $post_date ?></p>
+                        <p class="news-title"><b><?php echo $post_title ?></b></p>
+                    </div>
+                    <?php } ?>
+                
+            </div>
+        </div>
 
     </section>
     <!-- /.container -->

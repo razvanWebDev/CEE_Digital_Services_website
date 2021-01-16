@@ -2,9 +2,7 @@
 
     if(isset($_POST['create_post'])) {
         $post_title = $_POST['title'];
-
-        $post_date = date('d-m-y');
-
+        $post_date = $_POST['date'];
         $post_image = $_FILES['image']['name'];
         $post_image_temp = $_FILES['image']['tmp_name'];
 
@@ -22,7 +20,7 @@
         move_uploaded_file($post_image_temp, "../img/$post_image");
 
         $query = "INSERT INTO news(post_title, post_date, post_image, post_content, post_tags, source_link, source_link_name)";
-        $query .= "VALUES('{$post_title}', now(), '{$post_image}', '{$post_content}', '{$post_tags}', '{$source_link}', '{$source_link_name}')";
+        $query .= "VALUES('{$post_title}', '{$post_date}', '{$post_image}', '{$post_content}', '{$post_tags}', '{$source_link}', '{$source_link_name}')";
         
         $create_post_query = mysqli_query($connection, $query);
 
@@ -37,6 +35,11 @@
     <div class="form-group">
         <label for="title">News Title</label>
         <input type="text" class="form-control" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input value=<?php echo date("Y-m-d") ?> type="date" class="form-control" name="date">
     </div>
 
     <div class="form-group">

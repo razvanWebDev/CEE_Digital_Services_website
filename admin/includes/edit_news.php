@@ -20,7 +20,7 @@
         if(isset($_POST['update_post'])) {
           
             $post_title = $_POST['title'];
-
+            $post_date = $_POST['date'];
             $post_image = $_FILES['image']['name'];
             $post_image_temp = $_FILES['image']['tmp_name'];
 
@@ -39,7 +39,7 @@
 
             $query = "UPDATE news SET ";
             $query .= "post_title = '{$post_title}', ";
-            $query .= "post_date = now(), ";
+            $query .= "post_date = '{$post_date}', ";
             $query .= "post_image = '{$post_image}', ";
             $query .= "post_content = '{$post_content}', ";
             $query .= "post_tags = '{$post_tags}', ";
@@ -52,13 +52,20 @@
             if(!$update_post) {
                 die("QUERY FAILED" . mysqli_error($connection));
             }
+            
         }
+        
 ?>
 
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">News Title</label>
         <input value="<?php echo $post_title; ?>" type="text" class="form-control" name="title">
+    </div>
+
+    <div class="form-group">
+        <label for="date">Date</label>
+        <input type="date" value="<?php echo $post_date ?>" class="form-control" name="date">
     </div>
 
     <div class="form-group">
