@@ -79,7 +79,7 @@
 
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea class="form-control" name="content" cols="30" rows="10"><?php echo $post_content; ?></textarea>
+        <textarea id="body" class="form-control" name="content" cols="30" rows="10"><?php echo $post_content; ?></textarea>
     </div>
 
     <div class="form-group">

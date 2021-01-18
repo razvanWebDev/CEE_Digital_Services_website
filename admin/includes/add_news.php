@@ -27,6 +27,7 @@
         if(!$create_post_query) {
             die("QUERY FAILED" . mysqli_error($connection));
         }
+        echo "News article created: " . "<a href='news.php'>View All News</a>";
     }
 
 ?>
@@ -49,7 +50,7 @@
 
     <div class="form-group">
         <label for="content">Content</label>
-        <textarea class="form-control" name="content" cols="30" rows="10"></textarea>
+        <textarea id="body" class="form-control" name="content" cols="30" rows="10"></textarea>
     </div>
 
     <div class="form-group">

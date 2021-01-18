@@ -14,16 +14,15 @@
             <ul class="nav navbar-right top-nav">
                 <li><a href="../index.html">HOME SITE</a></li>
 
-
                 <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> John Smith <b class="caret"></b></a>
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <?php echo $_SESSION['firstname']; ?> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <li>
+                        <!-- <li>
                             <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li>
-                        <li class="divider"></li>
+                        </li> -->
+                        <!-- <li class="divider"></li> -->
                         <li>
-                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Log Out</a>
+                            <a href="includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Logout</a>
                         </li>
                     </ul>
                 </li>
@@ -31,9 +30,9 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <li>
+                    <!-- <li>
                         <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li>
+                    </li> -->
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#news-dropdown"><i class="fa fa-fw fa-arrows-v"></i> News <i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="news-dropdown" class="collapse">
@@ -56,9 +55,6 @@
                                 <a href="users.php?source=add_user">Add user</a>
                             </li>
                         </ul>
-                    </li>
-                    <li>
-                        <a href="index-rtl.html"><i class="fa fa-fw fa-dashboard"></i>Profile</a>
                     </li>
                 </ul>
             </div>

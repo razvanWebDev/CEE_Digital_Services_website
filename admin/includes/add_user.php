@@ -33,6 +33,8 @@
         if(!$create_post_query) {
             die("QUERY FAILED" . mysqli_error($connection));
         }
+
+        echo "User created: " . "<a href='users.php'>View Users</a>";
     }
 
 ?>
@@ -64,7 +66,7 @@
     </div>
 
     <div class="form-group">
-        <label for="user_password">Password *</label>
+        <label for="user_password">Password * (8 characters min)</label>
         <input type="password" class="form-control" name="user_password" required>
     </div>
 
