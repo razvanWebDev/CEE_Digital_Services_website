@@ -55,9 +55,12 @@
             if(!$update_user) {
                 die("QUERY FAILED" . mysqli_error($connection));
             }
+
+            echo "<p class='bg-success'>User updated. <a href='users.php'>View all users</a></p>";
         }
 ?>
 
+<h2>Edit user</h2><br>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="username">Username *</label>

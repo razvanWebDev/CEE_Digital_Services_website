@@ -52,11 +52,19 @@
             if(!$update_post) {
                 die("QUERY FAILED" . mysqli_error($connection));
             }
+
+            //TODO after read more is implemented
+            //echo "<p class='bg-success'>News article updated. <a href='../news-post.php?p_id={$the_post_id}'>View Article</a></p>";
+
+            //Delete after read more is implemented
+            echo "<p class='bg-success'>News article updated. <a href='news.php'>View all news articles</a></p>";
+
             
         }
         
 ?>
 
+<h2>Edit news article</h2><br>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">News Title</label>

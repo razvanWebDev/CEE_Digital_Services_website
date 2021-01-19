@@ -9,6 +9,7 @@
 ?>
 
 <!-- DISPLAY NEWS ARTICLES ON ADMIN PAGE -->
+<a class="btn btn-primary" href="users.php?source=add_user">Add user</a> <br><br>
 <table class="table table-bordered table-hover">
     <thead>
         <tr>

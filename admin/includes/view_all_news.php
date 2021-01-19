@@ -9,6 +9,7 @@
 ?>
 
 <!-- DISPLAY NEWS ARTICLES ON ADMIN PAGE -->
+<a class="btn btn-primary" href="news.php?source=add_news">Add news article</a> <br><br>
 <table class="table table-responsive table-bordered table-hover">
     <thead>
         <tr>

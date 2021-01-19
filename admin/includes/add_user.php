@@ -34,11 +34,12 @@
             die("QUERY FAILED" . mysqli_error($connection));
         }
 
-        echo "User created: " . "<a href='users.php'>View Users</a>";
+        echo "<p class='bg-success'>User created: " . "<a href='users.php'>View Users</a></p>";
     }
 
 ?>
 
+<h2>Add user</h2><br>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="username">Username *</label>

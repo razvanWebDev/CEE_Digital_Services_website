@@ -27,11 +27,13 @@
         if(!$create_post_query) {
             die("QUERY FAILED" . mysqli_error($connection));
         }
-        echo "News article created: " . "<a href='news.php'>View All News</a>";
+
+        echo "<p class='bg-success'>News article published: " . "<a href='news.php'>View All News</a></p>";
     }
 
 ?>
 
+<h2>Add news article</h2><br>
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="title">News Title</label>
