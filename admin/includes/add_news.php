@@ -1,15 +1,15 @@
 <?php 
 
     if(isset($_POST['create_post'])) {
-        $post_title = $_POST['title'];
-        $post_date = $_POST['date'];
-        $post_image = $_FILES['image']['name'];
+        $post_title = escape($_POST['title']); 
+        $post_date = escape($_POST['date']);
+        $post_image = escape($_FILES['image']['name']);
         $post_image_temp = $_FILES['image']['tmp_name'];
 
-        $post_content = $_POST['content'];
-        $post_tags = $_POST['tags'];
-        $source_link = $_POST['source_link'];
-        $source_link_name = $_POST['source_link_name'];
+        $post_content = escape($_POST['content']);
+        $post_tags = escape($_POST['tags']);
+        $source_link = escape($_POST['source_link']);
+        $source_link_name = escape($_POST['source_link_name']);
 
         if($source_link != "" && $source_link_name == ""){
             die("Enter link name");

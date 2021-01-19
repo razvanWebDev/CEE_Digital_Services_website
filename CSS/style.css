@@ -392,7 +392,7 @@ header .nav-links a {
   min-height: 2.5em;
 }
 
-.nav-links .current {
+.current {
   color: var(--light-green-color);
 }
 
@@ -913,6 +913,27 @@ header.bottom-shaddow {
 
 .news-title-container .news-title {
   font-size: 1.1em;
+}
+
+.pager-container {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.pager {
+  display: flex;
+}
+
+.pager li a {
+  padding: 0.5em;
+  text-decoration: none !important;
+}
+
+.pager li .current-page {
+  text-decoration: underline !important;
+  color: var(--light-green-color);
 }
 
 /* =======================event recordings page========================== */

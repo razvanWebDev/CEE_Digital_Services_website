@@ -1,19 +1,17 @@
 <?php 
 
     if(isset($_POST['create_post'])) {
-        $username = $_POST['username'];
+        $username = escape($_POST['username']);
 
-       // $post_date = date('d-m-y');
+        $user_firstname = escape($_POST['user_firstname']);
+        $user_lastname = escape($_POST['user_lastname']);
+        $user_email = escape($_POST['user_email']);
 
-        $user_firstname = $_POST['user_firstname'];
-        $user_lastname = $_POST['user_lastname'];
-        $user_email = $_POST['user_email'];
-
-        $user_image = $_FILES['user_image']['name'];
+        $user_image = escape($_FILES['user_image']['name']);
         $user_image_temp = $_FILES['user_image']['tmp_name'];
 
-        $user_password = $_POST['user_password'];
-        $user_repeat_password = $_POST['user_repeat_password'];
+        $user_password = escape($_POST['user_password']);
+        $user_repeat_password = escape($_POST['user_repeat_password']);
 
         if(strlen($user_password)< 8){
             die("The password must have at least 8 characters");

@@ -2,9 +2,12 @@
 <!-- DELETE NEWS ARTICLE -->
 <?php 
  if(isset($_GET['delete'])) {
-    $the_post_id = $_GET['delete'];
-    $query = "DELETE FROM news WHERE post_id = {$the_post_id}";
-    $delete_query = mysqli_query($connection, $query);
+    if(isset($_GET['delete'])){
+        $the_post_id = mysqli_real_escape_string($connection, $_GET['delete']);
+        $query = "DELETE FROM news WHERE post_id = {$the_post_id}";
+        $delete_query = mysqli_query($connection, $query);
+    }
+   
  }
 ?>
 
@@ -27,7 +30,7 @@
     <tbody>
         <?php 
         
-        $query = "SELECT * FROM news ORDER BY post_date DESC";
+        $query = "SELECT * FROM news ORDER BY post_date DESC, post_id DESC";
         $select_news = mysqli_query($connection, $query);
 
         while ($row = mysqli_fetch_assoc($select_news)) {

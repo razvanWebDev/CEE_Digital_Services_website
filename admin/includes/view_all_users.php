@@ -1,14 +1,17 @@
 
-<!-- DELETE NEWS ARTICLE -->
+<!-- DELETE USERS -->
 <?php 
  if(isset($_GET['delete'])) {
-    $the_post_id = $_GET['delete'];
-    $query = "DELETE FROM users WHERE user_id = {$the_post_id}";
-    $delete_query = mysqli_query($connection, $query);
+    if(isset($_SESSION['username'])){
+        $the_user_id = mysqli_real_escape_string($connection, $_GET['delete']);
+        $query = "DELETE FROM users WHERE user_id = {$the_user_id}";
+        $delete_query = mysqli_query($connection, $query);
+    }
+ 
  }
 ?>
 
-<!-- DISPLAY NEWS ARTICLES ON ADMIN PAGE -->
+<!-- DISPLAY UISERS ON ADMIN PAGE -->
 <a class="btn btn-primary" href="users.php?source=add_user">Add user</a> <br><br>
 <table class="table table-bordered table-hover">
     <thead>

@@ -52,7 +52,7 @@
                             Directory</a>
                     </div>
                 </div>
-                <!-- <a href="news.html" class="nav-item">News</a> -->
+                <a href="news-page.php" class="nav-item current">News</a>
                 <a href="event-recording.html" class="nav-item">Event Recordings</a>
                 <div class="dropdown-header-item nav-item">
                     <div class="drop flex">

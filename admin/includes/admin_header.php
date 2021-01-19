@@ -1,4 +1,5 @@
 <?php include "../PHP/db.php" ?>
+<?php include "functions.php" ?>
 <?php session_start(); ?>
 <?php $_SESSION['wrongcredentials'] = ""; ?>
 

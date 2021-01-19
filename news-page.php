@@ -11,9 +11,6 @@
     <meta charset="UTF-8" lang="EN">
     <title>CEE Digital Services | News</title>
 
-    <!-- Bootstrap Core CSS -->
-    <!-- <link href="css/bootstrap.min.css" rel="stylesheet"> -->
-
     <!-- Custom CSS -->
     <link href="css/style.css" rel="stylesheet">
 </head>
@@ -52,7 +49,7 @@
                             Directory</a>
                     </div>
                 </div>
-                <!-- <a href="news.html" class="nav-item">News</a> -->
+                <a href="news-page.php" class="nav-item current">News</a>
                 <a href="event-recording.html" class="nav-item">Event Recordings</a>
                 <div class="dropdown-header-item nav-item">
                     <div class="drop flex">
@@ -81,8 +78,30 @@
     <section class="news-page-container">
         <div class="news-container">
             <?php 
-                
-                $query = "SELECT * FROM news ORDER BY post_date DESC";
+            //the number of news per page
+            $articles_per_page = 10;
+            //the number of titles on the right side
+            $titles_per_page = 20;
+
+                if(isset($_GET['page'])){
+                    $page = $_GET['page'];
+                }else{
+                    $page = "";
+                }
+
+                if($page == "" || $page == 1){
+                    $page_1 = 0;
+                }else{
+                    $page_1 = ($page * $articles_per_page) - $articles_per_page;
+                }
+
+                $post_query_count = "SELECT * FROM news";
+                $select_post_query_count = mysqli_query($connection, $post_query_count);
+                $count = mysqli_num_rows($select_post_query_count);
+                $count = ceil($count / $articles_per_page);    
+
+
+                $query = "SELECT * FROM news ORDER BY post_date DESC, post_id DESC LIMIT $page_1, $articles_per_page";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)) {
@@ -119,7 +138,7 @@
                 <h2>Latest News</h2>
                 
                     <?php 
-                        $query = "SELECT * FROM news ORDER BY post_date DESC LIMIT 20";
+                        $query = "SELECT * FROM news ORDER BY post_date DESC LIMIT $titles_per_page";
                         $select_all_posts_query = mysqli_query($connection, $query);
 
                         while($row = mysqli_fetch_assoc($select_all_posts_query)) {
@@ -139,15 +158,29 @@
     </section>
     <!-- /.container -->
 
+    <!-- pagination -->
+    <section>
+        <div class="pager-container">
+            <ul class="pager">
+                <?php 
+                for($i = 1; $i <= $count; $i++){
+                    if($i == $page){
+                        echo "<li><a class='current-page' href='news-page.php?page={$i}'>$i</a></li>";
+                    }else{
+                        echo "<li><a href='news-page.php?page={$i}'>$i</a></li>";
+                    }
+                    
+                }
+                ?>
+                
+            </ul>
+        </div>
+       
+    </section>
+
     <footer>
         <p><a href="https://www.ctotech.io/" target="_blank">Developed by CTOtech</a></p>
     </footer>
-
-    <!-- jQuery -->
-    <!-- <script src="js/jquery.js"></script> -->
-
-    <!-- Bootstrap Core JavaScript -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
 
     <!--Custom JS -->
     <script src="js/app.js"></script>
