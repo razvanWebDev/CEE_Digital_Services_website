@@ -77,6 +77,6 @@
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="create_post" value="Add User">
+        <input onclick="return confirm('Create User?')" class="btn btn-primary" type="submit" name="create_post" value="Add User"  >
     </div>
 </form>

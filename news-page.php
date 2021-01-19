@@ -82,13 +82,13 @@
         <div class="news-container">
             <?php 
                 
-                $query = "SELECT * FROM news";
+                $query = "SELECT * FROM news ORDER BY post_date DESC";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)) {
                     $post_title = $row['post_title'];
                     $post_date = $row['post_date'];
-                    $formated_date = date('d-m-Y',strtotime($post_date));;
+                    $formated_date = date('d-m-Y',strtotime($post_date));
                     $post_image = $row['post_image'];
                     $post_content = $row['post_content'];
                     $source_link = $row['source_link'];
@@ -116,18 +116,19 @@
             <?php include "PHP/news-search.php" ?>
             <div class="separator blue"></div>
             <div class="news-titles">
-                <h2>News Titles</h2>
+                <h2>Latest News</h2>
                 
                     <?php 
-                        $query = "SELECT * FROM news";
+                        $query = "SELECT * FROM news ORDER BY post_date DESC LIMIT 20";
                         $select_all_posts_query = mysqli_query($connection, $query);
 
                         while($row = mysqli_fetch_assoc($select_all_posts_query)) {
                             $post_title = $row['post_title'];
-                            $formated_date = $row['post_date'];
+                            $post_date = $row['post_date'];
+                            $formated_date = date('d-m-Y',strtotime($post_date));
                     ?>
                     <div class="news-title-container">
-                        <p class="news-date"><?php echo $post_date ?></p>
+                        <p class="news-date"><?php echo $formated_date ?></p>
                         <p class="news-title"><b><?php echo $post_title ?></b></p>
                     </div>
                     <?php } ?>

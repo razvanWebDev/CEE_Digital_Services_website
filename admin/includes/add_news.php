@@ -71,6 +71,6 @@
     </div>
 
     <div class="form-group">
-        <input class="btn btn-primary" type="submit" name="create_post" value="Publish">
+        <input onclick="return confirm('Publish article?')" class="btn btn-primary" type="submit" name="create_post" value="Publish">
     </div>
 </form>
