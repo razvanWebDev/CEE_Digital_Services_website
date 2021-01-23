@@ -9,10 +9,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="icon" href="img/Logo.png">
     <meta charset="UTF-8" lang="EN">
+    <link rel="stylesheet" href="CSS/style.css">
     <title>CEE Digital Services | News</title>
 
-    <!-- Custom CSS -->
-    <link href="css/style.css" rel="stylesheet">
 </head>
 
 <body>

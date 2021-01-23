@@ -56,7 +56,7 @@
                 die("QUERY FAILED" . mysqli_error($connection));
             }
 
-            echo "<p class='bg-success'>User updated. <a href='users.php'>View all users</a></p>";
+            echo "<p class='alert alert-success'>User updated. <a href='users.php'>View all users</a></p>";
         }
 ?>
 

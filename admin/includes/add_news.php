@@ -28,7 +28,7 @@
             die("QUERY FAILED" . mysqli_error($connection));
         }
 
-        echo "<p class='bg-success'>News article published: " . "<a href='news.php'>View All News</a></p>";
+        echo "<p class='alert alert-success'>News article published: " . "<a href='news.php'>View All News</a></p>";
     }
 
 ?>

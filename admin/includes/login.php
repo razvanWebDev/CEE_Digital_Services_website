@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include "../../PHP/db.php" ?>
 <?php session_start(); ?>
 

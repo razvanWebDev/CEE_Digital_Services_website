@@ -1,3 +1,4 @@
+<?php ob_start(); ?>
 <?php include "../PHP/db.php" ?>
 <?php include "functions.php" ?>
 <?php session_start(); ?>
@@ -26,6 +27,7 @@
     <!-- Custom Fonts -->
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <!-- text editor -->
     <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
 
 </head>

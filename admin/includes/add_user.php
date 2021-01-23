@@ -1,4 +1,5 @@
 <?php 
+    $username_exists = "";
 
     if(isset($_POST['create_post'])) {
         $username = escape($_POST['username']);
@@ -13,14 +14,23 @@
         $user_password = escape($_POST['user_password']);
         $user_repeat_password = escape($_POST['user_repeat_password']);
 
+        //check password
         if(strlen($user_password)< 8){
-            die("The password must have at least 8 characters");
+            die("<p class='alert alert-danger'>The password must have at least 8 characters</p>");
         }
 
         if($user_password != $user_repeat_password) {
-            die("Passwords don't match");
+            die("<p class='alert alert-danger'>Passwords don't match</p>");
         }
 
+        //check if username is unique
+        $query = "SELECT * FROM users  WHERE username ='$username'";
+        $check_username = mysqli_query($connection, $query);
+        if(mysqli_num_rows($check_username)>=1){
+            die("<p class='alert alert-danger'>Username already exists</p>");
+        }
+
+        //add new user to db
         move_uploaded_file($user_image_temp, "../img/Users/$user_image");
 
         $query = "INSERT INTO users(username, user_firstname, user_lastname, user_email, user_password, user_image)";
@@ -32,7 +42,9 @@
             die("QUERY FAILED" . mysqli_error($connection));
         }
 
-        echo "<p class='bg-success'>User created: " . "<a href='users.php'>View Users</a></p>";
+        echo "<p class='alert alert-success'>User created: " . "<a href='users.php'>View Users</a></p>";
+        exit();
+
     }
 
 ?>
@@ -43,6 +55,7 @@
         <label for="username">Username *</label>
         <input type="text" class="form-control" name="username" required>
     </div>
+    <p class=" alert-danger"><?php echo $username_exists; ?> </p>
 
     <div class="form-group">
         <label for="user_firstname">First Name *</label>

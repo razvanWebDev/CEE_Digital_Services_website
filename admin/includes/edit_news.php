@@ -57,7 +57,7 @@
             //echo "<p class='bg-success'>News article updated. <a href='../news-post.php?p_id={$the_post_id}'>View Article</a></p>";
 
             //Delete after read more is implemented
-            echo "<p class='bg-success'>News article updated. <a href='news.php'>View all news articles</a></p>";
+            echo "<p class='alert alert-success'>News article updated. <a href='news.php'>View all news articles</a></p>";
 
             
         }
