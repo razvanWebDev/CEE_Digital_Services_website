@@ -18,7 +18,7 @@
         <tr>
             <th>Id</th>
             <th>Username</th>
-            <th>Fisrt Name</th>
+            <th>First Name</th>
             <th>Last Name</th>
             <th>Email</th>
             <th>Image</th>  
@@ -54,7 +54,7 @@
             echo "<td><a href='users.php?source=edit_user&u_id={$user_id}'>Edit</a></td>";
             echo "<td><a href='users.php?delete={$user_id}' onClick=\"javascript:return confirm('Delete {$username}?');\">Delete</a></td>";
             echo "</tr>";
-        }                 
+        } 
         ?>
     </tbody>                            
 </table>

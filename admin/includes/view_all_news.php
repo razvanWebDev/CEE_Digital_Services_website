@@ -60,7 +60,7 @@
             echo "<td><a href='news.php?source=edit_news&p_id={$post_id}'>Edit</a></td>";
             echo "<td><a href='news.php?delete={$post_id}' onClick=\"javascript:return confirm('Delete {$post_title}?');\">Delete</a></td>";
             echo "</tr>";
-        }                 
+        }         
         ?>
     </tbody>                            
 </table>

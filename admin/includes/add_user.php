@@ -1,7 +1,7 @@
 <?php 
     $username_exists = "";
 
-    if(isset($_POST['create_post'])) {
+    if(isset($_POST['add_user'])) {
         $username = escape($_POST['username']);
 
         $user_firstname = escape($_POST['user_firstname']);
@@ -42,9 +42,8 @@
             die("QUERY FAILED" . mysqli_error($connection));
         }
 
-        echo "<p class='alert alert-success'>User created: " . "<a href='users.php'>View Users</a></p>";
+        echo "<p class='alert alert-success'>User created: " . "<a href='users.php'>View Users</a> or <a href='users.php?source=add_user'>Add another user</a></p>";
         exit();
-
     }
 
 ?>
@@ -88,6 +87,6 @@
     </div>
 
     <div class="form-group">
-        <input onclick="return confirm('Create User?')" class="btn btn-primary" type="submit" name="create_post" value="Add User"  >
+        <input onclick="return confirm('Create User?')" class="btn btn-primary" type="submit" name="add_user" value="Add User"  >
     </div>
 </form>

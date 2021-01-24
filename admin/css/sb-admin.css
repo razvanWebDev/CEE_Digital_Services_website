@@ -22,8 +22,13 @@ body {
 }
 
 #page-wrapper {
-  width: 100%;
+  width: fit-content;
+  min-width: 100%;
   padding: 0;
+  background-color: #fff;
+}
+
+table {
   background-color: #fff;
 }
 
@@ -134,6 +139,10 @@ ul.alert-dropdown {
     outline: none;
     background-color: #000 !important;
   }
+}
+
+.side-nav {
+  min-height: 100vh;
 }
 
 .side-nav > li > ul {

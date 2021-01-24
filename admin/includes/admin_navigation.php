@@ -44,6 +44,15 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#tickets-reservations-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Tickets reservations<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="tickets-reservations-dropdown" class="collapse">
+                            <li>
+                                <a href="ticket-reservations.php">View all reservations</a>
+                            </li>
+                        </ul>
+                    </li>
                     
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#users_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>

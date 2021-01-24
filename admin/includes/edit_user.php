@@ -57,6 +57,7 @@
             }
 
             echo "<p class='alert alert-success'>User updated. <a href='users.php'>View all users</a></p>";
+            exit();
         }
 ?>
 
