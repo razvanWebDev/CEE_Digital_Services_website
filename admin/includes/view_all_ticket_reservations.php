@@ -12,9 +12,10 @@
 ?>
 
 <!-- DISPLAY RESERVATIONS ON ADMIN PAGE -->
-<form action="includes/export.php" method="post">					
+<form action="includes/export.php" method="post" enctype="multipart/form-data">					
     <button type="submit" id="dataExport" name="dataExport" value="Export to excel" class="btn btn-primary">Export To Excel</button>
     <br><br>
+    <a href="includes/export.php">Download</a>
 </form>
 <table class="table table-bordered table-hover">
     <thead>
