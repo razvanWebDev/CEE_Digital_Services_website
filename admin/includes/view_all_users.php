@@ -16,7 +16,7 @@
 <table class="table table-bordered table-hover">
     <thead>
         <tr>
-            <th>Id</th>
+            <th>Nr</th>
             <th>Username</th>
             <th>First Name</th>
             <th>Last Name</th>
@@ -32,6 +32,8 @@
         $query = "SELECT * FROM users";
         $select_users = mysqli_query($connection, $query);
 
+        $rowCounter = 0;
+
         while ($row = mysqli_fetch_assoc($select_users)) {
             $user_id = $row['user_id'];
             $username = $row['username'];
@@ -39,9 +41,10 @@
             $user_lastname = $row['user_lastname'];
             $user_email = $row['user_email'];
             $user_image = $row['user_image'];
+            $rowCounter++;
 
             echo "<tr>";
-            echo "<td>{$user_id}</td>";
+            echo "<td>{$rowCounter}</td>";
             echo "<td>{$username}</td>";
             echo "<td>{$user_firstname}</td>";
             echo "<td>{$user_lastname}</td>";

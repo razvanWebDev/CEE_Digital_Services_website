@@ -53,6 +53,15 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#submit-solutions-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Solutions Showcase<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="submit-solutions-dropdown" class="collapse">
+                            <li>
+                                <a href="submit-solutions-showcase.php">View all solutions showcases</a>
+                            </li>
+                        </ul>
+                    </li>
                     
                     <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#users_dropdown"><i class="fa fa-fw fa-arrows-v"></i> Users <i class="fa fa-fw fa-caret-down"></i></a>

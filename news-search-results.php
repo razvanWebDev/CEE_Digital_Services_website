@@ -83,7 +83,7 @@
         <?php 
             if(isset($_POST['submit'])) {
                 $search = $_POST['search'];
-                $query = "SELECT * FROM news WHERE post_title LIKE '%$search%' OR post_tags LIKE '%$search%' OR post_date LIKE '%$search%' ";
+                $query = "SELECT * FROM news WHERE post_title LIKE '%$search%' OR post_tags LIKE '%$search%' OR post_date LIKE '%$search%'  ORDER BY post_date DESC, post_id ";
                 $search_query = mysqli_query($connection, $query);
 
                 if(!$search_query) {

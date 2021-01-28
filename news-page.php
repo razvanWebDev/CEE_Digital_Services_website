@@ -1,4 +1,5 @@
 <?php include "PHP/db.php" ?>
+<?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -78,14 +79,14 @@
         <div class="news-container">
             <?php 
             //the number of news per page
-            $articles_per_page = 10;
+            $articles_per_page = 20;
             //the number of titles on the right side
-            $titles_per_page = 20;
+            $titles_per_page = 40;
 
                 if(isset($_GET['page'])){
                     $page = $_GET['page'];
                 }else{
-                    $page = "";
+                    $page = 1;
                 }
 
                 if($page == "" || $page == 1){
@@ -104,6 +105,7 @@
                 $select_all_posts_query = mysqli_query($connection, $query);
 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                    $post_id = $row['post_id'];
                     $post_title = $row['post_title'];
                     $post_date = $row['post_date'];
                     $formated_date = date('d-m-Y',strtotime($post_date));
@@ -123,8 +125,13 @@
                 <p><?php echo $post_content ?></p>
                 <p class="news-source"><b>Source:</b> <a href=<?php echo $source_link ?> target="_blank">
                         <?php echo $source_link_name ?></a></p>
-                <!-- <a class="button blue" href="#">Read More </a> -->
+                        <?php 
+                        if(isset($_SESSION['username'])) {
+                            echo "<br><a class='button blue' href='admin/news.php?source=edit_news&p_id={$post_id}'>Edit Article </a><br>";
+                        }
+                ?>
                 <div class="separator blue news-article-separator"></div>
+            
             </div>
 
         <?php } ?>
@@ -161,14 +168,16 @@
     <section>
         <div class="pager-container">
             <ul class="pager">
-                <?php 
-                for($i = 1; $i <= $count; $i++){
-                    if($i == $page){
-                        echo "<li><a class='current-page' href='news-page.php?page={$i}'>$i</a></li>";
-                    }else{
-                        echo "<li><a href='news-page.php?page={$i}'>$i</a></li>";
+                <?php
+                if($count > 1){
+                    for($i = 1; $i <= $count; $i++){
+                        if($i == $page){
+                            echo "<li><a class='current-page' href='news-page.php?page={$i}'>$i</a></li>";
+                        }else{
+                            echo "<li><a href='news-page.php?page={$i}'>$i</a></li>";
+                        }
+                        
                     }
-                    
                 }
                 ?>
                 

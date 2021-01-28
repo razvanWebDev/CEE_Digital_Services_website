@@ -8,11 +8,7 @@
 ?>
 
     <div id="wrapper">
-
-
-
         <div id="page-wrapper">
-
             <div class="container-fluid">
 
                 <!-- Page Heading -->

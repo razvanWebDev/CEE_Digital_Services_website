@@ -4,7 +4,7 @@
  if(isset($_GET['delete'])) {
     if(isset($_SESSION['username'])){
         $the_user_id = mysqli_real_escape_string($connection, $_GET['delete']);
-        $query = "DELETE FROM reserve_tickets WHERE id = {$the_user_id}";
+        $query = "DELETE FROM submit_solutions_showcase WHERE id = {$the_user_id}";
         $delete_query = mysqli_query($connection, $query);
     }
  }
@@ -12,7 +12,7 @@
  //delete in bulk
  if(isset($_POST['checkBoxArray'])){
     foreach($_POST['checkBoxArray'] as $valueId){
-       $query = "DELETE FROM reserve_tickets WHERE id = {$valueId}";
+       $query = "DELETE FROM submit_solutions_showcase WHERE id = {$valueId}";
        $delete_query = mysqli_query($connection, $query);
     }
 }
@@ -32,23 +32,23 @@
             <tr>
             <th><input type="checkbox" id="selectAllBoxes"></th>
                 <th>Nr</th>
-                <th>Company name</th>
-                <th>Matchmaking Options</th>
-                <th>Participant Name</th>
-                <th>Position</th>
-                <th>Email</th> 
-                <th>Phone</th> 
-                <th>Invoicing Company</th> 
-                <th>Contact Email</th> 
-                <th>Contact Phone</th> 
-                <th>Tax Id</th> 
-                <th>Ticket Reservations Details</th> 
-                <th>Second Participant Name</th> 
-                <th>Second Participant Position</th> 
-                <th>Second Participant Email</th>
-                <th>Second Participant Phone</th> 
-                <th>Additional Notes</th> 
-                <th>Edit</>
+                <th>Company Name</th>
+                <th>Primary Location</th>
+                <th>Secondary Locations</th>
+                <th>Name of CEO</th>
+                <th>Showcase Presenter</th>
+                <th>Form Submitter</th>
+                <th>Phone</th>
+                <th>Email</th>
+                <th>More Details</th>
+                <th>Other Comments</th>
+                <th>Invoicing Company Name</th>
+                <th>Company address and Tax ID</th>
+                <th>Problem</th>
+                <th>Solution</th>
+                <th>Solution Justification</th>
+                <th>Solution References</th>
+                <th>Edit</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -72,12 +72,12 @@
                 $page_1 = ($page * $items_per_page) - $items_per_page;
             }
 
-            $post_query_count = "SELECT * FROM reserve_tickets";
+            $post_query_count = "SELECT * FROM submit_solutions_showcase";
             $select_post_query_count = mysqli_query($connection, $post_query_count);
             $count = mysqli_num_rows($select_post_query_count);
             $count = ceil($count / $items_per_page); 
             
-            $query = "SELECT * FROM reserve_tickets ORDER BY id DESC LIMIT $page_1, $items_per_page";
+            $query = "SELECT * FROM submit_solutions_showcase ORDER BY id DESC LIMIT $page_1, $items_per_page";
             $select_users = mysqli_query($connection, $query);
 
             while ($row = mysqli_fetch_assoc($select_users)) {
@@ -85,21 +85,21 @@
                 $totalRowCounter = $rowCounter_per_page + (($page-1) * $items_per_page);
                 $id = $row['id'];
                 $company_name = $row['company_name'];
-                $matchmacking_options = $row['matchmacking_options'];
-                $participant_name = $row['participant_name'];
-                $position = $row['position'];
-                $email = $row['email'];
+                $primary_location = $row['primary_location'];
+                $secondary_locations = $row['secondary_locations'];
+                $name_of_ceo = $row['name_of_ceo'];
+                $showcase_presenter = $row['showcase_presenter'];
+                $form_submitter = $row['form_submitter'];
                 $phone = $row['phone'];
+                $email = $row['email'];
+                $more_details = $row['more_details'];
+                $other_comments = $row['other_comments'];
                 $invoicing_company_name = $row['invoicing_company_name'];
-                $contact_email = $row['contact_email'];
-                $contact_phone = $row['contact_phone'];
-                $tax_id = $row['tax_id'];
-                $ticket_reservation_details = $row['ticket_reservation_details'];
-                $second_participant_name = $row['second_participant_name'];
-                $second_participant_position = $row['second_participant_position'];
-                $second_participant_email = $row['second_participant_email'];
-                $second_participant_phone = $row['second_participant_phone'];
-                $additional_notes = $row['additional_notes'];
+                $company_address_and_tax_id = $row['company_address_and_tax_id'];
+                $problem = $row['problem'];
+                $solution = $row['solution'];
+                $solution_justification = $row['solution_justification'];
+                $solution_references = $row['solution_references'];
 
                 echo "<tr>";
                 ?>
@@ -107,24 +107,24 @@
                 <?php
                 echo "<td>{$totalRowCounter}</td>";
                 echo "<td>{$company_name}</td>";
-                echo "<td>{$matchmacking_options}</td>";
-                echo "<td>{$participant_name}</td>";
-                echo "<td>{$position}</td>";
-                echo "<td>{$email}</td>";
+                echo "<td>{$primary_location}</td>";
+                echo "<td>{$secondary_locations}</td>";
+                echo "<td>{$name_of_ceo}</td>";
+                echo "<td>{$showcase_presenter}</td>";
+                echo "<td>{$form_submitter}</td>";
                 echo "<td>{$phone}</td>";
+                echo "<td>{$email}</td>";
+                echo "<td>{$more_details}</td>";
+                echo "<td>{$other_comments}</td>";
                 echo "<td>{$invoicing_company_name}</td>";
-                echo "<td>{$contact_email}</td>";
-                echo "<td>{$contact_phone}</td>";
-                echo "<td>{$tax_id}</td>";
-                echo "<td>{$ticket_reservation_details}</td>";
-                echo "<td>{$second_participant_name}</td>";
-                echo "<td>{$second_participant_position}</td>";
-                echo "<td>{$second_participant_email}</td>";
-                echo "<td>{$second_participant_phone}</td>";
-                echo "<td>{$additional_notes}</td>";
+                echo "<td>{$company_address_and_tax_id}</td>";
+                echo "<td>{$problem}</td>";
+                echo "<td>{$solution}</td>";
+                echo "<td>{$solution_justification}</td>";
+                echo "<td>{$solution_references}</td>";
             
-                echo "<td><a href='ticket-reservations.php?source=edit_reservation&r_id={$id}'>Edit</a></td>";
-                echo "<td><a href='ticket-reservations.php?delete={$id}' onClick=\"javascript:return confirm('Delete {$id}?');\">Delete</a></td>";
+                echo "<td><a href='submit-solutions-showcase.php?source=edit_solutions_showcase&s_id={$id}'>Edit</a></td>";
+                echo "<td><a href='submit-solutions-showcase.php?delete={$id}' onClick=\"javascript:return confirm('Delete {$company_name} solution showcase?');\">Delete</a></td>";
                 echo "</tr>";
             } 
             ?>

@@ -1,4 +1,5 @@
 window.onload = () => {
+  console.log("BIG LOADs");
   // =====================CACHE DOM ELEMENTS=====================
   const header = document.querySelector("header");
   const body = document.querySelector("body");
