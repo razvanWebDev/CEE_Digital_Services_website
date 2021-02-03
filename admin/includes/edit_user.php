@@ -9,7 +9,7 @@
         while ($row = mysqli_fetch_assoc($select_users_by_id)) {
             $user_id = $row['user_id'];
             $username = $row['username'];
-            $user_password = $row['user_password'];
+            $db_user_password = $row['user_password'];
             $user_firstname = $row['user_firstname'];
             $user_lastname = $row['user_lastname'];
             $user_email = $row['user_email'];
@@ -30,20 +30,28 @@
 
             if($user_password != "") {
                 if(strlen($user_password)< 8){
-                    die("The password must have at least 8 characters");
+                    die("<p class='alert alert-danger'>The password must have at least 8 characters</p>");
                 }
         
                 if($user_password != $user_repeat_password) {
-                    die("Passwords don't match");
+                    die("<p class='alert alert-danger'>Passwords don't match</p>");
                 }
+                $hashed_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
+            }else{
+                $hashed_password = $db_user_password;
+            }
 
+            $query = "SELECT * FROM users  WHERE username ='$username'";
+            $check_username = mysqli_query($connection, $query);
+            if(mysqli_num_rows($check_username)>1){
+                die("<p class='alert alert-danger'>Username already exists</p>");
             }
 
             move_uploaded_file($user_image_temp, "../img/Users/$user_image");
 
             $query = "UPDATE users SET ";
             $query .= "username = '{$username}', ";
-            $query .= "user_password = '{$user_password}', ";
+            $query .= "user_password = '{$hashed_password}', ";
             $query .= "user_firstname = '{$user_firstname}', ";
             $query .= "user_lastname = '{$user_lastname}', ";
             $query .= "user_email = '{$user_email}', ";

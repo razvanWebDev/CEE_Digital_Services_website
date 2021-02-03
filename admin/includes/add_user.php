@@ -23,6 +23,9 @@
             die("<p class='alert alert-danger'>Passwords don't match</p>");
         }
 
+        //hash password
+        $user_password = password_hash($user_password, PASSWORD_BCRYPT, array('cost' => 10));
+
         //check if username is unique
         $query = "SELECT * FROM users  WHERE username ='$username'";
         $check_username = mysqli_query($connection, $query);
@@ -32,6 +35,8 @@
 
         //add new user to db
         move_uploaded_file($user_image_temp, "../img/Users/$user_image");
+
+        
 
         $query = "INSERT INTO users(username, user_firstname, user_lastname, user_email, user_password, user_image)";
         $query .= "VALUES('{$username}', '{$user_firstname}', '{$user_lastname}', '{$user_email}', '{$user_password}', '{$user_image}')";

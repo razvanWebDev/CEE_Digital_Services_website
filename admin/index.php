@@ -4,47 +4,31 @@
     if(isset($_SESSION['username'])) {
         header("Location: admin.php");
     }
-
 ?>
 
-    <div id="wrapper">
-        <div id="page-wrapper">
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header">
-                            Welcome to admin
-                        </h1> 
-                    </div>
-                </div>
-                <!-- /.row -->
-
-                <div class="well">
-                    <h4>Login</h4>
-                    <form action="includes/login.php" method="post">
+<section id="login">
+    <div class="container">
+        <div class="row">
+            <div class="col-xs-6 col-xs-offset-3">
+                <div class="form-wrap">
+                <h1 style="color: white;">Website Admin</h1>
+                    <form role="form" action="includes/login.php" method="post" id="login-form" autocomplete="off">
                         <div class="form-group">
-                            <input name="username" type="text" class="form-control" placeholder="username">
+                            <label for="username" class="sr-only">username</label>
+                            <input type="text" name="username" class="form-control" placeholder="Username" required>
                         </div>
-                        <div class="input-group">
-                            <input name="password" type="password" class="form-control" placeholder="password">
-                            <span class="input-group-btn">
-                                <button class="btn btn-primary" name="login" type="submit">Submit</button>
-                            </span>
+                         <div class="form-group">
+                            <label for="password" class="sr-only">Password</label>
+                            <input type="password" name="password" id="key" class="form-control" placeholder="Password" required>
                         </div>
-                    
+                
+                        <input type="submit" name="login" class="btn btn-custom btn-lg btn-block" value="Log In">
                     </form>
-                    <br>
-                    <p style="color:red"><?php echo $_SESSION['wrongcredentials']; ?> </p>
+                 
                 </div>
+            </div> <!-- /.col-xs-12 -->
+        </div> <!-- /.row -->
+    </div> <!-- /.container -->
+</section>
 
-            </div>
-            <!-- /.container-fluid -->
-
-        </div>
-        <!-- /#page-wrapper -->
-
-    </div>
-    <!-- /#wrapper -->
 <?php include "includes/admin_footer.php" ?>
