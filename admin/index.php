@@ -12,10 +12,10 @@
             <div class="col-xs-6 col-xs-offset-3">
                 <div class="form-wrap">
                 <h1 style="color: white;">Website Admin</h1>
-                    <form role="form" action="includes/login.php" method="post" id="login-form" autocomplete="off">
+                    <form role="form" action="includes/login.php" method="post" id="login-form" autocomplete="on">
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username" required>
+                            <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="on" value="<?php echo isset($username) ? $username : '' ?>"  required>
                         </div>
                          <div class="form-group">
                             <label for="password" class="sr-only">Password</label>

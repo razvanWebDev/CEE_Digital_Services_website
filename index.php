@@ -1,3 +1,4 @@
+<?php include "PHP/db.php" ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -62,46 +63,50 @@
     </header>
 
     <section class="section-with-bg hero">
+        <?php 
+        $query = "SELECT * FROM hero_main WHERE id=1";
+        $result = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($result)){
+            $title = $row['title'];
+            $sub_title = $row['sub_title'];
+            $text = $row['text'];
+            $event_date = $row['event_date'];
+        }
+        ?>
         <div class="upcoming-event">
-            <h1><img src="img/SVG/Event_icon.svg" alt="" class="section-title-icon"> UPCOMING EVENT</h1>
+            <h1><img src="img/SVG/Event_icon.svg" alt="" class="section-title-icon"><?php echo $title; ?></h1>
             <div class="separator"></div>
-            <h2>Registration open for 3rd quarterly CEE Digital Services Matchmaking Summit & CEE Solutions Showcase
-                Awards 13 January, 2021.
-            </h2>
+            <h2><?php echo $sub_title; ?></h2>
             <div class="separator"></div>
-            <p>Our 3rd quarterly CEE Digital Services Matchmaking Summit is set for 13 January 2021, a focused 1-day
-                event to connect global technology buyers (primarily in western Europe, Scandinavia, UK, US and Japan)
-                with top digital services providers from Central Eastern Europe.
-            </p>
+            <p><?php echo $text; ?></p>
             <div class="date-apply">
-                <h2>Event Date: 13 January 2021</h2>
+                <h2><?php echo $event_date; ?></h2>
                 <a href="matchmaking-summit-13-january.html" class="button white">
                     Read more & Apply
                 </a>
             </div>
         </div>
 
+        <?php 
+        $query = "SELECT * FROM hero_newsletter_signup WHERE id=1";
+        $result = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($result)){
+            $title = $row['title'];
+            $first_paragraph = $row['first_paragraph'];
+            $second_paragraph = $row['second_paragraph'];
+            $btn_text = $row['btn_text'];
+        }
+        ?>
         <div class="newsletter-section">
-            <h2>A one stop shop for all your curated industry news and event recordings</h2>
-            <p>​​We produce a "news" Newsletter twice per month, covering the Digital ecosystem of Central Eastern
-                Europe.
-                Our focus is on news, deals, and events of interest to global firms working with CEE-based digital
-                services
-                providers.
-            </p>
-            <p>
-                We cover Poland, Hungary, Czech Republic, Slovakia, Lithuania, Latvia, Estonia, Romania, Serbia,
-                Bulgaria,
-                Belarus, Moldova and Ukraine.
-            </p>
+            <h2><?php echo $title; ?></h2>
+            <p><?php echo $first_paragraph; ?>​​</p>
+            <p><?php echo $second_paragraph; ?></p>
             <a href="newsletter-signup.html" class="button white" target="_blank">
-                Newsletter SignUp (free, bi-weekly)
+            <?php echo $btn_text; ?>
             </a>
         </div>
     </section>
-
-
-
+    
     <section class="news-section">
         <h1><img src="img/SVG/News_videos_icon.svg" alt="event icon" class="section-title-icon">NEWS / VIDEOS</h1>
         <div class="separator blue"></div>
@@ -239,6 +244,7 @@
     <footer>
         <p><a href="https://www.ctotech.io/" target="_blank">Developed by CTOtech</a></p>
     </footer>
+    <?php exit(); ?>
 
     <script src="JS/app.js"></script>
 </body>

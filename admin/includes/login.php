@@ -7,11 +7,8 @@
 <?php 
 
 if(isset($_POST['login'])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    $username = escape($username);
-    $password = escape($password);
+    $username = escape($_POST['username']);
+    $password = escape($_POST['password']);
 
     $query = "SELECT * FROM users WHERE username = '{$username}' ";
     $select_user_query = mysqli_query($connection, $query);
@@ -41,7 +38,6 @@ if(isset($_POST['login'])) {
     }
 
     exit();
-
 }
 
 ?>

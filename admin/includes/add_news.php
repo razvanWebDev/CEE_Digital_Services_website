@@ -29,7 +29,7 @@
         }
 
         echo "<p class='alert alert-success'>News article published: " . "<a href='news.php'>View All News</a> or <a href='news.php?source=add_news'>Add another</a></p>";
-        exit();
+   
     }
 
 ?>

@@ -17,10 +17,6 @@
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> <b class="caret"></b></a>
                     <ul class="dropdown-menu">
-                        <!-- <li>
-                            <a href="#"><i class="fa fa-fw fa-user"></i> Profile</a>
-                        </li> -->
-                        <!-- <li class="divider"></li> -->
                         <li>
                             <a href="includes/logout.php"><i class="fa fa-fw fa-power-off"></i> Logout</a>
                         </li>
@@ -30,17 +26,14 @@
             <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav side-nav">
-                    <!-- <li>
-                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
-                    </li> -->
                     <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#news-dropdown"><i class="fa fa-fw fa-arrows-v"></i> News <i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="news-dropdown" class="collapse">
+                        <a href="javascript:;" data-toggle="collapse" data-target="#main-page-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Main Page<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="main-page-dropdown" class="collapse">
                             <li>
-                                <a href="news.php">View all news</a>
+                                <a href="hero_main.php">Upcoming event</a>
                             </li>
                             <li>
-                                <a href="news.php?source=add_news">Add news</a>
+                                <a href="hero_newsletter_signup.php">Newsletter signup</a>
                             </li>
                         </ul>
                     </li>
@@ -59,6 +52,18 @@
                         <ul id="submit-solutions-dropdown" class="collapse">
                             <li>
                                 <a href="submit-solutions-showcase.php">View solutions showcases</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#news-dropdown"><i class="fa fa-fw fa-arrows-v"></i> News <i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="news-dropdown" class="collapse">
+                            <li>
+                                <a href="news.php">View all news</a>
+                            </li>
+                            <li>
+                                <a href="news.php?source=add_news">Add news</a>
                             </li>
                         </ul>
                     </li>
