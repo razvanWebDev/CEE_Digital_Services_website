@@ -123,30 +123,8 @@
             ?>
         </div>
 
-        <div class="search-container">
-            <?php include "PHP/news-search.php" ?>
-            <p class="clear-search centered"><a href="news-page.php">clear search</a></p>
-            <div class="separator blue"></div>
-            <div class="news-titles">
-                <h2>News Titles</h2>
-                
-                    <?php 
-                        $query = "SELECT * FROM news";
-                        $select_all_posts_query = mysqli_query($connection, $query);
-
-                        while($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                            $post_title = $row['post_title'];
-                            $post_date = $row['post_date'];
-                    
-                    ?>
-                    <div class="news-title-container">
-                        <p class="news-date"><?php echo $post_date ?></p>
-                        <p class="news-title"><b><?php echo $post_title ?></b></p>
-                    </div>
-                    <?php } ?>
-                
-            </div>
-        </div>
+        <!-- Right side search widget -->
+        <?php include "PHP/news-search.php" ?>
 
     </section>
     <!-- /.container -->
@@ -155,14 +133,10 @@
         <p><a href="https://www.ctotech.io/" target="_blank">Developed by CTOtech</a></p>
     </footer>
 
-    <!-- jQuery -->
-    <!-- <script src="js/jquery.js"></script> -->
-
-    <!-- Bootstrap Core JavaScript -->
-    <!-- <script src="js/bootstrap.min.js"></script> -->
-
     <!--Custom JS -->
     <script src="js/app.js"></script>
+
+    <?php exit(); ?>
 
 </body>
 

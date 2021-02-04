@@ -117,7 +117,7 @@
             ?>
 
             <div class="news-article">
-                <h2><?php echo $post_title ?></h2>
+                <h2><a href="news-post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a></h2>
                 <p class="news-article-date"><?php echo $formated_date ?></p>
                 <?php if($post_image != "") { ?>
                     <img class="news-article-image" src="img/<?php echo $post_image ?>" alt="">
@@ -131,35 +131,12 @@
                         }
                 ?>
                 <div class="separator blue news-article-separator"></div>
-            
             </div>
-
         <?php } ?>
         </div>
 
-        <div class="search-container">
-            <?php include "PHP/news-search.php" ?>
-            <div class="separator blue"></div>
-            <div class="news-titles">
-                <h2>Latest News</h2>
-                
-                    <?php 
-                        $query = "SELECT * FROM news ORDER BY post_date DESC LIMIT $titles_per_page";
-                        $select_all_posts_query = mysqli_query($connection, $query);
-
-                        while($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                            $post_title = $row['post_title'];
-                            $post_date = $row['post_date'];
-                            $formated_date = date('d-m-Y',strtotime($post_date));
-                    ?>
-                    <div class="news-title-container">
-                        <p class="news-date"><?php echo $formated_date ?></p>
-                        <p class="news-title"><b><?php echo $post_title ?></b></p>
-                    </div>
-                    <?php } ?>
-                
-            </div>
-        </div>
+        <!-- Right side search widget -->
+        <?php include "PHP/news-search.php" ?>
 
     </section>
     <!-- /.container -->
@@ -179,7 +156,6 @@
                         
                     }
                 }
-                exit();
                 ?>
                 
             </ul>
@@ -194,6 +170,7 @@
     <!--Custom JS -->
     <script src="js/app.js"></script>
 
+    <?php exit(); ?>
 </body>
 
 </html>

@@ -106,147 +106,59 @@
             </a>
         </div>
     </section>
-    
+
     <section class="news-section">
-        <h1><img src="img/SVG/News_videos_icon.svg" alt="event icon" class="section-title-icon">NEWS / VIDEOS</h1>
+        <h1><img src="img/SVG/News_videos_icon.svg" alt="event icon" class="section-title-icon">NEWS</h1>
         <div class="separator blue"></div>
 
-        <div class="news-content">
-            <h2>Bulgaria's SpaceCAD, New Horizons win World Bank-financed deal</h2>
-            <p class="date">6/12/2020</p>
-            <p>
-                A consortium between Bulgaria's SpaceCAD and New Horizons Bulgaria said on Tuesday it has won a deal to
-                carry out online ICT trainings as part of the $23.5 million (19.9 million euro) Georgia National
-                Innovation Ecosystem (GENIE) project financed by the World Bank.
-            </p>
-            <!-- <a href="#" class="button green">
-                Read More
-            </a> -->
-        </div>
+        <?php 
+            $titles_per_page = 25;
+            $query = "SELECT * FROM news ORDER BY post_date DESC LIMIT $titles_per_page";
+            $select_all_posts_query = mysqli_query($connection, $query);
 
-        <div class="separator blue"></div>
+            while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                $post_id = $row['post_id'];
+                $post_title = $row['post_title'];
+                $post_date = $row['post_date'];
+                $formated_date = date('d-m-Y',strtotime($post_date));
+                $post_image = $row['post_image'];
 
-        <div class="news-content-with-video">
-            <div class="news-description">
-                <h2>City of Charlotte - Showcase - at CEE Digital Services Summit</h2>
-                <p class="date">27/9/2020</p>
-                <!-- <a href="#" class="button green">
-                    Recording
-                </a> -->
+                $post_content = $row['post_content'];
+                $post_content = strip_tags($post_content);
+
+                if (strlen($post_content) > 200) {
+
+                    // truncate string
+                    $stringCut = substr($post_content, 0, 200);
+                    $endPoint = strrpos($stringCut, ' ');
+                
+                    //if the string doesn't contain any space then it will cut without word basis.
+                    $post_content = $endPoint? substr($stringCut, 0, $endPoint) : substr($stringCut, 0);
+                    $post_content .= '...';
+                }  
+        ?>
+            <div class="news-content">
+            <h2><a href="news-post.php?p_id=<?php echo $post_id; ?>" target="_blank"><?php echo $post_title ?></a></h2>
+                <p class="date"><?php echo $formated_date ?></p>
+                <?php if($post_image != "") { ?>
+                    <img class="news-article-image" src="img/<?php echo $post_image ?>" alt="">
+                <?php }?>
+                <div class="news-truncated-content"><?php echo $post_content; ?></div>
+                <a href="news-post.php?p_id=<?php echo $post_id; ?>" class="button green" target="_blank">
+                    Read More
+                </a>
             </div>
-            <div class="news-video">
-                <div class="video-container">
-                    <iframe src="https://www.youtube.com/embed/OpdnGbrCmbk" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="separator blue"></div>
-
-        <div class="news-content-with-video">
-            <div class="news-description">
-                <h2>SportsTech.ai and Agilent on US Panel at CEE Digital Services Summit</h2>
-                <p class="date">22/9/2020</p>
-                <!-- <a href="#" class="button green">
-                    Recording
-                </a> -->
-            </div>
-            <div class="news-video">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/sTbKSXUML8g" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="separator blue"></div>
-
-        <div class="news-content-with-video">
-            <div class="news-description">
-                <h2>CEE Digital Services Summit - 17 September 2020. US Panel IV</h2>
-                <p class="date">20/9/2020</p>
-                <!-- <a href="#" class="button green">
-                    Recording
-                </a> -->
-            </div>
-            <div class="news-video">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/2zebnSBOcJM" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen>
-                    </iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="separator blue"></div>
-
-        <div class="news-content-with-video">
-            <div class="news-description">
-                <h2>CEE Digital Services Summit - 17 September, US Panel I</h2>
-                <p class="date">20/9/2020</p>
-                <!-- <a href="#" class="button green">
-                    Recording
-                </a> -->
-            </div>
-            <div class="news-video">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Cc3UZWWH2-M" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="separator blue"></div>
-
-        <div class="news-content-with-video">
-            <div class="news-description">
-                <h2>Germany Panel at CEE Digital Services Summit</h2>
-                <p class="date">17/9/2020</p>
-                <!-- <a href="#" class="button green">
-                    Recording
-                </a> -->
-            </div>
-            <div class="news-video">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QQU_QpE17iw" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
-
-        <div class="separator blue"></div>
-
-        <div class="news-content-with-video">
-            <div class="news-description">
-                <h2>UK Panel at CEE Digital Services Summit</h2>
-                <p class="date">17/9/2020</p>
-                <!-- <a href="#" class="button green">
-                    Recording
-                </a> -->
-            </div>
-            <div class="news-video">
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/QbkXH9vTsNU" frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                        allowfullscreen></iframe>
-                </div>
-            </div>
-        </div>
+            <div class="separator blue"></div>
+            
+        <?php } ?>
     </section>
-
     <footer>
         <p><a href="https://www.ctotech.io/" target="_blank">Developed by CTOtech</a></p>
     </footer>
-    <?php exit(); ?>
+    
 
     <script src="JS/app.js"></script>
+    <?php exit(); ?>
 </body>
 
 </html>
