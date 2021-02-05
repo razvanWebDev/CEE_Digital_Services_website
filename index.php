@@ -1,66 +1,5 @@
-<?php include "PHP/db.php" ?>
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <link rel="icon" href="img/Logo.png">
-    <meta charset="UTF-8" lang="EN">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" href="CSS/style.css">
-    <title>CEE Digital Services</title>
-</head>
-
-<body>
-    <header>
-        <a href="/" id="logo-section">
-            <img id="logo" src="img/Logo.png" alt="Logo">
-            <h1>CEE Digital Services<br>Association</h1>
-        </a>
-        <nav class="header-menu">
-            <div class="nav-links flex">
-                <div class="dropdown-header-item nav-item">
-                    <div class="drop flex">
-                        <a href="matchmaking-summit-13-january.html">Matchmaking <br> Summit 13
-                            January
-                        </a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="agendas.html">Agendas</a>
-                        <a href="reserve-tickets.html">Reserve Tickets</a>
-                        <a href="submit-solutions-showcase.html">Submit Solutions <br>Showcase</a>
-                        <a href="partnership-options.html">Partnership Options</a>
-                        <a href="q2-agenda-september.html">Q2 Agenda September</a>
-                    </div>
-                </div>
-                <a href="awards-and-jury.html" class="nav-item">Awards and Jury</a>
-                <div class="dropdown-header-item nav-item">
-                    <div class="drop flex">
-                        <a href="services-directory.html">Services Directory</a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="https://ceedigitalservices.clutch.co/directory" target="_blank">Service Provider
-                            Directory</a>
-                    </div>
-                </div>
-                <a href="news-page.php" class="nav-item">News</a>
-                <a href="event-recording.html" class="nav-item">Event Recordings</a>
-                <div class="dropdown-header-item nav-item">
-                    <div class="drop flex">
-                        <a href="about.html">About Us</a>
-                    </div>
-                    <div class="dropdown">
-                        <a href="newsletter-signup.html">Newsletter Signup</a>
-                    </div>
-                </div>
-            </div>
-        </nav>
-        <div id="hamburger">
-            <div class="line1 blue-bg"></div>
-            <div class="line2 blue-bg"></div>
-            <div class="line3 blue-bg"></div>
-        </div>
-    </header>
+<?php include "PHP/header.php"; ?>
+<?php include "PHP/nav.php"; ?>
 
     <section class="section-with-bg hero">
         <?php 
@@ -81,9 +20,6 @@
             <div><?php echo $text; ?></div>
             <div class="date-apply">
                 <div><?php echo $event_date; ?></div>
-                <a href="matchmaking-summit-13-january.html" class="button white">
-                    Read more & Apply
-                </a>
             </div>
         </div>
 
@@ -152,13 +88,5 @@
             
         <?php } ?>
     </section>
-    <footer>
-        <p><a href="https://www.ctotech.io/" target="_blank">Developed by CTOtech</a></p>
-    </footer>
-    
 
-    <script src="JS/app.js"></script>
-    <?php exit(); ?>
-</body>
-
-</html>
+<?php include "PHP/footer.php"; ?>
