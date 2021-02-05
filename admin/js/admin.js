@@ -12,8 +12,18 @@ window.onload = () => {
     }
   }
 
-  //TEXT EDITOR
+  //TEXT EDITORS -> https://ckeditor.com/docs/ckeditor5/latest/index.html
+  ClassicEditor.create(document.querySelector("#hero-subtitle")).catch(
+    (error) => {
+      console.error(error);
+    }
+  );
+
   ClassicEditor.create(document.querySelector("#body")).catch((error) => {
+    console.error(error);
+  });
+
+  ClassicEditor.create(document.querySelector("#hero-date")).catch((error) => {
     console.error(error);
   });
 

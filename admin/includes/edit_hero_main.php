@@ -49,17 +49,17 @@
 
     <div class="form-group">
         <label for="sub_title">Sub Title *</label>
-        <input value='<?php echo $sub_title; ?>' type="text" class="form-control" name="sub_title" required></input>
+        <textarea id="hero-subtitle" class="form-control" name="sub_title"><?php echo $sub_title; ?></textarea>
     </div>
 
     <div class="form-group">
         <label for="text">Text *</label>
-        <input value='<?php echo $text; ?>' type="text" class="form-control" name="text" required>
+        <textarea id="body" class="form-control" name="text"><?php echo $text; ?></textarea>
     </div>
 
     <div class="form-group">
         <label for="event_date">Event Date *</label>
-        <input value='<?php echo $event_date; ?>' type="text" class="form-control" name="event_date" required>
+        <textarea id="hero-date" class="form-control" name="event_date"><?php echo $event_date; ?></textarea>
     </div>
 
     <div class="form-group">

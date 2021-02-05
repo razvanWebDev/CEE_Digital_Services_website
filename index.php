@@ -76,11 +76,11 @@
         <div class="upcoming-event">
             <h1><img src="img/SVG/Event_icon.svg" alt="" class="section-title-icon"><?php echo $title; ?></h1>
             <div class="separator"></div>
-            <h2><?php echo $sub_title; ?></h2>
+            <div><?php echo $sub_title; ?></div>
             <div class="separator"></div>
-            <p><?php echo $text; ?></p>
+            <div><?php echo $text; ?></div>
             <div class="date-apply">
-                <h2><?php echo $event_date; ?></h2>
+                <div><?php echo $event_date; ?></div>
                 <a href="matchmaking-summit-13-january.html" class="button white">
                     Read more & Apply
                 </a>
@@ -126,10 +126,10 @@
                 $post_content = $row['post_content'];
                 $post_content = strip_tags($post_content);
 
-                if (strlen($post_content) > 200) {
+                if (strlen($post_content) > 300) {
 
                     // truncate string
-                    $stringCut = substr($post_content, 0, 200);
+                    $stringCut = substr($post_content, 0, 300);
                     $endPoint = strrpos($stringCut, ' ');
                 
                     //if the string doesn't contain any space then it will cut without word basis.
