@@ -39,6 +39,16 @@
                     </li>
 
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#matchmaking-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Matchmaking Page<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="matchmaking-dropdown" class="collapse">
+                            <li>
+                                <a href="matchmaking_page_title.php">Page title</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#tickets-reservations-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Tickets reservations<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="tickets-reservations-dropdown" class="collapse">
                             <li>

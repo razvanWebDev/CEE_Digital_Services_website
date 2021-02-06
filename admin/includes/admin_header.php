@@ -27,7 +27,7 @@
     <link href="font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
     <!-- text editor -->
-    <script src="https://cdn.ckeditor.com/ckeditor5/24.0.0/classic/ckeditor.js"></script>
+    <script src="ckeditor5-build-custom/build/ckeditor.js"></script>
 
 </head>
 

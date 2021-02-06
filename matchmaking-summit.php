@@ -6,20 +6,25 @@
             <div class="event-title-image">
                 <img src="img/Logo.png" alt="logo">
             </div>
+
+            <?php 
+                $query = "SELECT * FROM matchmaking_summit_title WHERE id=1";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($result)){
+                    $title = $row['title'];
+                    $sub_title = $row['sub_title'];
+                    $text = $row['text'];
+                    $date = $row['date'];
+            ?>
+
             <div class="event-title-text">
-                <h1>CEE Digital Services Matchmaking Summit</h1>
-                <h2>“Connecting CEE Tech talent to global markets”</h2>
-                <h2>13 January 2021</h2>
+                <h1><?php echo $title ?></h1>
+                <h2><?php echo $sub_title ?></h2>
+                <h2><?php echo $date ?></h2>
             </div>
         </div>
-        <p>
-            Poland. Hungary. Ukraine. Romania. Bulgaria. Serbia. Czech Republic.
-            Slovakia. Lithuania. Latvia. Belarus. Moldova.
-        </p>
-        <p>
-            1-on-1 Matchmaking meetings limited to just 30 digital buyers and "gatekeepers" and 60 digital services
-            providers.
-        </p>
+       <div><?php echo $text ?></div>
+        <?php } ?>
     </section>
 
     <section class="event-description-section">

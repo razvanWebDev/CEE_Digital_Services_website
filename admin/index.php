@@ -15,7 +15,7 @@
                     <form role="form" action="includes/login.php" method="post" id="login-form" autocomplete="on">
                         <div class="form-group">
                             <label for="username" class="sr-only">username</label>
-                            <input type="text" name="username" class="form-control" placeholder="Username" autocomplete="on" value="<?php echo isset($username) ? $username : '' ?>"  required>
+                            <input type="text" name="username" class="form-control" placeholder="Username"  required>
                         </div>
                          <div class="form-group">
                             <label for="password" class="sr-only">Password</label>
