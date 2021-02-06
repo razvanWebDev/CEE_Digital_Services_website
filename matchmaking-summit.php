@@ -28,20 +28,25 @@
     </section>
 
     <section class="event-description-section">
-        <h1 class="thin-title">New for Q1 event:</h1>
-        <ul class="event-main-activities list-with-bullet">
-            <li>
-                <h2>CEE Solutions Showcases: 15-minutes Case Studies of solutions to business problems.</h2>
-            </li>
-            <li>
-                <h2>Focus on: Artificial Intelligence & Machine Learning.</h2>
-            </li>
-            <li>
-                <h2>1st annual Awards: "Top 5 Solutions from CEE".</h2>
-            </li>
-        </ul>
+        <?php
+            $query = "SELECT * FROM matchmaking_summit_content WHERE id=1";
+            $result = mysqli_query($connection, $query);
+    
+            while ($row = mysqli_fetch_assoc($result)) {
+                $title = $row['title'];
+                $content = $row['content'];
+                
+            
+        ?>
+        <div class="event-description-title">
+                <?php  echo $title; ?>
+        </div>
+
         <div class="event-description">
-            <div class="event-description-sumary">
+        <div class="event-description-sumary">
+        <?php  echo $content; ?>
+        </div>
+            <!-- <div class="event-description-sumary">
                 <p>
                     Our 3rd quarterly <strong>CEE Digital Services Matchmaking Summit</strong> is set for <strong>13
                         January
@@ -223,7 +228,7 @@
                         </ul>
                     </li>
                 </ul>
-            </div>
+            </div> -->
 
             <div class="international-partners-section">
                 <h1>INTERNATIONAL PARTNERS</h1>
@@ -259,6 +264,7 @@
                 </div>
             </div>
         </div>
+        <?php } ?>
     </section>
 
 <?php include "PHP/footer.php"; ?>

@@ -44,6 +44,9 @@
                             <li>
                                 <a href="matchmaking_page_title.php">Page title</a>
                             </li>
+                            <li>
+                                <a href="matchmaking_page_content.php">Page Content</a>
+                            </li>
                            
                         </ul>
                     </li>

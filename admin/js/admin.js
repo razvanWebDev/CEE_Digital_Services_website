@@ -23,6 +23,10 @@ window.onload = () => {
     console.error("There was a problem initializing the editor.", error);
   });
 
+  ClassicEditor.create(document.querySelector("#body2")).catch((error) => {
+    console.error("There was a problem initializing the editor.", error);
+  });
+
   ClassicEditor.create(document.querySelector("#hero-date")).catch((error) => {
     console.error(error);
   });

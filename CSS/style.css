@@ -14,7 +14,9 @@
 
   /* text vars */
   --header1-size: 35px;
-  --header2-size: 25px;
+  --header2-size: 28px;
+  --header3-size: 22px;
+  --header4-size: 18px;
   --paragraph-size: 15px;
   --regular: 400;
   --medium: 500;
@@ -47,6 +49,14 @@ h2 {
   font-size: var(--header2-size);
 }
 
+h3 {
+  font-size: var(--header3-size);
+}
+
+h4 {
+  font-size: var(--header4-size);
+}
+
 p {
   text-align: justify;
 }
@@ -68,9 +78,8 @@ ul {
   padding-left: 5em;
 }
 
-li {
-  list-style: none;
-  text-align: justify;
+ul li {
+  padding-top: 1em;
 }
 
 label {
@@ -141,7 +150,22 @@ textarea {
 .no-margins {
   margin: 0;
 }
-
+/* TEXT EDITOR OUTPUT*/
+.text-tiny {
+  font-size: 0.5em;
+}
+.text-small {
+  font-size: 0.8em;
+}
+.text-big {
+  font-size: 1.5em;
+  line-height: 1.5;
+}
+.text-huge {
+  font-size: 1.8em;
+  line-height: 1.5;
+}
+/* ========================================= */
 .list-with-bullet li {
   list-style: disc;
   margin-top: 1em;
@@ -164,10 +188,6 @@ textarea {
 
 section {
   padding: var(--section-padding);
-}
-
-section p {
-  margin: 1.5em 0;
 }
 
 .section-with-bg {
@@ -562,6 +582,10 @@ header.bottom-shaddow {
 
 .event-description {
   display: flex;
+}
+
+.event-description-title {
+  padding-bottom: 4em;
 }
 
 .event-description-sumary {
