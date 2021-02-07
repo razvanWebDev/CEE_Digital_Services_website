@@ -52,6 +52,19 @@
                     </li>
 
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#agendas-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Agendas Page<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="agendas-dropdown" class="collapse">
+                            <li>
+                                <a href="agendas_page_title.php">Page title</a>
+                            </li>
+                            <li>
+                                <a href="agendas_page_content.php">Page Content</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#tickets-reservations-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Tickets reservations<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="tickets-reservations-dropdown" class="collapse">
                             <li>

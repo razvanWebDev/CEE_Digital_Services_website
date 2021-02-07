@@ -9,21 +9,31 @@
             <div class="event-title-image">
                 <img src="img/Logo.png" alt="logo">
             </div>
+            <?php 
+                 $query = "SELECT * FROM agendas_page_title WHERE id=1";
+                 $result = mysqli_query($connection, $query);
+                 while ($row = mysqli_fetch_assoc($result)){
+                     $title = $row['title'];
+                     $date = $row['date'];
+                     $sub_title = $row['sub_title'];
+                     $btn_left = $row['btn_left'];
+                     $btn_right = $row['btn_right'];
+                     $text = $row['text'];
+                 }
+            
+            ?>
             <div class="event-title-text">
-                <h1 class="padding-bottom-1-em">CEE Digital Services Matchmaking Summit - Agenda: 13 January 2021</h1>
+                <h1 class="padding-bottom-1-em"><?php echo $title; ?><br><?php echo $date; ?> </h1>
                 <h2>"Connecting CEE's top Tech companies to global markets".</h2>
             </div>
         </div>
         <div class="flex agendas-title-buttons-container">
-            <a href="reserve-tickets.html" class="button white" target="_blank">Reserve Tickets</a>
-            <a href="submit-solutions-showcase.html" class="button white" target="_blank">Submit Solutions
-                Showcase</a>
+            <a href="reserve-tickets.php" class="button white" target="_blank"><?php echo $btn_left; ?></a>
+            <a href="submit-solutions-showcase.php" class="button white" target="_blank"><?php echo $btn_right; ?></a>
         </div>
-        <h2 class="centered">Q1 theme: Artificial Intelligence and Machine Learning.</h2>
-        <p>plus</p>
-        <h2 class="centered">CEE Solutions Showcases (10)</h2>
-        <p>plus</p>
-        <h2 class="centered">1st annual Awards: "Top 5 Solutions from CEE"</h2>
+       <div>
+       <?php echo $text; ?>
+       </div>
     </section>
 
     <section>
