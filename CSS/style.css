@@ -150,7 +150,7 @@ textarea {
 .no-margins {
   margin: 0;
 }
-/* TEXT EDITOR OUTPUT*/
+/* =================TEXT EDITOR OUTPUT=================*/
 .text-tiny {
   font-size: 0.5em;
 }
@@ -164,6 +164,9 @@ textarea {
 .text-huge {
   font-size: 1.8em;
   line-height: 1.5;
+}
+.image_resized img {
+  width: 100%;
 }
 /* ========================================= */
 .list-with-bullet li {
@@ -566,14 +569,8 @@ header.bottom-shaddow {
   text-align: center;
 }
 
-.event-links-section .event-links-row {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3em;
-}
-
-.event-links-section .event-links-row:last-of-type {
-  margin-bottom: 0;
+.event-title-desc {
+  padding: 3em 0;
 }
 
 .event-description-section .event-main-activities {

@@ -152,12 +152,23 @@ ClassicEditor.defaultConfig = {
 		toolbar: [
 			"imageStyle:full",
 			"imageStyle:side",
+			"imageStyle:alignLeft",
+			"imageStyle:alignCenter",
+			"imageStyle:alignRight",
+			"|",
+			"imageResize",
 			"|",
 			"imageTextAlternative",
 		],
 	},
 	table: {
-		contentToolbar: ["tableColumn", "tableRow", "mergeTableCells"],
+		contentToolbar: [
+			"tableColumn",
+			"tableRow",
+			"mergeTableCells",
+			"tableProperties",
+			"tableCellProperties",
+		],
 	},
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: "en",

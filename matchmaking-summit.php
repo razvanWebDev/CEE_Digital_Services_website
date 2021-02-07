@@ -21,9 +21,11 @@
                 <h1><?php echo $title ?></h1>
                 <h2><?php echo $sub_title ?></h2>
                 <h2><?php echo $date ?></h2>
+                <div class="event-title-desc"><?php echo $text ?></div>
             </div>
+           
         </div>
-       <div><?php echo $text ?></div>
+       
         <?php } ?>
     </section>
 
