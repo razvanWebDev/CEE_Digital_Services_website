@@ -3,7 +3,7 @@
             $edit_id = $_GET['id'];
         }
         
-        $query = "SELECT * FROM agendas_page_title WHERE id = $edit_id";
+        $query = "SELECT * FROM q2_agendas_page_title WHERE id = $edit_id";
         $result = mysqli_query($connection, $query);
 
         while ($row = mysqli_fetch_assoc($result)) {
@@ -24,7 +24,7 @@
             $btn_right = escape($_POST['btn_right']);
             $text = escape($_POST['text']);
 
-            $query = "UPDATE agendas_page_title SET ";
+            $query = "UPDATE q2_agendas_page_title SET ";
             $query .= "title = '{$title}', ";
             $query .= "date = '{$date}', ";
             $query .= "sub_title = '{$sub_title}', ";
@@ -38,7 +38,7 @@
             if(!$update_user) {
                 die("QUERY FAILED" . mysqli_error($connection));
             }
-            header("Location: agendas_page_title.php");
+            header("Location: q2_agendas_page_title.php");
             exit();
         }
 
@@ -78,6 +78,6 @@
     </div>
 
     <div class="form-group">
-        <input onclick="return confirm('Update agendas page title?')" class="btn btn-primary" type="submit" name="edit" value="Update">
+        <input onclick="return confirm('Update Q2 agendas page title?')" class="btn btn-primary" type="submit" name="edit" value="Update">
     </div>
 </form>

@@ -21,8 +21,12 @@
           
             $post_title = escape($_POST['title']);
             $post_date = escape($_POST['date']);
-            $post_image = escape($_FILES['image']['name']);
-            $post_image_temp = escape($_FILES['image']['tmp_name']);
+
+            if(ifExists(escape($_FILES['image']['name']))) {
+                $post_image = escape($_FILES['image']['name']);
+                $post_image_temp = escape($_FILES['image']['tmp_name']);
+                move_uploaded_file($post_image_temp, "../img/$post_image");
+            }
 
             $post_content = escape($_POST['content']);
             $post_tags = escape($_POST['tags']);
@@ -34,8 +38,6 @@
             }else if($source_link == "" && $source_link_name != ""){
                 die("Enter Source Link");
             }
-
-            move_uploaded_file($post_image_temp, "../img/$post_image");
 
             $query = "UPDATE news SET ";
             $query .= "post_title = '{$post_title}', ";

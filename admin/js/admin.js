@@ -13,24 +13,30 @@ window.onload = () => {
   }
 
   //TEXT EDITORS -> https://ckeditor.com/docs/ckeditor5/latest/index.html
-  ClassicEditor.create(document.querySelector("#hero-subtitle")).catch(
-    (error) => {
+  const heroSubtitle = document.querySelector("#hero-subtitle");
+  if (heroSubtitle != undefined && heroSubtitle != null) {
+    ClassicEditor.create(heroSubtitle).catch((error) => {
       console.error(error);
-    }
-  );
+    });
+  }
 
-  ClassicEditor.create(document.querySelector("#body")).catch((error) => {
-    console.error("There was a problem initializing the editor.", error);
-  });
+  const body1 = document.querySelector("#body");
+  if (body1 != undefined && body1 != null) {
+    ClassicEditor.create(body1).catch((error) => {
+      console.error("There was a problem initializing the editor.", error);
+    });
+  }
 
-  ClassicEditor.create(document.querySelector("#body2")).catch((error) => {
-    console.error("There was a problem initializing the editor.", error);
-  });
-
-  ClassicEditor.create(document.querySelector("#hero-date")).catch((error) => {
-    console.error(error);
-  });
+  const body2 = document.querySelector("#body2");
+  if (body2 != undefined && body2 != null) {
+    ClassicEditor.create(body2).catch((error) => {
+      console.error(error);
+    });
+  }
+  // ******************************************************************************
 
   // EVENT LISTENERS
-  selectAllBoxes.addEventListener("click", checkAllBoxes);
+  if (selectAllBoxes != undefined && selectAllBoxes != null) {
+    selectAllBoxes.addEventListener("click", checkAllBoxes);
+  }
 };

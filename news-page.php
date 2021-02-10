@@ -50,7 +50,7 @@
             ?>
 
             <div class="news-article">
-                <h2><a href="news-post.php?p_id=<?php echo $post_id; ?>"><?php echo $post_title ?></a></h2>
+                <h2><?php echo $post_title ?></h2>
                 <p class="news-article-date"><?php echo $formated_date ?></p>
                 <?php if($post_image != "") { ?>
                     <img class="news-article-image" src="img/<?php echo $post_image ?>" alt="">

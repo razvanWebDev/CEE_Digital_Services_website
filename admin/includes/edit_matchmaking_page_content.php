@@ -46,6 +46,6 @@
     </div>
 
     <div class="form-group">
-        <input onclick="return confirm('Update Matchmaking Content?')" class="btn btn-primary" type="submit" name="edit" value="Edit">
+        <input onclick="return confirm('Update Matchmaking Content?')" class="btn btn-primary" type="submit" name="edit" value="Update">
     </div>
 </form>

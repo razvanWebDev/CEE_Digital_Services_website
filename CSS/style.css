@@ -627,11 +627,6 @@ header.bottom-shaddow {
   padding: 3em 0;
 }
 
-.agendas-container {
-  padding-top: var(--top-bottom-padding);
-  padding-bottom: var(--top-bottom-padding);
-}
-
 .agendas-title-buttons-container a {
   min-width: 19em;
   text-align: center;
@@ -641,26 +636,30 @@ header.bottom-shaddow {
   float: right;
   margin-left: 1em;
   margin-bottom: 0.5em;
-  width: 24%;
+  width: 23%;
   max-width: 150px;
   max-height: 80px;
   clear: both;
   object-fit: contain;
 }
 
+.agendas-open-text {
+  padding: 2em 0 5em;
+}
+
 .main-stage {
   flex: 1;
   padding-right: 2em;
-  border-right: 1px solid var(--light-blue-color);
 }
 
 .focus-sessions {
   flex: 1;
   padding-left: 2em;
+  border-left: 1px solid var(--light-blue-color);
 }
 
 .agenda-item {
-  padding: 4em 0;
+  padding: 3em 0;
   overflow: auto;
 }
 
@@ -678,8 +677,8 @@ header.bottom-shaddow {
 .agenda-item-image-container img {
   margin: 0;
   float: none;
-  width: 25%;
-  max-height: 180px;
+  width: 23%;
+  max-height: 10em;
   object-fit: contain;
 }
 

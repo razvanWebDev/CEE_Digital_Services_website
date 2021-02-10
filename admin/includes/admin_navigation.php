@@ -58,7 +58,26 @@
                                 <a href="agendas_page_title.php">Page title</a>
                             </li>
                             <li>
+                                <a href="agendas_open_close.php">Open / close</a>
+                            </li>
+                            <li>
                                 <a href="agendas_page_content.php">Page Content</a>
+                            </li>
+                           
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#q2-agendas-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Q2 Agenda<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="q2-agendas-dropdown" class="collapse">
+                            <li>
+                                <a href="q2_agendas_page_title.php">Page title</a>
+                            </li>
+                            <li>
+                                <a href="q2_agendas_open_close.php">Open / close</a>
+                            </li>
+                            <li>
+                                <a href="q2_agendas_page_content.php">Page Content</a>
                             </li>
                            
                         </ul>

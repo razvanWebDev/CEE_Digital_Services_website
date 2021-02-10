@@ -37,6 +37,26 @@ table {
   line-height: normal;
 }
 
+.choose-file-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: flex-end;
+  text-align: center;
+}
+
+.choose-file-container div {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.choose-file {
+  display: block;
+  width: fit-content;
+}
+
 @media (min-width: 768px) {
   #wrapper {
     padding-left: 225px;
@@ -178,6 +198,13 @@ ul.alert-dropdown {
 .side-nav > li > ul > li > a:hover {
   color: #fff;
 }
+
+/* =================Agendas page content============= */
+.agendas-content-img {
+  width: 8em;
+  margin: 0.1em;
+}
+/* ************************************************** */
 
 /* Flot Chart Containers */
 

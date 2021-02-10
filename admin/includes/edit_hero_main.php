@@ -59,10 +59,10 @@
 
     <div class="form-group">
         <label for="event_date">Event Date *</label>
-        <textarea id="hero-date" class="form-control" name="event_date"><?php echo $event_date; ?></textarea>
+        <textarea id="body2" class="form-control" name="event_date"><?php echo $event_date; ?></textarea>
     </div>
 
     <div class="form-group">
-        <input onclick="return confirm('Update Main Page?')" class="btn btn-primary" type="submit" name="edit" value="Edit">
+        <input onclick="return confirm('Update Main Page?')" class="btn btn-primary" type="submit" name="edit" value="Update">
     </div>
 </form>

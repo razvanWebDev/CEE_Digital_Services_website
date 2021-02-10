@@ -25,8 +25,11 @@
             $user_lastname = escape($_POST['user_lastname']);
             $user_email = escape($_POST['user_email']);
 
-            $user_image = escape($_FILES['user_image']['name']);
-            $user_image_temp = $_FILES['user_image']['tmp_name'];
+            if(ifExists(scape($_FILES['user_image']['name']))){
+                $user_image = escape($_FILES['user_image']['name']);
+                $user_image_temp = $_FILES['user_image']['tmp_name'];
+                move_uploaded_file($user_image_temp, "../img/Users/$user_image");
+            }
 
             if($user_password != "") {
                 if(strlen($user_password)< 8){
@@ -46,8 +49,6 @@
             if(mysqli_num_rows($check_username)>1){
                 die("<p class='alert alert-danger'>Username already exists</p>");
             }
-
-            move_uploaded_file($user_image_temp, "../img/Users/$user_image");
 
             $query = "UPDATE users SET ";
             $query .= "username = '{$username}', ";
@@ -111,6 +112,6 @@
     </div>
 
     <div class="form-group">
-        <input onclick="return confirm('Update user?')" class="btn btn-primary" type="submit" name="edit_user" value="Edit User">
+        <input onclick="return confirm('Update user?')" class="btn btn-primary" type="submit" name="edit_user" value="Update">
     </div>
 </form>
