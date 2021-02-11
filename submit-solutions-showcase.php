@@ -6,19 +6,31 @@
             <div class="event-title-image">
                 <img src="img/Logo.png" alt="logo">
             </div>
+            <?php 
+        
+                $query = "SELECT * FROM solutions_showcase_title WHERE id=1";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($result)){
+                    $title = $row['title'];
+                    $content = $row['content'];
+                } 
+            ?>
             <div class="event-title-text">
-                <h1 class="padding-bottom-1-em">CEE Digital Services Matchmaking Summit</h1>
-                <h2>CEE Solutions Showcase - Submit your Application</h2>
+                <?php echo $title; ?>
             </div>
         </div>
-        <p>
-            A new way to present your digital solution on stage to the full audience and Jury: 15 minutes case-study of
-            a digital solution to a business problem. Limited to just 9 companies, all Showcases are automatically
-            submitted to the Awards.
-        </p>
+        <?php echo $content; ?>
     </section>
     <section>
-        <h2>Here are details about the “CEE Solutions Showcase”:</h2>
+    <?php 
+        $query = "SELECT * FROM solutions_showcase_content WHERE id=1";
+        $result = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($result)){
+            $content = $row['content'];
+        } 
+    ?>
+    <?php echo $content; ?>
+        <!-- <h2>Here are details about the “CEE Solutions Showcase”:</h2>
         <ul class="list-with-bullet">
             <li>
                 limited to 9 pre-approved companies in subject-exclusive categories.
@@ -66,7 +78,7 @@
             submitting your Application. We are looking for outstanding examples of digital solutions that solved real
             business problems. The best Applications will be world-class, unique, compelling, and demonstrate strong
             ROI.
-        </p>
+        </p> -->
     </section>
     <section>
         <h1>

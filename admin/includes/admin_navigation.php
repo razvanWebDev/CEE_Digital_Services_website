@@ -89,6 +89,21 @@
                     </li>
 
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#submit-solutions-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Solutions Showcase<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="submit-solutions-dropdown" class="collapse">
+                            <li>
+                                <a href="solutions_showcase_title.php">Page title</a>
+                            </li>
+                            <li>
+                                <a href="solutions_showcase_content.php">Page content</a>
+                            </li>
+                            <li>
+                                <a href="submit-solutions-showcase.php">View solutions showcases</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#q2-agendas-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Q2 Agenda<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="q2-agendas-dropdown" class="collapse">
                             <li>
@@ -101,15 +116,6 @@
                                 <a href="q2_agendas_page_content.php">Page Content</a>
                             </li>
                            
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#submit-solutions-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Solutions Showcase<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="submit-solutions-dropdown" class="collapse">
-                            <li>
-                                <a href="submit-solutions-showcase.php">View solutions showcases</a>
-                            </li>
                         </ul>
                     </li>
 
