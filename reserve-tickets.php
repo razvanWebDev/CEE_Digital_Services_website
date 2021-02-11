@@ -6,20 +6,33 @@
             <div class="event-title-image">
                 <img src="img/Logo.png" alt="logo">
             </div>
+            <?php 
+                $query = "SELECT * FROM ticket_reservations_page_title";
+                $result = mysqli_query($connection, $query);
+        
+                while ($row = mysqli_fetch_assoc($result)) {
+                    $title = $row['title'];
+                    $text = $row['text'];
+                }
+            ?>
             <div class="event-title-text">
-                <h1 class="padding-bottom-1-em">CEE Digital Services Matchmaking Summit</h1>
-                <h2>Ticket Reservation details - 13 January 2021:</h2>
+                <?php echo $title; ?>
             </div>
         </div>
-        <h2 class="centered">*This event is hosted on the Hopin.to platform.</h2>
-        <p>
-            The platforms include 1-on-1 pre-arranged Video meetings; and Hopin is a new, cutting-edge technology for
-            complex events, including: simultaneous broadcasting of the Main Stage/Plenary sessions; Workshop/Break-out
-            sessions; Virtual Networking; and Virtual Booths.
-        </p>
+        <?php echo $text; ?>
     </section>
     <section>
-        <h2>We have a 2-tiered ticket reservation system - plus the "CEE Solutions Showcase" option:</h2>
+        <?php 
+            $query = "SELECT * FROM ticket_reservations_text";
+            $result = mysqli_query($connection, $query);
+        
+            while ($row = mysqli_fetch_assoc($result)) {
+                $page_text = $row['text'];
+            }
+
+            echo $page_text;
+        ?>
+        <!-- <h2>We have a 2-tiered ticket reservation system - plus the "CEE Solutions Showcase" option:</h2>
         <ul class="list-with-numbers">
             <li>
                 <strong>Watch Presentations Only:</strong> All members of our Partners and Partner Associations are
@@ -50,7 +63,7 @@
         <p>
             For companies interested in the 15-minute <a href="submit-solutions-showcase.html" target="_blank">CEE
                 Solutions Showcase</a> (limited to only 10 companies).
-        </p>
+        </p> -->
     </section>
     <section>
         <h1>
@@ -70,14 +83,23 @@
                     <div class="custom-select">
                         <select name="matchmaking-option-select">
                             <option value="0">Select Option</option>
-                            <option value="ANIS Romania">ANIS Romania</option>
+                            <?php 
+                                $query = "SELECT * FROM association_partner_dropdown ORDER BY position";
+                                $select_all_posts_query = mysqli_query($connection, $query);
+                        
+                                while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                                    $dropdown_value = $row['dropdown_value'];
+                                    echo '<option value="'.$dropdown_value.'">'.$dropdown_value.'</option>';
+                                }
+                            ?>
+                            <!-- <option value="ANIS Romania">ANIS Romania</option>
                             <option value="AIBEST Bulgaria">AIBEST Bulgaria</option>
                             <option value="PRG. AI (Prague AI)">PRG. AI (Prague AI)</option>
                             <option value="InfoBalt (Lithuania)">InfoBalt (Lithuania)</option>
                             <option value="LIKTA (Latvia)">LIKTA (Latvia)</option>
                             <option value="ABSA Albania">ABSA Albania</option>
                             <option value="Moldova IT Park">Moldova IT Park</option>
-                            <option value="None of these">None of these</option>
+                            <option value="None of these">None of these</option> -->
                         </select>
                     </div>
 
@@ -86,7 +108,17 @@
                     <div class="custom-select">
                         <select name="ticket-reservation-details-select" class="required-select">
                             <option value="0">Select Option</option>
-                            <option
+                            <?php 
+                                $query = "SELECT * FROM ticket_details_dropdown ORDER BY position";
+                                $select_all_posts_query = mysqli_query($connection, $query);
+                        
+                                while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+                                    $dropdown_value = $row['dropdown_value'];
+                                    echo '<option value="'.$dropdown_value.'">'.$dropdown_value.'</option>';
+                                }
+                            ?>
+
+                            <!-- <option
                                 value="Services Providers: Presentations Only (Complimentary for Partners; 190euro non-Partners)">
                                 Services Providers: Presentations Only (Complimentary for Partners; 190euro
                                 non-Partners)</option>
@@ -99,7 +131,7 @@
                             <option
                                 value="Belarus Companies - Complimentary (both 1-on-1 Meetings & Presentations), compliments of City of Lodz; and Moldova.">
                                 Belarus Companies - Complimentary (both 1-on-1 Meetings & Presentations), compliments of
-                                City of Lodz; and Moldova.</option>
+                                City of Lodz; and Moldova.</option> -->
                         </select>
                     </div>
 

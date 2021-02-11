@@ -79,7 +79,7 @@ if(!$result) {
   die("Failed" . mysqli_error());
 }
 
-echo " Successful signup! <a href='../newsletter-signup.html' style='color:#176083;'><br><br><br>  Back</a>";
+echo " Successful signup! <a href='../newsletter-signup.php' style='color:#176083;'><br><br><br>  Back</a>";
 ?>
 
 <?php

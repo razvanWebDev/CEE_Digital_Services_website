@@ -191,7 +191,7 @@ if(!$result) {
 
 mysqli_close($connection);
 
-header("Location: ../reserve-tickets-success.html");
+header("Location: ../reserve-tickets-success.php");
 
 ?>
 

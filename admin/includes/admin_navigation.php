@@ -68,6 +68,27 @@
                     </li>
 
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#tickets-reservations-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Tickets reservations<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="tickets-reservations-dropdown" class="collapse">
+                            <li>
+                                <a href="ticket-reservations_page_title.php">Page title</a>
+                            </li>
+                            <li>
+                                <a href="ticket_reservations_text.php">Page text</a>
+                            </li>
+                            <li>
+                                <a href="association_partner_dropdown.php">Association Partner dropdown</a>
+                            </li>
+                            <li>
+                                <a href="ticket_details_dropdown.php">Ticket details dropdown</a>
+                            </li>
+                            <li>
+                                <a href="ticket-reservations.php">View all reservations</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#q2-agendas-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Q2 Agenda<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="q2-agendas-dropdown" class="collapse">
                             <li>
@@ -80,15 +101,6 @@
                                 <a href="q2_agendas_page_content.php">Page Content</a>
                             </li>
                            
-                        </ul>
-                    </li>
-
-                    <li>
-                        <a href="javascript:;" data-toggle="collapse" data-target="#tickets-reservations-dropdown"><i class="fa fa-fw fa-arrows-v"></i> Tickets reservations<i class="fa fa-fw fa-caret-down"></i></a>
-                        <ul id="tickets-reservations-dropdown" class="collapse">
-                            <li>
-                                <a href="ticket-reservations.php">View all reservations</a>
-                            </li>
                         </ul>
                     </li>
 

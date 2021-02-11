@@ -142,7 +142,7 @@ if(!$result) {
 
 mysqli_close($connection);
 
-header("Location: ../submit-solutions-showcase-success.html");
+header("Location: ../submit-solutions-showcase-success.php");
 ?>
 
 <?php

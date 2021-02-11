@@ -549,6 +549,7 @@ header.bottom-shaddow {
 .event-title .event-title-image {
   background-color: var(--white-color);
   border-radius: 50%;
+  margin-bottom: 2em;
 }
 
 .event-title .event-title-image img {
