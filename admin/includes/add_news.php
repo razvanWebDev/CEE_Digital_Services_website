@@ -1,23 +1,21 @@
 <?php 
-
+//GLOBAL VAR NEEDED FOR IMAGE UPLOAD
+ 
     if(isset($_POST['create_post'])) {
         $post_title = escape($_POST['title']); 
         $post_date = escape($_POST['date']);
-        $post_image = escape($_FILES['image']['name']);
-        $post_image_temp = $_FILES['image']['tmp_name'];
-
         $post_content = escape($_POST['content']);
         $post_tags = escape($_POST['tags']);
         $source_link = escape($_POST['source_link']);
         $source_link_name = escape($_POST['source_link_name']);
 
+        uploadImage('image', '../img/news/', 'post_image');
+        
         if($source_link != "" && $source_link_name == ""){
             die("Enter link name");
         }else if($source_link == "" && $source_link_name != ""){
             die("Enter Source Link");
         }
-
-        move_uploaded_file($post_image_temp, "../img/$post_image");
 
         $query = "INSERT INTO news(post_title, post_date, post_image, post_content, post_tags, source_link, source_link_name)";
         $query .= "VALUES('{$post_title}', '{$post_date}', '{$post_image}', '{$post_content}', '{$post_tags}', '{$source_link}', '{$source_link_name}')";
@@ -29,7 +27,8 @@
         }
 
         echo "<p class='alert alert-success'>News article published: " . "<a href='news.php'>View All News</a> or <a href='news.php?source=add_news'>Add another</a></p>";
-   
+        
+        exit();
     }
 
 ?>
@@ -75,3 +74,4 @@
         <input onclick="return confirm('Publish article?')" class="btn btn-primary" type="submit" name="create_post" value="Publish">
     </div>
 </form>
+

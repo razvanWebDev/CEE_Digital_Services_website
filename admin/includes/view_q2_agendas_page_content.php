@@ -1,7 +1,34 @@
 <!-- DELETE ITEMS -->
 <?php 
- deleteItem("q2_agendas_page_content");
- deleteBulk("q2_agendas_page_content");
+if(isset($_GET['delete'])) {
+    $delete_id = mysqli_real_escape_string($connection, $_GET['delete']);
+    //remove image files
+    removeImges($delete_id);
+    //remove from db
+    deleteItem("q2_agendas_page_content", $delete_id);
+}
+
+//delete in bulk
+if(isset($_POST['checkBoxArray'])){
+    foreach($_POST['checkBoxArray'] as $delete_id){
+        //remove image files
+        removeImges($delete_id);
+        //remove from db
+        deleteItem("q2_agendas_page_content", $delete_id);
+       
+   }
+}
+
+function removeImges($delete_id){
+    deleteFileFromRow("q2_agendas_page_content", "foto_1", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "foto_2", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "foto_3", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "foto_4", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "right_column_foto_1", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "right_column_foto_2", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "right_column_foto_3", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("q2_agendas_page_content", "right_column_foto_4", $delete_id, "../img/Event_speakers/");
+}
 ?>
 
 <!-- DISPLAY ITEMS ON ADMIN PAGE -->
@@ -72,10 +99,10 @@
             echo "<td colspan='{$colspan}'>{$start_time} {$end_time} {$title}</td>";
             echo "<td colspan='{$colspan}'>{$content}</td>";
             echo "<td colspan='{$colspan}'>";
-                echo "<img class='agendas-content-img' src='../img/Event_speakers/{$foto_1}' alt=''>";
-                echo "<img class='agendas-content-img' src='../img/Event_speakers/{$foto_2}' alt=''>";
-                echo "<img class='agendas-content-img' src='../img/Event_speakers/{$foto_3}' alt=''>";
-                echo "<img class='agendas-content-img' src='../img/Event_speakers/{$foto_4}' alt=''>";
+                echo "<img name='image[]' value='{$foto_1}' class='agendas-content-img' src='../img/Event_speakers/{$foto_1}' alt=''>";
+                echo "<img name='image[]' value='{$foto_2}' class='agendas-content-img' src='../img/Event_speakers/{$foto_2}' alt=''>";
+                echo "<img name='image[]' value='{$foto_3}' class='agendas-content-img' src='../img/Event_speakers/{$foto_3}' alt=''>";
+                echo "<img name='image[]' value='{$foto_4}' class='agendas-content-img' src='../img/Event_speakers/{$foto_4}' alt=''>";
             echo "</td>";
             if($slot_type == "two_columns"){
                 echo "<td>{$right_column_stage_name}</td>";    

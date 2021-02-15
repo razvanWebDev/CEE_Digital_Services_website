@@ -104,6 +104,24 @@
                     </li>
 
                     <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#partnership-options-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Partnership Options<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="partnership-options-dropdown" class="collapse">
+                            <li>
+                                <a href="partnership_options_title.php">Page title</a>
+                            </li>
+                            <li>
+                                <a href="partnership_options_features.php">Partnership Features</a>
+                            </li>
+                            <li>
+                                <a href="partnership_options_content.php">Page content</a>
+                            </li>
+                            <li>
+                                <a href="partnership_options_sponsorship_example.php">Sponsorhip Example</a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li>
                         <a href="javascript:;" data-toggle="collapse" data-target="#q2-agendas-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Q2 Agenda<i class="fa fa-fw fa-caret-down"></i></a>
                         <ul id="q2-agendas-dropdown" class="collapse">
                             <li>

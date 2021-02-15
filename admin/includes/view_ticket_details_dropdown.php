@@ -1,7 +1,11 @@
 <!-- DELETE ITEMS -->
 <?php 
- deleteItem("ticket_details_dropdown");
- deleteBulk("ticket_details_dropdown");
+if(isset($_GET['delete'])) {
+    $delete_id = mysqli_real_escape_string($connection, $_GET['delete']);
+    deleteItem("agendas_page_content", $delete_id);
+}
+
+deleteBulk("ticket_details_dropdown");
 ?>
 
 <!-- DISPLAY ITEMS ON ADMIN PAGE -->

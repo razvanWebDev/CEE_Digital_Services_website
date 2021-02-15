@@ -1,6 +1,9 @@
 <!-- DELETE ITEMS -->
 <?php 
- deleteItem("association_partner_dropdown");
+if(isset($_GET['delete'])) {
+    $delete_id = mysqli_real_escape_string($connection, $_GET['delete']);
+    deleteItem("agendas_page_content", $delete_id);
+}
  deleteBulk("association_partner_dropdown");
 ?>
 

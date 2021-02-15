@@ -13,7 +13,7 @@
         <?php 
             if(isset($_POST['submit'])) {
                 $search = $_POST['search'];
-                $query = "SELECT * FROM news WHERE post_title LIKE '%$search%' OR post_tags LIKE '%$search%' OR post_date LIKE '%$search%'  ORDER BY post_date DESC, post_id ";
+                $query = "SELECT * FROM news WHERE post_title LIKE '%$search%' OR post_tags LIKE '%$search%' OR post_date LIKE '%$search%'  ORDER BY post_date DESC, id ";
                 $search_query = mysqli_query($connection, $query);
 
                 if(!$search_query) {
@@ -38,7 +38,7 @@
                             <h2><?php echo $post_title ?></h2>
                             <p class="news-article-date"><?php echo $post_date ?></p>
                             <?php if($post_image != "") { ?>
-                                <img class="news-article-image" src="img/<?php echo $post_image ?>" alt="">
+                                <img class="news-article-image" src="img/news/<?php echo $post_image ?>" alt="">
                             <?php }?>
                             <p><?php echo $post_content ?></p>
                             <p class="news-source"><b>Source:</b> <a href=<?php echo $source_link ?> target="_blank">

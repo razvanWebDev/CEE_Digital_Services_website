@@ -1,22 +1,23 @@
-
 <!-- DELETE NEWS ARTICLE -->
 <?php 
 // delete individually
  if(isset($_GET['delete'])) {
-    if(isset($_GET['delete'])){
-        $the_post_id = mysqli_real_escape_string($connection, $_GET['delete']);
-        $query = "DELETE FROM news WHERE post_id = {$the_post_id}";
-        $delete_query = mysqli_query($connection, $query);
-    }
-   
+    $the_post_id = mysqli_real_escape_string($connection, $_GET['delete']);
+    //remove image file from folder
+     deleteFileFromRow("news", 'post_image', $the_post_id, "../img/news/");
+    //remove from db
+    deleteItem('news', $the_post_id);
+
  }
 
 //delete in bulk
  if(isset($_POST['checkBoxArray'])){
      foreach($_POST['checkBoxArray'] as $postValueId){
-        $query = "DELETE FROM news WHERE post_id = {$postValueId}";
+        deleteFileFromRow("news", "post_image", $postValueId, "../img/news/");
+        $query = "DELETE FROM news WHERE id = {$postValueId}";
         $delete_query = mysqli_query($connection, $query);
-     }
+        
+    }
  }
 ?>
 
@@ -68,14 +69,14 @@
         $count = mysqli_num_rows($select_post_query_count);
         $count = ceil($count / $articles_per_page);  
         
-        $query = "SELECT * FROM news ORDER BY post_date DESC, post_id DESC LIMIT $page_1, $articles_per_page";
+        $query = "SELECT * FROM news ORDER BY post_date DESC, id DESC LIMIT $page_1, $articles_per_page";
         $select_news = mysqli_query($connection, $query);
 
         while ($row = mysqli_fetch_assoc($select_news)) {
            
             $rowCounter_per_page++;
             $totalRowCounter = $rowCounter_per_page + (($page-1) * $articles_per_page);
-            $post_id = $row['post_id'];
+            $post_id = $row['id'];
             $post_title = $row['post_title'];
             $post_date = $row['post_date'];
             $formated_date = date('d-m-Y',strtotime($post_date));;
@@ -94,7 +95,7 @@
             echo "<td>{$formated_date}</td>";
             echo "<td>";
             if($post_image != "") {
-                echo "<img width='100px' src='../img/{$post_image}' alt='image'>";
+                echo "<img width='100px' src='../img/news/{$post_image}' alt=''>";
             }
             echo "</td>";
             echo "<td>{$post_content}</td>";
@@ -124,3 +125,4 @@
     }
     ?>
 </ul> 
+

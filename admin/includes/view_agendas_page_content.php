@@ -1,7 +1,35 @@
 <!-- DELETE ITEMS -->
 <?php 
- deleteItem("agendas_page_content");
- deleteBulk("agendas_page_content");
+
+if(isset($_GET['delete'])) {
+    $delete_id = mysqli_real_escape_string($connection, $_GET['delete']);
+    //remove image files
+    removeImges($delete_id);
+    //remove from db
+    deleteItem("agendas_page_content", $delete_id);
+}
+
+//delete in bulk
+if(isset($_POST['checkBoxArray'])){
+    foreach($_POST['checkBoxArray'] as $delete_id){
+        //remove image files
+        removeImges($delete_id);
+        //remove from db
+        deleteItem("agendas_page_content", $delete_id);
+       
+   }
+}
+
+function removeImges($delete_id){
+    deleteFileFromRow("agendas_page_content", "foto_1", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "foto_2", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "foto_3", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "foto_4", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "right_column_foto_1", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "right_column_foto_2", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "right_column_foto_3", $delete_id, "../img/Event_speakers/");
+    deleteFileFromRow("agendas_page_content", "right_column_foto_4", $delete_id, "../img/Event_speakers/");
+}
 ?>
 
 <!-- DISPLAY ITEMS ON ADMIN PAGE -->

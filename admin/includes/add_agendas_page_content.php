@@ -9,19 +9,10 @@
         $title = escape($_POST['title']); 
         $content = escape($_POST['content']);
 
-        $foto_1 = escape($_FILES['foto_1']['name']);
-        $foto_1_temp = $_FILES['foto_1']['tmp_name'];
-        $foto_2 = escape($_FILES['foto_2']['name']);
-        $foto_2_temp = $_FILES['foto_2']['tmp_name'];
-        $foto_3 = escape($_FILES['foto_3']['name']);
-        $foto_3_temp = $_FILES['foto_3']['tmp_name'];
-        $foto_4 = escape($_FILES['foto_4']['name']);
-        $foto_4_temp = $_FILES['foto_4']['tmp_name'];
-
-        move_uploaded_file($foto_1_temp, "../img/Event_speakers/$foto_1");
-        move_uploaded_file($foto_2_temp, "../img/Event_speakers/$foto_2");
-        move_uploaded_file($foto_3_temp, "../img/Event_speakers/$foto_3");
-        move_uploaded_file($foto_4_temp, "../img/Event_speakers/$foto_4");
+        uploadImage('foto_1', '../img/Event_speakers/', 'foto_1');
+        uploadImage('foto_2', '../img/Event_speakers/', 'foto_2');
+        uploadImage('foto_3', '../img/Event_speakers/', 'foto_3');
+        uploadImage('foto_4', '../img/Event_speakers/', 'foto_4');
 
         $query = "INSERT INTO agendas_page_content(stage_name, slot_type, start_time, end_time, title, content, foto_1, foto_2, foto_3, foto_4)";
         $query .= "VALUES('{$stage_name}','{$slot_type}','{$start_time}', '{$end_time}', '{$title}', '{$content}', '{$foto_1}', '{$foto_2}', '{$foto_3}', '{$foto_4}')";
@@ -31,7 +22,6 @@
         if(!$create_post_query) {
             die("QUERY FAILED" . mysqli_error($connection));
         }
-
         header("Location: agendas_page_content.php");
     }
 ?>

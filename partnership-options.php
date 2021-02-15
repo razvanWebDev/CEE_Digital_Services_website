@@ -7,41 +7,66 @@
                 <img src="img/Logo.png" alt="logo">
             </div>
             <div class="event-title-text">
-                <h1 class="padding-bottom-1-em">CEE Digital Services Matchmaking Summit - 13 January</h1>
-                <h1 class="padding-bottom-1-em">Partnership Options</h1>
-                <h2 class="padding-bottom-1-em">Please contact Thom Barnhardt for further details:</h2>
-                <h2 class="padding-bottom-1-em">Email: tb(at)biznespolska.pl</h2>
-                <h2>Tel: 48-508-143-963</h2>
+            <?php 
+                $query = "SELECT * FROM partnership_options_title WHERE id=1";
+                $result = mysqli_query($connection, $query);
+                while ($row = mysqli_fetch_assoc($result)){
+                    $title = $row['title'];
+                }
+                echo $title;
+            ?>
             </div>
         </div>
     </section>
     <section>
-        <h2>CEE Digital Services Matchmaking Summit is a 100% online event with some unusual, cutting-edge features
-            supported by our technology partner Hopin.to, including:
-        </h2>
-        <ul class="list-with-bullet">
-            <li>
-                1-on-1 Pre-arranged meetings.
-            </li>
-            <li>
-                Live-streaming of all Plenary sessions
-            </li>
-            <li>
-                Break-out Sessions (rooms) for more specific, deep-dive subjects
-            </li>
-            <li>
-                Networking area (meet new people in a 3-minute rotation)
-            </li>
-            <li>
-                Virtual booths (screen shot here below):
-            </li>
-        </ul>
+        <?php 
+            $query = "SELECT * FROM partnership_options_features WHERE id=1";
+            $result = mysqli_query($connection, $query);
+            while ($row = mysqli_fetch_assoc($result)){
+                $content = $row['content'];
+            }
+
+            echo $content;
+        ?>
     </section>
     <section>
         <h1>PARTNERSHIP OPTIONS</h1>
         <div class="separator blue"></div>
         <div>
-            <h2>A) Strategic Title Partner:</h2>
+            <?php
+                $query = "SELECT * FROM partnership_options_content ORDER BY position";
+                $select_all_posts_query = mysqli_query($connection, $query);
+
+                while($row = mysqli_fetch_assoc($select_all_posts_query)) {
+            
+                    $slot_type = $row['slot_type'];
+                    $content = $row['content'];
+                    $p_image = $row['p_image'];
+                    $video = $row['video'];
+
+                    if($slot_type == "with_image"){
+                        echo "<div class='flex text-with-media'>";
+                            echo "<div class='text-div'>{$content}</div>";
+                            echo "<div class='media-div'>";
+                                echo "<img src='img/Partnership_options/{$p_image}' alt=''>";
+                            echo "</div>";
+                        echo "</div>";
+                    }else if($slot_type == "with_video"){
+                        echo "<div class='flex text-with-media'>";
+                            echo "<div class='text-div'>{$content}</div>";
+                            echo "<div class='media-div'>";
+                                echo "<div class='iframe-container'>";
+                                    echo "<iframe width=\"420\" height=\"315\" src=\"http://www.youtube.com/embed/$video\" frameborder=\"0\" allowfullscreen></iframe>";
+                                echo "</div>";
+                             echo "</div>";
+                        echo "</div>";
+                    }else{
+                        echo "<div class='text-div'>{$content}</div>";
+                    }
+                }
+            
+            ?>
+            <!-- <h2>A) Strategic Title Partner:</h2>
             <ul class="list-with-bullet">
                 <li>
                     Our most exclusive partnership. Your brand to co-branded with the event ("powered by ....")
@@ -176,15 +201,22 @@
             <div class="media-div">
                 <p><b>Networking Area (by Invitation only)</b></p>
                 <img src="img/hopinnetworking_2.png" alt="">
-            </div>
+            </div> -->
         </div>
         <div class="separator blue"></div>
         <div class="centered">
-            <h2 class="padding-bottom-1-em centered"><b>Video example of Sponsorship options: <br> (by our technology
-                    partners Hopin & Wolves Summit)</b>
-            </h2>
+            <?php
+            $query = "SELECT * FROM partnership_options_sponsorship_example WHERE id=1";
+            $result = mysqli_query($connection, $query);
+            while ($row = mysqli_fetch_assoc($result)){
+                $content = $row['content'];
+                $video = $row['video'];
+            }
+            ?>
+            <?php echo $content; ?>
+            <br><br>
             <div class="video-container">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/WPu3jz8WJfI" frameborder="0"
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/<?php echo $video;?>" frameborder="0"
                     allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                     allowfullscreen></iframe>
             </div>

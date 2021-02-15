@@ -34,11 +34,11 @@
                 $count = ceil($count / $articles_per_page);    
 
 
-                $query = "SELECT * FROM news ORDER BY post_date DESC, post_id DESC LIMIT $page_1, $articles_per_page";
+                $query = "SELECT * FROM news ORDER BY post_date DESC, id DESC LIMIT $page_1, $articles_per_page";
                 $select_all_posts_query = mysqli_query($connection, $query);
 
                 while($row = mysqli_fetch_assoc($select_all_posts_query)) {
-                    $post_id = $row['post_id'];
+                    $post_id = $row['id'];
                     $post_title = $row['post_title'];
                     $post_date = $row['post_date'];
                     $formated_date = date('d-m-Y',strtotime($post_date));
@@ -53,7 +53,7 @@
                 <h2><?php echo $post_title ?></h2>
                 <p class="news-article-date"><?php echo $formated_date ?></p>
                 <?php if($post_image != "") { ?>
-                    <img class="news-article-image" src="img/<?php echo $post_image ?>" alt="">
+                    <img class="news-article-image" src="img/news/<?php echo $post_image ?>" alt="">
                 <?php }?>
                 <p><?php echo $post_content ?></p>
                 <p class="news-source"><b>Source:</b> <a href=<?php echo $source_link ?> target="_blank">
