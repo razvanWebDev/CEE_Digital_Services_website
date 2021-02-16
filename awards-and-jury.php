@@ -2,37 +2,24 @@
 <?php include "PHP/nav.php"; ?>
 
     <section class="section-with-bg">
-        <h1><img src="img/SVG/Award_icon.svg" alt="award icon" class="section-title-icon">AWARDS AND JURY</h1>
+    <?php 
+        
+        $query = "SELECT * FROM awards_and_jury_page_title WHERE id=1";
+        $result = mysqli_query($connection, $query);
+        while ($row = mysqli_fetch_assoc($result)){
+            $title = $row['title'];
+            $text_1 = $row['text_1'];
+            $text_2 = $row['text_2'];
+        } 
+        ?>
+        <h1><img src="img/SVG/Award_icon.svg" alt="award icon" class="section-title-icon"><?php echo $title; ?></h1>
         <div class="about-awards">
             <div class="separator"></div>
-            <h2>About CEE Digital Solutions Awards:</h2>
-            <p>
-                <strong>CEE Digital Solutions Awards</strong> recognizes top companies who have produced unique digital
-                solutions to business problems. With the 1st annual Awards set for <b>13 January, 2021</b> - in a 100%
-                online format - Nominations open 30 November.
-            </p>
-            <p>
-                The VIP Jury will review <b>10 Solutions</b> Showcases and cast a final vote on 13 January, after the
-                CEE Showcase Solutions video presentations. The top 5 Winners will be unveiled at the evening Awards
-                ceremony 13 January (online).
-            </p>
-            <p>
-                Applications must come from CEE-based Digital Services companies. (We cover Poland, Hungary, Czech
-                Republic, Slovakia, Lithuania, Latvia, Estonia, Romania, Serbia, Bulgaria, Belarus, Moldova - and
-                Ukraine.) Winners will be recognized and promoted globally.
-            </p>
+            <?php echo $text_1; ?>
         </div>
         <div class="separator"></div>
         <div class="jury-members">
-            <h2>25 VIP Jury Members:</h2>
-            <p>
-                Our Jury is composed of global execs in the digital/tech buying space. These are CTOs, CIOs, global IT
-                Directors, and product development CTOs. These are deeply-experienced executives with a record of
-                analyzing - and buying - digital solutions to real-world business challenges. Jury members are from a
-                range of industries, and represent Large Enterprises, SMBs and Investors in companies keen to scale up
-                quickly with external digital services providers. We are honored to have such a distinguished Jury to
-                review top technology solutions from Central Eastern Europe.
-            </p>
+        <?php echo $text_2; ?>
     </section>
     <section class="cards-container">
         <div class="jury-member-card">

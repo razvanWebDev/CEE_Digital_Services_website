@@ -133,7 +133,19 @@
                             <li>
                                 <a href="q2_agendas_page_content.php">Page Content</a>
                             </li>
-                           
+                        </ul>
+                    </li>
+
+                    
+                    <li>
+                        <a href="javascript:;" data-toggle="collapse" data-target="#awards-jury-dropdown"><i class="fa fa-fw fa-arrows-v"></i>Awards & Jury<i class="fa fa-fw fa-caret-down"></i></a>
+                        <ul id="awards-jury-dropdown" class="collapse">
+                            <li>
+                                <a href="awards_and_jury_page_title.php">Page title</a>
+                            </li>
+                            <li>
+                                <a href="awards_and_jury_members.php">Members</a>
+                            </li>
                         </ul>
                     </li>
 

@@ -33,6 +33,13 @@ window.onload = () => {
       console.error(error);
     });
   }
+
+  const body3 = document.querySelector("#body3");
+  if (body3 != undefined && body3 != null) {
+    ClassicEditor.create(body3).catch((error) => {
+      console.error(error);
+    });
+  }
   // ******************************************************************************
 
   // EVENT LISTENERS
