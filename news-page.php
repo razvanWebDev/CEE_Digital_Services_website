@@ -56,7 +56,7 @@
                     <img class="news-article-image" src="img/news/<?php echo $post_image ?>" alt="">
                 <?php }?>
                 <p><?php echo $post_content ?></p>
-                <p class="news-source"><b>Source:</b> <a href=<?php echo $source_link ?> target="_blank">
+                <p class="news-source"> <?php if($source_link != ""){echo '<b>Source:</b>';} ?><a href=<?php echo $source_link ?> target="_blank">
                         <?php echo $source_link_name ?></a></p>
                         <?php 
                         if(isset($_SESSION['username'])) {

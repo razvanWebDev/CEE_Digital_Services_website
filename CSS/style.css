@@ -886,6 +886,10 @@ header.bottom-shaddow {
   padding-bottom: 2em;
 }
 
+.news-source {
+  padding-top: 1.5em;
+}
+
 .search-input {
   width: 80%;
   margin-bottom: 1em;
@@ -937,6 +941,7 @@ header.bottom-shaddow {
 
 .pager {
   display: flex;
+  list-style: none;
 }
 
 .pager li a {

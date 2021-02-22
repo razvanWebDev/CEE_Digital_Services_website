@@ -1,5 +1,4 @@
 <?php 
-//GLOBAL VAR NEEDED FOR IMAGE UPLOAD
  
     if(isset($_POST['create_post'])) {
         $post_title = escape($_POST['title']); 
