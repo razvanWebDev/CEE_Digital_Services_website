@@ -35,7 +35,7 @@
             <th>Nr</th>
             <th>Title</th>
             <th>Date</th>
-            <th>Image</th%>
+            <th>Image</th>
             <th>Content</th>
             <th>Tags</th>
             <th>Source Link</th>

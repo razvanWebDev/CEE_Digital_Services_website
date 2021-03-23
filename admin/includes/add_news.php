@@ -7,8 +7,11 @@
         $post_tags = escape($_POST['tags']);
         $source_link = escape($_POST['source_link']);
         $source_link_name = escape($_POST['source_link_name']);
+        $post_image = "";
 
-        uploadImage('image', '../img/news/', 'post_image');
+        if(ifExists(escape($_FILES['image']['name']))) {
+            uploadImage('image', '../img/news/', 'post_image');
+        }
         
         if($source_link != "" && $source_link_name == ""){
             die("Enter link name");
