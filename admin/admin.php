@@ -1,10 +1,4 @@
 <?php include "includes/admin_header.php"; ?>
-<?php 
-    if(!isset($_SESSION['username'])) {
-        header("Location: index.php");
-    }
-
-?>
 
     <div id="wrapper">
 

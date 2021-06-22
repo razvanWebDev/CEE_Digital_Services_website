@@ -1,4 +1,6 @@
 <?php include "PHP/db.php" ?>
+<?php include "admin/includes/functions.php" ?>
+
 <?php session_start(); ?>
 <!DOCTYPE html>
 <html lang="en">

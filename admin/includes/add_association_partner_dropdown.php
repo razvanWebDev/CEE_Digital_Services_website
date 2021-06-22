@@ -23,7 +23,7 @@
 <form action="" method="post" enctype="multipart/form-data">
     <div class="form-group">
         <label for="position">Position </label>
-        <input type="number" class="form-control" name="position" required>
+        <input type="number" class="form-control" name="position">
     </div>
 
     <div class="form-group">

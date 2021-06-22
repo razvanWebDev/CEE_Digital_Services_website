@@ -38,7 +38,7 @@ function uploadImage($inputName, $path, $dbClmnName){
   if($fileName){
       if(in_array($fileActualExt, $allowed)){
           if($fileError == 0){
-              if($fileSize < 50000000){
+              if($fileSize < 5000000){
                   $fileNameNew = uniqid().rand().".".$fileActualExt;
                   $fileDestination = $path.$fileNameNew;
                   move_uploaded_file($fileTmpName, $fileDestination);

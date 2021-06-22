@@ -10,9 +10,9 @@
     <!-- Page Content -->
     <section class="news-page-container">
         <div class="news-container">
-        <?php 
+            <?php 
             if(isset($_POST['submit'])) {
-                $search = $_POST['search'];
+                $search = escape($_POST['search']);
                 $query = "SELECT * FROM news WHERE post_title LIKE '%$search%' OR post_tags LIKE '%$search%' OR post_date LIKE '%$search%'  ORDER BY post_date DESC, id ";
                 $search_query = mysqli_query($connection, $query);
 

@@ -32,38 +32,7 @@
 
             echo $page_text;
         ?>
-        <!-- <h2>We have a 2-tiered ticket reservation system - plus the "CEE Solutions Showcase" option:</h2>
-        <ul class="list-with-numbers">
-            <li>
-                <strong>Watch Presentations Only:</strong> All members of our Partners and Partner Associations are
-                complimentary; non-members 190 euro.
-            </li>
-            <li>
-                1-on-1 Meetings and Full Networking, plus Presentations. Open only for CEE-based digital services
-                providers and global technology buyers. Limited to 30 corporate buyers/gate-keepers and 60 CEE-based
-                digital services providers.
-                Meetings are limited to 10 minutes. Most companies should expect to have 4-6 pre-arranged, direct
-                meetings
-                (and additional 3+ Networking meetings) during the day.
-            </li>
-        </ul>
-        <h2 class="padding-top-1-em">Pricing (and deadlines):</h2>
-        <ul class="list-with-bullet">
-            <li>
-                CEE-based digital services providers: 290 euro for Association Partners; 390 euro for non-partners.
-            </li>
-            <li>
-                Corporates and global technology buyers: 190 euro (or complimentary if via a partner Association)
-            </li>
-        </ul>
-        <p>
-            <b>Early-Bird Reservations Deadline:</b> 31st December. (10% discount off all Single Tickets.)
         </p>
-        <h2>Registration is below (final deadline: 8 January)</h2>
-        <p>
-            For companies interested in the 15-minute <a href="submit-solutions-showcase.html" target="_blank">CEE
-                Solutions Showcase</a> (limited to only 10 companies).
-        </p> -->
     </section>
     <section>
         <h1>
@@ -92,14 +61,6 @@
                                     echo '<option value="'.$dropdown_value.'">'.$dropdown_value.'</option>';
                                 }
                             ?>
-                            <!-- <option value="ANIS Romania">ANIS Romania</option>
-                            <option value="AIBEST Bulgaria">AIBEST Bulgaria</option>
-                            <option value="PRG. AI (Prague AI)">PRG. AI (Prague AI)</option>
-                            <option value="InfoBalt (Lithuania)">InfoBalt (Lithuania)</option>
-                            <option value="LIKTA (Latvia)">LIKTA (Latvia)</option>
-                            <option value="ABSA Albania">ABSA Albania</option>
-                            <option value="Moldova IT Park">Moldova IT Park</option>
-                            <option value="None of these">None of these</option> -->
                         </select>
                     </div>
 
@@ -117,21 +78,6 @@
                                     echo '<option value="'.$dropdown_value.'">'.$dropdown_value.'</option>';
                                 }
                             ?>
-
-                            <!-- <option
-                                value="Services Providers: Presentations Only (Complimentary for Partners; 190euro non-Partners)">
-                                Services Providers: Presentations Only (Complimentary for Partners; 190euro
-                                non-Partners)</option>
-                            <option
-                                value="Services Providers: 1-on-1 Meetings + Presentations (290euro for Partners; 390 euro non-Partners)">
-                                Services Providers: 1-on-1 Meetings + Presentations (290euro for Partners; 390 euro
-                                non-Partners)</option>
-                            <option value="Corporate Technology Buyers (190 euro; or Complimentary via Partner)">
-                                Corporate Technology Buyers (190 euro; or Complimentary via Partner)</option>
-                            <option
-                                value="Belarus Companies - Complimentary (both 1-on-1 Meetings & Presentations), compliments of City of Lodz; and Moldova.">
-                                Belarus Companies - Complimentary (both 1-on-1 Meetings & Presentations), compliments of
-                                City of Lodz; and Moldova.</option> -->
                         </select>
                     </div>
 

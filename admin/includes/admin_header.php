@@ -2,6 +2,13 @@
 <?php include "../PHP/db.php" ?>
 <?php include "functions.php" ?>
 <?php session_start(); ?>
+<?php 
+    if(!isset($_SESSION['username'])) {
+        header("Location: index.php");
+        exit();
+    }
+
+?>
 
 
 <!DOCTYPE html>
