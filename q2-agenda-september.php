@@ -1,13 +1,12 @@
 <?php include "PHP/header.php"; ?>
 <?php include "PHP/nav.php"; ?>
-<?php include "admin/includes/functions.php"; ?>
 
-    <section class="event-title-section section-with-bg">
-        <div class="event-title">
-            <div class="event-title-image">
-                <img src="img/Logo.png" alt="logo">
-            </div>
-            <?php 
+<section class="event-title-section section-with-bg">
+    <div class="event-title">
+        <div class="event-title-image">
+            <img src="img/Logo.png" alt="logo">
+        </div>
+        <?php 
                 $query = "SELECT * FROM q2_agendas_page_title WHERE id=1";
                 $result = mysqli_query($connection, $query);
                 while ($row = mysqli_fetch_assoc($result)){
@@ -20,23 +19,30 @@
                 }
             
             ?>
-            <div class="event-title-text">
-                <h1 class="padding-bottom-1-em"><?php echo $title; ?><br><?php echo $date; ?> </h1>
-                <h2>"Connecting CEE's top Tech companies to global markets".</h2>
-            </div>
+        <div class="event-title-text">
+            <h1 class="padding-bottom-1-em">
+                <?php echo $title; ?><br>
+                <?php echo $date; ?>
+            </h1>
+            <h2>"Connecting CEE's top Tech companies to global markets".</h2>
         </div>
-        <div class="flex agendas-title-buttons-container">
-            <a href="reserve-tickets.php" class="button white" target="_blank"><?php echo $btn_left; ?></a>
-            <a href="submit-solutions-showcase.php" class="button white" target="_blank"><?php echo $btn_right; ?></a>
-        </div>
-       <div>
-       <?php echo $text; ?>
-       </div>
-    </section>
+    </div>
+    <div class="flex agendas-title-buttons-container">
+        <a href="reserve-tickets.php" class="button white" target="_blank">
+            <?php echo $btn_left; ?>
+        </a>
+        <a href="submit-solutions-showcase.php" class="button white" target="_blank">
+            <?php echo $btn_right; ?>
+        </a>
+    </div>
+    <div>
+        <?php echo $text; ?>
+    </div>
+</section>
 
-    <section>
-        <!-- Opening title -->
-        <?php 
+<section>
+    <!-- Opening title -->
+    <?php 
          $query = "SELECT * FROM q2_agendas_page_open_close WHERE id=1";
          $result = mysqli_query($connection, $query);
          while ($row = mysqli_fetch_assoc($result)){
@@ -44,10 +50,10 @@
              $close = $row['close'];
          }
         ?>
-        <div class="agendas-open-text">
-            <?php echo $open; ?>
-        </div>
-        <?php 
+    <div class="agendas-open-text">
+        <?php echo $open; ?>
+    </div>
+    <?php 
         $query = "SELECT * FROM q2_agendas_page_content ORDER BY start_time";
         $select_all_posts_query = mysqli_query($connection, $query);
 
@@ -161,7 +167,7 @@
     ?>
 
 
-<!-- 
+    <!-- 
         <div class="flex agendas-container">
             <div class="main-stage">
                 <div class="agenda-item">
@@ -193,10 +199,10 @@
         </div> -->
 
 
-          
 
 
-<!-- 
+
+    <!-- 
         <div class="flex agendas-container">
 
             <div class="main-stage">
@@ -486,11 +492,11 @@
         <div class="separator blue"></div>
         <h2 class="centered">17:15– 17:45 Closing, Networking Session, and visiting Information Booths</h2>
         <p class="centered">Time Zone: All times are CET Central European Time Zone.</p> -->
-        <div class="separator blue"></div>
-        <div class="cenetered padding-bottom-2-em padding-top-2-em">
-            <?php echo $close; ?>
-        </div>
+    <div class="separator blue"></div>
+    <div class="cenetered padding-bottom-2-em padding-top-2-em">
+        <?php echo $close; ?>
+    </div>
 
-    </section>
+</section>
 
 <?php include "PHP/footer.php"; ?>

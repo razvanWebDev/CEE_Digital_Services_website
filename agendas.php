@@ -3,7 +3,6 @@
 
 <?php include "PHP/header.php"; ?>
 <?php include "PHP/nav.php"; ?>
-<?php include "admin/includes/functions.php"; ?>
 
     <section class="event-title-section section-with-bg">
         <div class="event-title">
