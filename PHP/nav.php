@@ -7,17 +7,16 @@
         <div class="nav-links flex">
             <div class="dropdown-header-item nav-item">
                 <div class="drop flex">
-                    <a href="matchmaking-summit.php">Matchmaking <br> Summit</a>
+                    <a href="matchmaking.php">Matchmaking Summit</a>
                 </div>
                 <div class="dropdown">
-                    <a href="agendas.php">Agendas</a>
+                    <a href="agenda.php">Agenda</a>
+                    <a href="awards-and-jury.php" class="nav-item">Awards & Jury</a>
                     <a href="reserve-tickets.php">Reserve Tickets</a>
                     <a href="submit-solutions-showcase.php">Submit Solutions <br>Showcase</a>
-                    <a href="partnership-options.php">Partnership Options</a>
-                    <a href="q2-agenda-september.php">Q2 Agenda September</a>
                 </div>
             </div>
-            <a href="awards-and-jury.php" class="nav-item">Awards and Jury</a>
+            <a href="http://www.japaneuropeinvestmentawards.com/" class="nav-item" target="_blank">Japan Matchmaking</a>
             <div class="dropdown-header-item nav-item">
                 <div class="drop flex">
                     <a href="services-directory.php">Services Directory</a>
@@ -28,12 +27,14 @@
                 </div>
             </div>
             <a href="news-page.php" class="nav-item">News</a>
-            <a href="event-recording.php" class="nav-item">Event Recordings</a>
             <div class="dropdown-header-item nav-item">
                 <div class="drop flex">
                     <a href="about.php">About Us</a>
                 </div>
                 <div class="dropdown">
+                    <a href="partnership-options.php">Partnership Options</a>
+                    <a href="past-events.php">Past Events</a>
+                    <a href="event-recording.php">Event Recordings</a>
                     <a href="newsletter-signup.php">Newsletter Signup</a>
                 </div>
             </div>

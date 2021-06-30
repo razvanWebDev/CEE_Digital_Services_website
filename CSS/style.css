@@ -427,9 +427,8 @@ header .nav-links a {
 .nav-links .dropdown {
   position: absolute;
   z-index: -1;
-  top: 0;
-  padding: 3em 0 1em;
-  width: 100%;
+  top: 2em;
+  padding: 1em 0;
   background-color: var(--white-color);
   border-radius: 0 0 3px 3px;
   text-align: center;
