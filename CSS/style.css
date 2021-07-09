@@ -490,6 +490,17 @@ header.bottom-shaddow {
 
 /* ################################# MAIN CONTENT ############################### */
 
+/* advert */
+.texas-cee-advert {
+  width: 50%;
+  display: block;
+  margin: auto;
+}
+.international-partners-section .texas-cee-advert {
+  width: 100%;
+  margin-bottom: 2em;
+}
+
 /* ==============HOME PAGE==================== */
 
 .hero {
@@ -1329,6 +1340,10 @@ footer a {
   }
 
   /* =====================home page======================= */
+  /* advert */
+  .texas-cee-advert {
+    width: 100%;
+  }
   .hero .upcoming-event,
   .hero .newsletter-section {
     padding: 0 1em;

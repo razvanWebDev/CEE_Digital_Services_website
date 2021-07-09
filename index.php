@@ -43,6 +43,10 @@
         </div>
     </section>
 
+    <section>
+        <img class="texas-cee-advert" src="img/photos/Texas-summit-add.png" alt="Texas-CEE advert">
+    </section>
+
     <section class="news-section">
         <h1><img src="img/SVG/News_videos_icon.svg" alt="event icon" class="section-title-icon">NEWS</h1>
         <div class="separator blue"></div>

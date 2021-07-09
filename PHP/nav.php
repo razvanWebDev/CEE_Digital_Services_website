@@ -7,7 +7,7 @@
         <div class="nav-links flex">
             <div class="dropdown-header-item nav-item">
                 <div class="drop flex">
-                    <a href="matchmaking.php">Matchmaking Summit</a>
+                    <a href="matchmaking.php">Texas Matchmaking</a>
                 </div>
                 <div class="dropdown">
                     <a href="agenda.php">Agenda</a>
