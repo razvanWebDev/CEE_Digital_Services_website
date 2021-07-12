@@ -44,7 +44,7 @@
     </section>
 
     <section>
-        <img class="texas-cee-advert" src="img/photos/Texas-summit-add.png" alt="Texas-CEE advert">
+        <img class="texas-cee-advert" src="img/photos/Texas-summit-add-2.png" alt="Texas-CEE advert">
     </section>
 
     <section class="news-section">

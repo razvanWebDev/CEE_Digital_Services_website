@@ -59,7 +59,7 @@
 
         <div class="international-partners-section">
   
-            <img class="texas-cee-advert" src="img/photos/Texas-summit-add.png" alt="Texas-CEE advert">
+            <img class="texas-cee-advert" src="img/photos/Texas-summit-add-2.png" alt="Texas-CEE advert">
  
             <h1>INTERNATIONAL PARTNERS</h1>
             <div class="international-partners">

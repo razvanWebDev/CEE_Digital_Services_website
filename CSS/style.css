@@ -670,7 +670,7 @@ header.bottom-shaddow {
 }
 
 .agenda-item {
-  padding: 3em 0;
+  padding: 1em 0;
   overflow: auto;
 }
 
@@ -1225,7 +1225,7 @@ footer a {
 
   /* ===================== q2 agenda page========================== */
   .agenda-item {
-    padding: 2em 0;
+    padding: 1em 0;
   }
 
   /* =======================news page============================ */
@@ -1420,7 +1420,7 @@ footer a {
   }
 
   .agenda-item {
-    padding: 1.5em 0;
+    padding: 1em 0;
   }
 
   .agenda-item ul {
